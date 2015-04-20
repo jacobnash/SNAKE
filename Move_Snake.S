@@ -4,6 +4,7 @@
 .text
 .set noreorder
 .set WORM, 0xA0000500
+.set WORM_LENGTH, 0xA0000700
 .SET MAILBOX, 0xA0000440
 .ent Move_Snake
 
@@ -16,33 +17,29 @@
 Move_Snake:
     li s0, 0
     or s0, s0, ra
-
+    
     la t0, WORM
+    la t1, WORM_LENGTH
+    lw t2, 0(t1)  #worm length value
     #save current head location
-    lw s2, 0(t0) #old location
-    lw s1, 0(t0) #new location
+    lw s2, 0(t0)  #old location
+    lw s1, 0(t0)  #new location
     #find new location
     b New_Location_Move_Snake
     nop
     #s1 has new location
-    sw s1, 0(t0)
-    lw s1, 1(t0)
-    #give old to next body
-    sw s2, 1(t0)
+Cont_Move_Snake:
+    sw s1, 0(t0)  #replace current body with new value
+    lw s1, 1(t0)  #save next body value
+    sw s2, 1(t0)  #replace next body with current body value
 
-    #save current body1 location
-    #move body1 to saved location
-    #save current bodyN (tail) location
-    #move bodyN to saved location
+    #repeat?
 
     #Direction
     #Snake length
-    #
 New_Location_Move_Snake:
-    #t3 = address of MAILBOX
-    la t3, MAILBOX
-    #put value into t4
-    lw t4, 0(t3)
+    la t3, MAILBOX   #address of MAILBOX
+    lw t4, 0(t3)     #value of MAILBOX
     beq t4, 0x48, Left_Move_Snake
     nop
     beq t4, 0x4A, Down_Move_Snake
@@ -53,34 +50,37 @@ New_Location_Move_Snake:
     nop
     #beq t4, 0x43, Stop_Game
     #nop
+    b New_Location_Move_Snake
+    nop
+    
 Left_Move_Snake:
     # y (column) decr
-    addi t1, -1
+    addi s1, -1
     b Error_Move_Snake
     nop
 
 Right_Move_Snake:
     # y (column) incr
-    addi t1, 1
+    addi s1, 1
     b Error_Move_Snake
     nop
 
 Down_Move_Snake:
     # x (row) incr
-    addi t1, 0x0100
+    addi s1, 0x0100
     b Error_Move_Snake
     nop
 
 Up_Move_Snake:
     # y (column) decr
-    addi t1, -0x0100
+    addi s1, -0x0100
     b Error_Move_Snake
     nop
 
 Error_Move_Snake:
     la s6, 0xA0000490
     la t5, 0xA0000492
-    sw t1, 0(s6)
+    sw s1, 0(s6)
 Loop_Move_Snake:
     beq t5, s6, Load_Move_Snake
     nop
@@ -95,21 +95,23 @@ Loop_Move_Snake:
     nop
 
 Is_F_Move_Snake:
-   addi s5, -6
-   sw s5, 0(s6)
-   addi s6, 1
-   b Loop_Move_Snake
-   nop
+    addi s5, -6
+    sw s5, 0(s6)
+    addi s6, 1
+    b Loop_Move_Snake
+    nop
 
 Is_A_Move_Snake:
-   addi s5, 6
-   sw s5, 0(s6)
-   addi s6, 1
-   b Loop_Move_Snake
-   nop
+    addi s5, 6
+    sw s5, 0(s6)
+    addi s6, 1
+    b Loop_Move_Snake
+    nop
 
 Load_Move_Snake:
-
-
+    li s1, 0
+    or s1, s5, s1 #copy s5 to s1 
+    b Cont_Move_Snake
+    nop 
 
 .end Move_Snake

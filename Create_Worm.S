@@ -5,6 +5,7 @@
 .set noreorder
 .ent Create_Worm
 .set WORM, 0xA0000500
+.set WORM_LENGTH, 0xA0000700
 .set PRINTER, 0xA0000400
 
 #DATA STUCT FORMAT
@@ -49,6 +50,9 @@ Create_Worm:
     sw t0, 0x0(a1)
     bal Print_Char_X_Y
     nop
+    
+    li t0, 6
+    sw t0, 0xA0000700 #WORM_LENGTH
 jr s0
 nop
 .end Create_Worm
