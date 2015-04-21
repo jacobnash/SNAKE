@@ -5,7 +5,7 @@
 .set noreorder
 .ent Create_Worm
 .set WORM, 0xA0000500
-.set WORM_LENGTH, 0xA0000700
+.set WORM_LENGTH, 0xA00004FC
 .set PRINTER, 0xA0000400
 
 #DATA STUCT FORMAT
@@ -52,7 +52,7 @@ Create_Worm:
     nop
     
     li t0, 6
-    sw t0, 0xA0000700 #WORM_LENGTH
+    sw t0, 0xA00004FC #WORM_LENGTH
 jr s0
 nop
 .end Create_Worm

@@ -54,17 +54,21 @@ restart:
         bal Create_Worm
         nop
 Loop:
-        LA t1, MAILBOX
-        lw zero, 0(t1)
-        BGTZ t0, MAILBOXFULL
+        la t1, MAILBOX
+        li t4, 0x4B  #ASCII 'K'
+        sw t4, 0(t1)
+        lw t0, 0(t1)
+        bgtz t0, MAILBOXFULL
         nop
         b Loop
 
 MAILBOXFULL:
         bal Print_Time
         nop
+        bal Move_Snake
+        nop
+        nop
         b Loop
         nop
-        nop
 
-        .end main
+.end main
