@@ -53,6 +53,12 @@ restart:
         nop
         bal Create_Worm
         nop
+        bal Print_Snake
+        nop
+        nop
+
+
+
 Loop:
         LA t1, MAILBOX
         lw zero, 0(t1)

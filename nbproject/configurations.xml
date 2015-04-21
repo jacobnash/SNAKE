@@ -28,6 +28,8 @@
       <itemPath>Elapsed_Time.S</itemPath>
       <itemPath>Print_Worm.S</itemPath>
       <itemPath>Move_Snake.S</itemPath>
+      <itemPath>MailBox.S</itemPath>
+      <itemPath>Print_Snake.S</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
