@@ -99,14 +99,14 @@ Loop_Move_Snake:
 
 Is_F_Move_Snake:
     addi t7, -6
-    sw t7, 0(t5)
+    sb t7, 0(t5)
     addi t5, 1
     b Loop_Move_Snake
     nop
 
 Is_A_Move_Snake:
     addi t7, 6
-    sw t7, 0(t5)
+    sb t7, 0(t5)
     addi t5, 1
     b Loop_Move_Snake
     nop

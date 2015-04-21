@@ -67,6 +67,7 @@ Loop:
         bgtz t0, MAILBOXFULL
         nop
         b Loop
+        nop
 
 MAILBOXFULL:
         bal Print_Time

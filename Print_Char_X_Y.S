@@ -71,7 +71,7 @@ lb s7, 0x2(t0)
         Transmit_Print_Char_X_Y:
         li s2, 0
         or s2, s2, ra
-lw t2, U1STA		 # U1STA (status)
+        lw t2, U1STA		 # U1STA (status)
         andi t2,t2,0x200     # check if able to Transmit_Print_Char_X_Y
         bne t2,zero,Transmit_Print_Char_X_Y #Cannot Transmit_Print_Char_X_Y
         nop                  # otherwise continue
