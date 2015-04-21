@@ -73,6 +73,7 @@ MAILBOXFULL:
         nop
         bal Move_Snake
         nop
+        bal Print_Snake
         nop
         b Loop
         nop
