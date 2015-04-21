@@ -48,6 +48,14 @@ bne zero, s4, Print_Body_Snake
 nop
 
 
+lh s2, 0(s6)
+li t1, 0x200000
+or s2, s2, t1
+sw zero, 0(s3)
+sw s2, 0(s3)
+BAL Print_Char_X_Y
+nop
+
 
 
 
