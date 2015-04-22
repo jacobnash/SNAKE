@@ -1,7 +1,6 @@
 #include <p32xxxx.h>
 .global main
 .data
-
 .text
 .set noreorder
 .ent main
@@ -10,7 +9,6 @@
 .SET MAILBOX,     0xA0000440
 What_Time_is_it:
 .ASCIZ "Please Enter a Time(HH:MM):"
-
 
 
         main:
@@ -57,14 +55,14 @@ restart:
         nop
         nop
 
-
-
 Loop:
-        la t1, MAILBOX
-        li t4, 0x4B  #ASCII 'K'
-        sw t4, 0(t1)
-        lw t0, 0(t1)
-        bgtz t0, MAILBOXFULL
+        lw t1, U1STA
+        andi t1, t1, 0x0001
+        beq t1, zero, Loop
+        nop
+        lw t1, U1RXREG
+        sw t1, MAILBOX
+        bgtz t1, MAILBOXFULL
         nop
         b Loop
         nop
@@ -80,6 +78,7 @@ MAILBOXFULL:
         nop
         bal Print_Snake
         nop
+        sw zero, MAILBOX
         b Loop
         nop
 

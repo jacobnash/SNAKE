@@ -37,23 +37,23 @@ Cont_Move_Snake:
     addi t2, -1   #decr loop counter
     bgtz t2, Cont_Move_Snake  #continue looping worm
     nop
+Done_Move_Snake:
     jr s0         #otherwise done
     nop
 
 New_Location_Move_Snake:
-    la t3, MAILBOX   #address of MAILBOX
-    lw t4, 0(t3)     #value of MAILBOX
-    beq t4, 0x48, Left_Move_Snake
+    lw t3, MAILBOX     #value of MAILBOX
+    beq t3, 0x68, Left_Move_Snake
     nop
-    beq t4, 0x4A, Down_Move_Snake
+    beq t3, 0x6A, Down_Move_Snake
     nop
-    beq t4, 0x4B, Up_Move_Snake
+    beq t3, 0x6B, Up_Move_Snake
     nop
-    beq t4, 0x4C, Right_Move_Snake
+    beq t3, 0x6C, Right_Move_Snake
     nop
-    #beq t4, 0x43, Stop_Game
+    #beq t3, 0x63, Stop_Game
     #nop
-    b New_Location_Move_Snake
+    b Done_Move_Snake
     nop
     
 Left_Move_Snake:
