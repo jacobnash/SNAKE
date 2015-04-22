@@ -9,3 +9,4 @@ debug/*
 dist/*
 nbproject/Makefile-genesis.properties
 \!*.S
+\!git_procedure.txt
