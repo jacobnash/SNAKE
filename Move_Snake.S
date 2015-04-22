@@ -98,6 +98,7 @@ Loop_Move_Snake:
     nop
 
 Is_F_Move_Snake:
+    lb t7, 0(t5)
     addi t7, -6
     sb t7, 0(t5)
     addi t5, 1
@@ -105,6 +106,7 @@ Is_F_Move_Snake:
     nop
 
 Is_A_Move_Snake:
+    lb t7, 0(t5)
     addi t7, 6
     sb t7, 0(t5)
     addi t5, 1
