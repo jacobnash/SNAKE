@@ -1,0 +1,29 @@
+Git Procedure
+Created by Matthew Greci, 2015
+
+Current branches (4/21/2015 at 6:30PM):
+master
+matthew
+Jacob
+
+1) Update master before starting work. DO NOT WORK ON MASTER
+  a) (cd to correct directory)
+  b) git checkout master
+  c) git pull origin master
+2) Switch to your branch.
+  a) git checkout your_branch
+3) git merge master
+  a) Your branch is now up to date with master
+  b) Confirm you are in your_branch, git branch
+4) Do whatever work you want. When done, commit and push
+  a) git add *
+  b) git status (optional, to confirm your changes)
+  c) git commit -m “your message”
+  d) git push origin your_branch
+5) Update master branch BEFORE merge with your_branch
+  a) git checkout master
+  b) git pull origin master
+  c) git branch (confirm you are on master)
+  d) git merge your_branch
+  e) git push origin master
+6) Confirm master is updated on GitHub
