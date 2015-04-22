@@ -7,4 +7,5 @@
 build/*
 debug/*
 dist/*
+nbproject/Makefile-genesis.properties
 \!*.S
