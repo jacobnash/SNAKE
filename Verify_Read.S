@@ -55,8 +55,12 @@ li t2, 0x15144
 sw t2, 0x04(t0)
 
 sub t1, t1, t2
-
 bgtz t1, main
+
+la t1 ,0xA0000210
+li t2, 0
+sw t2, 0x08(t1)
+
 nop
 
 

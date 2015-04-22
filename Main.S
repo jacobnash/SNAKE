@@ -70,7 +70,11 @@ Loop:
         nop
 
 MAILBOXFULL:
+        bal Elapsed_Time
+        nop
         bal Print_Time
+        nop
+        bal Update_Time
         nop
         bal Move_Snake
         nop

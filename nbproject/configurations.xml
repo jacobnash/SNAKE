@@ -30,6 +30,7 @@
       <itemPath>Move_Snake.S</itemPath>
       <itemPath>MailBox.S</itemPath>
       <itemPath>Print_Snake.S</itemPath>
+      <itemPath>Update_Time.S</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
