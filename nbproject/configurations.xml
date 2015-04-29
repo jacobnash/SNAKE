@@ -25,13 +25,18 @@
       <itemPath>Create_Worm.S</itemPath>
       <itemPath>Check_Mailbox.S</itemPath>
       <itemPath>Update_Worm.S</itemPath>
-      <itemPath>Elapsed_Time.S</itemPath>
       <itemPath>Print_Worm.S</itemPath>
       <itemPath>Move_Snake.S</itemPath>
       <itemPath>MailBox.S</itemPath>
       <itemPath>Print_Snake.S</itemPath>
       <itemPath>Update_Time.S</itemPath>
       <itemPath>Keep_Score.S</itemPath>
+      <itemPath>Timer_Setup.S</itemPath>
+      <itemPath>Interrupts_Setup.S</itemPath>
+      <itemPath>Vector.S</itemPath>
+      <itemPath>ISR_UART.S</itemPath>
+      <itemPath>ISR_Timer1.S</itemPath>
+      <itemPath>Increment_Times.S</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

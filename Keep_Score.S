@@ -11,6 +11,9 @@
 .ent Keep_Scores
 
 Keep_Score:
+    li s0, 0
+    or s0, s0, ra
+
     la t0, SCORE
     la t1, FOOD
     la t2, WORM
@@ -32,7 +35,7 @@ Add_Score:
     sw zero, FOOD
 
 Submitted_Keep_Score:
-    jr ra
+    jr s0
     nop
 
 

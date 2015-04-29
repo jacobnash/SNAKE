@@ -8,11 +8,11 @@
 .SET MAILBOX, 0xA0000440
 .ent Move_Snake
 
-#0x43 - 'C' start/stop
-#0x48 - 'H' left
-#0x4A - 'J' down
-#0x4B - 'K' up
-#0x4C - 'L' right
+#0x63 - 'c' start/stop
+#0x68 - 'h' left
+#0x6A - 'j' down
+#0x6B - 'k' up
+#0x6C - 'l' right
 
 Move_Snake:
     li s0, 0

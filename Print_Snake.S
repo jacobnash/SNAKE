@@ -8,9 +8,9 @@
 .set SNAKE, 0xA0000500
 .set WORM_LENGTH, 0xA00004FC
 
-# j = 6a Down
-# k = 6b Up
-# l = 6c right
+# j = 6A Down
+# k = 6B Up
+# l = 6C right
 # h = 68 left
 # # = 23
 # ^ = 5E

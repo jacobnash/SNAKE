@@ -30,12 +30,12 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 IMAGE_TYPE=debug
 OUTPUT_SUFFIX=elf
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/Snake.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/SNAKE.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 else
 IMAGE_TYPE=production
 OUTPUT_SUFFIX=hex
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/Snake.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/SNAKE.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 endif
 
 # Object Directory
@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=config.S Main.S UART_SETUP.S Clear_Screen.S Read_Time.S Verify_Read.S Print_Time.S Print_Board.S Print_Time_String.S Print_Char_X_Y.S Create_Worm.S Check_Mailbox.S Update_Worm.S Elapsed_Time.S Print_Worm.S Move_Snake.S MailBox.S Print_Snake.S Update_Time.S Keep_Score.S
+SOURCEFILES_QUOTED_IF_SPACED=config.S Main.S UART_SETUP.S Clear_Screen.S Read_Time.S Verify_Read.S Print_Time.S Print_Board.S Print_Time_String.S Print_Char_X_Y.S Create_Worm.S Check_Mailbox.S Update_Worm.S Print_Worm.S Move_Snake.S MailBox.S Print_Snake.S Update_Time.S Keep_Score.S Timer_Setup.S Interrupts_Setup.S Vector.S ISR_UART.S ISR_Timer1.S Increment_Times.S
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/config.o ${OBJECTDIR}/Main.o ${OBJECTDIR}/UART_SETUP.o ${OBJECTDIR}/Clear_Screen.o ${OBJECTDIR}/Read_Time.o ${OBJECTDIR}/Verify_Read.o ${OBJECTDIR}/Print_Time.o ${OBJECTDIR}/Print_Board.o ${OBJECTDIR}/Print_Time_String.o ${OBJECTDIR}/Print_Char_X_Y.o ${OBJECTDIR}/Create_Worm.o ${OBJECTDIR}/Check_Mailbox.o ${OBJECTDIR}/Update_Worm.o ${OBJECTDIR}/Elapsed_Time.o ${OBJECTDIR}/Print_Worm.o ${OBJECTDIR}/Move_Snake.o ${OBJECTDIR}/MailBox.o ${OBJECTDIR}/Print_Snake.o ${OBJECTDIR}/Update_Time.o ${OBJECTDIR}/Keep_Score.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/config.o.d ${OBJECTDIR}/Main.o.d ${OBJECTDIR}/UART_SETUP.o.d ${OBJECTDIR}/Clear_Screen.o.d ${OBJECTDIR}/Read_Time.o.d ${OBJECTDIR}/Verify_Read.o.d ${OBJECTDIR}/Print_Time.o.d ${OBJECTDIR}/Print_Board.o.d ${OBJECTDIR}/Print_Time_String.o.d ${OBJECTDIR}/Print_Char_X_Y.o.d ${OBJECTDIR}/Create_Worm.o.d ${OBJECTDIR}/Check_Mailbox.o.d ${OBJECTDIR}/Update_Worm.o.d ${OBJECTDIR}/Elapsed_Time.o.d ${OBJECTDIR}/Print_Worm.o.d ${OBJECTDIR}/Move_Snake.o.d ${OBJECTDIR}/MailBox.o.d ${OBJECTDIR}/Print_Snake.o.d ${OBJECTDIR}/Update_Time.o.d ${OBJECTDIR}/Keep_Score.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/config.o ${OBJECTDIR}/Main.o ${OBJECTDIR}/UART_SETUP.o ${OBJECTDIR}/Clear_Screen.o ${OBJECTDIR}/Read_Time.o ${OBJECTDIR}/Verify_Read.o ${OBJECTDIR}/Print_Time.o ${OBJECTDIR}/Print_Board.o ${OBJECTDIR}/Print_Time_String.o ${OBJECTDIR}/Print_Char_X_Y.o ${OBJECTDIR}/Create_Worm.o ${OBJECTDIR}/Check_Mailbox.o ${OBJECTDIR}/Update_Worm.o ${OBJECTDIR}/Print_Worm.o ${OBJECTDIR}/Move_Snake.o ${OBJECTDIR}/MailBox.o ${OBJECTDIR}/Print_Snake.o ${OBJECTDIR}/Update_Time.o ${OBJECTDIR}/Keep_Score.o ${OBJECTDIR}/Timer_Setup.o ${OBJECTDIR}/Interrupts_Setup.o ${OBJECTDIR}/Vector.o ${OBJECTDIR}/ISR_UART.o ${OBJECTDIR}/ISR_Timer1.o ${OBJECTDIR}/Increment_Times.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/config.o.d ${OBJECTDIR}/Main.o.d ${OBJECTDIR}/UART_SETUP.o.d ${OBJECTDIR}/Clear_Screen.o.d ${OBJECTDIR}/Read_Time.o.d ${OBJECTDIR}/Verify_Read.o.d ${OBJECTDIR}/Print_Time.o.d ${OBJECTDIR}/Print_Board.o.d ${OBJECTDIR}/Print_Time_String.o.d ${OBJECTDIR}/Print_Char_X_Y.o.d ${OBJECTDIR}/Create_Worm.o.d ${OBJECTDIR}/Check_Mailbox.o.d ${OBJECTDIR}/Update_Worm.o.d ${OBJECTDIR}/Print_Worm.o.d ${OBJECTDIR}/Move_Snake.o.d ${OBJECTDIR}/MailBox.o.d ${OBJECTDIR}/Print_Snake.o.d ${OBJECTDIR}/Update_Time.o.d ${OBJECTDIR}/Keep_Score.o.d ${OBJECTDIR}/Timer_Setup.o.d ${OBJECTDIR}/Interrupts_Setup.o.d ${OBJECTDIR}/Vector.o.d ${OBJECTDIR}/ISR_UART.o.d ${OBJECTDIR}/ISR_Timer1.o.d ${OBJECTDIR}/Increment_Times.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/config.o ${OBJECTDIR}/Main.o ${OBJECTDIR}/UART_SETUP.o ${OBJECTDIR}/Clear_Screen.o ${OBJECTDIR}/Read_Time.o ${OBJECTDIR}/Verify_Read.o ${OBJECTDIR}/Print_Time.o ${OBJECTDIR}/Print_Board.o ${OBJECTDIR}/Print_Time_String.o ${OBJECTDIR}/Print_Char_X_Y.o ${OBJECTDIR}/Create_Worm.o ${OBJECTDIR}/Check_Mailbox.o ${OBJECTDIR}/Update_Worm.o ${OBJECTDIR}/Elapsed_Time.o ${OBJECTDIR}/Print_Worm.o ${OBJECTDIR}/Move_Snake.o ${OBJECTDIR}/MailBox.o ${OBJECTDIR}/Print_Snake.o ${OBJECTDIR}/Update_Time.o ${OBJECTDIR}/Keep_Score.o
+OBJECTFILES=${OBJECTDIR}/config.o ${OBJECTDIR}/Main.o ${OBJECTDIR}/UART_SETUP.o ${OBJECTDIR}/Clear_Screen.o ${OBJECTDIR}/Read_Time.o ${OBJECTDIR}/Verify_Read.o ${OBJECTDIR}/Print_Time.o ${OBJECTDIR}/Print_Board.o ${OBJECTDIR}/Print_Time_String.o ${OBJECTDIR}/Print_Char_X_Y.o ${OBJECTDIR}/Create_Worm.o ${OBJECTDIR}/Check_Mailbox.o ${OBJECTDIR}/Update_Worm.o ${OBJECTDIR}/Print_Worm.o ${OBJECTDIR}/Move_Snake.o ${OBJECTDIR}/MailBox.o ${OBJECTDIR}/Print_Snake.o ${OBJECTDIR}/Update_Time.o ${OBJECTDIR}/Keep_Score.o ${OBJECTDIR}/Timer_Setup.o ${OBJECTDIR}/Interrupts_Setup.o ${OBJECTDIR}/Vector.o ${OBJECTDIR}/ISR_UART.o ${OBJECTDIR}/ISR_Timer1.o ${OBJECTDIR}/Increment_Times.o
 
 # Source Files
-SOURCEFILES=config.S Main.S UART_SETUP.S Clear_Screen.S Read_Time.S Verify_Read.S Print_Time.S Print_Board.S Print_Time_String.S Print_Char_X_Y.S Create_Worm.S Check_Mailbox.S Update_Worm.S Elapsed_Time.S Print_Worm.S Move_Snake.S MailBox.S Print_Snake.S Update_Time.S Keep_Score.S
+SOURCEFILES=config.S Main.S UART_SETUP.S Clear_Screen.S Read_Time.S Verify_Read.S Print_Time.S Print_Board.S Print_Time_String.S Print_Char_X_Y.S Create_Worm.S Check_Mailbox.S Update_Worm.S Print_Worm.S Move_Snake.S MailBox.S Print_Snake.S Update_Time.S Keep_Score.S Timer_Setup.S Interrupts_Setup.S Vector.S ISR_UART.S ISR_Timer1.S Increment_Times.S
 
 
 CFLAGS=
@@ -75,7 +75,7 @@ FIXDEPS=fixDeps
 ifneq ($(INFORMATION_MESSAGE), )
 	@echo $(INFORMATION_MESSAGE)
 endif
-	${MAKE}  -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/Snake.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+	${MAKE}  -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/SNAKE.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
 MP_PROCESSOR_OPTION=32MX460F512L
 MP_LINKER_FILE_OPTION=
@@ -179,13 +179,6 @@ ${OBJECTDIR}/Update_Worm.o: Update_Worm.S  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/Update_Worm.o.ok ${OBJECTDIR}/Update_Worm.o.err 
 	@${FIXDEPS} "${OBJECTDIR}/Update_Worm.o.d" "${OBJECTDIR}/Update_Worm.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Update_Worm.o.d"  -o ${OBJECTDIR}/Update_Worm.o Update_Worm.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Update_Worm.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
 	
-${OBJECTDIR}/Elapsed_Time.o: Elapsed_Time.S  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Elapsed_Time.o.d 
-	@${RM} ${OBJECTDIR}/Elapsed_Time.o 
-	@${RM} ${OBJECTDIR}/Elapsed_Time.o.ok ${OBJECTDIR}/Elapsed_Time.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/Elapsed_Time.o.d" "${OBJECTDIR}/Elapsed_Time.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Elapsed_Time.o.d"  -o ${OBJECTDIR}/Elapsed_Time.o Elapsed_Time.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Elapsed_Time.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
-	
 ${OBJECTDIR}/Print_Worm.o: Print_Worm.S  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Print_Worm.o.d 
@@ -227,6 +220,48 @@ ${OBJECTDIR}/Keep_Score.o: Keep_Score.S  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/Keep_Score.o 
 	@${RM} ${OBJECTDIR}/Keep_Score.o.ok ${OBJECTDIR}/Keep_Score.o.err 
 	@${FIXDEPS} "${OBJECTDIR}/Keep_Score.o.d" "${OBJECTDIR}/Keep_Score.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Keep_Score.o.d"  -o ${OBJECTDIR}/Keep_Score.o Keep_Score.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Keep_Score.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
+	
+${OBJECTDIR}/Timer_Setup.o: Timer_Setup.S  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Timer_Setup.o.d 
+	@${RM} ${OBJECTDIR}/Timer_Setup.o 
+	@${RM} ${OBJECTDIR}/Timer_Setup.o.ok ${OBJECTDIR}/Timer_Setup.o.err 
+	@${FIXDEPS} "${OBJECTDIR}/Timer_Setup.o.d" "${OBJECTDIR}/Timer_Setup.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Timer_Setup.o.d"  -o ${OBJECTDIR}/Timer_Setup.o Timer_Setup.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Timer_Setup.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
+	
+${OBJECTDIR}/Interrupts_Setup.o: Interrupts_Setup.S  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Interrupts_Setup.o.d 
+	@${RM} ${OBJECTDIR}/Interrupts_Setup.o 
+	@${RM} ${OBJECTDIR}/Interrupts_Setup.o.ok ${OBJECTDIR}/Interrupts_Setup.o.err 
+	@${FIXDEPS} "${OBJECTDIR}/Interrupts_Setup.o.d" "${OBJECTDIR}/Interrupts_Setup.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Interrupts_Setup.o.d"  -o ${OBJECTDIR}/Interrupts_Setup.o Interrupts_Setup.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Interrupts_Setup.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
+	
+${OBJECTDIR}/Vector.o: Vector.S  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Vector.o.d 
+	@${RM} ${OBJECTDIR}/Vector.o 
+	@${RM} ${OBJECTDIR}/Vector.o.ok ${OBJECTDIR}/Vector.o.err 
+	@${FIXDEPS} "${OBJECTDIR}/Vector.o.d" "${OBJECTDIR}/Vector.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Vector.o.d"  -o ${OBJECTDIR}/Vector.o Vector.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Vector.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
+	
+${OBJECTDIR}/ISR_UART.o: ISR_UART.S  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ISR_UART.o.d 
+	@${RM} ${OBJECTDIR}/ISR_UART.o 
+	@${RM} ${OBJECTDIR}/ISR_UART.o.ok ${OBJECTDIR}/ISR_UART.o.err 
+	@${FIXDEPS} "${OBJECTDIR}/ISR_UART.o.d" "${OBJECTDIR}/ISR_UART.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/ISR_UART.o.d"  -o ${OBJECTDIR}/ISR_UART.o ISR_UART.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/ISR_UART.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
+	
+${OBJECTDIR}/ISR_Timer1.o: ISR_Timer1.S  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ISR_Timer1.o.d 
+	@${RM} ${OBJECTDIR}/ISR_Timer1.o 
+	@${RM} ${OBJECTDIR}/ISR_Timer1.o.ok ${OBJECTDIR}/ISR_Timer1.o.err 
+	@${FIXDEPS} "${OBJECTDIR}/ISR_Timer1.o.d" "${OBJECTDIR}/ISR_Timer1.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/ISR_Timer1.o.d"  -o ${OBJECTDIR}/ISR_Timer1.o ISR_Timer1.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/ISR_Timer1.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
+	
+${OBJECTDIR}/Increment_Times.o: Increment_Times.S  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Increment_Times.o.d 
+	@${RM} ${OBJECTDIR}/Increment_Times.o 
+	@${RM} ${OBJECTDIR}/Increment_Times.o.ok ${OBJECTDIR}/Increment_Times.o.err 
+	@${FIXDEPS} "${OBJECTDIR}/Increment_Times.o.d" "${OBJECTDIR}/Increment_Times.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Increment_Times.o.d"  -o ${OBJECTDIR}/Increment_Times.o Increment_Times.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Increment_Times.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
 	
 else
 ${OBJECTDIR}/config.o: config.S  nbproject/Makefile-${CND_CONF}.mk
@@ -320,13 +355,6 @@ ${OBJECTDIR}/Update_Worm.o: Update_Worm.S  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/Update_Worm.o.ok ${OBJECTDIR}/Update_Worm.o.err 
 	@${FIXDEPS} "${OBJECTDIR}/Update_Worm.o.d" "${OBJECTDIR}/Update_Worm.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Update_Worm.o.d"  -o ${OBJECTDIR}/Update_Worm.o Update_Worm.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Update_Worm.o.asm.d",--gdwarf-2
 	
-${OBJECTDIR}/Elapsed_Time.o: Elapsed_Time.S  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Elapsed_Time.o.d 
-	@${RM} ${OBJECTDIR}/Elapsed_Time.o 
-	@${RM} ${OBJECTDIR}/Elapsed_Time.o.ok ${OBJECTDIR}/Elapsed_Time.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/Elapsed_Time.o.d" "${OBJECTDIR}/Elapsed_Time.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Elapsed_Time.o.d"  -o ${OBJECTDIR}/Elapsed_Time.o Elapsed_Time.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Elapsed_Time.o.asm.d",--gdwarf-2
-	
 ${OBJECTDIR}/Print_Worm.o: Print_Worm.S  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Print_Worm.o.d 
@@ -369,6 +397,48 @@ ${OBJECTDIR}/Keep_Score.o: Keep_Score.S  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/Keep_Score.o.ok ${OBJECTDIR}/Keep_Score.o.err 
 	@${FIXDEPS} "${OBJECTDIR}/Keep_Score.o.d" "${OBJECTDIR}/Keep_Score.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Keep_Score.o.d"  -o ${OBJECTDIR}/Keep_Score.o Keep_Score.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Keep_Score.o.asm.d",--gdwarf-2
 	
+${OBJECTDIR}/Timer_Setup.o: Timer_Setup.S  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Timer_Setup.o.d 
+	@${RM} ${OBJECTDIR}/Timer_Setup.o 
+	@${RM} ${OBJECTDIR}/Timer_Setup.o.ok ${OBJECTDIR}/Timer_Setup.o.err 
+	@${FIXDEPS} "${OBJECTDIR}/Timer_Setup.o.d" "${OBJECTDIR}/Timer_Setup.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Timer_Setup.o.d"  -o ${OBJECTDIR}/Timer_Setup.o Timer_Setup.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Timer_Setup.o.asm.d",--gdwarf-2
+	
+${OBJECTDIR}/Interrupts_Setup.o: Interrupts_Setup.S  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Interrupts_Setup.o.d 
+	@${RM} ${OBJECTDIR}/Interrupts_Setup.o 
+	@${RM} ${OBJECTDIR}/Interrupts_Setup.o.ok ${OBJECTDIR}/Interrupts_Setup.o.err 
+	@${FIXDEPS} "${OBJECTDIR}/Interrupts_Setup.o.d" "${OBJECTDIR}/Interrupts_Setup.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Interrupts_Setup.o.d"  -o ${OBJECTDIR}/Interrupts_Setup.o Interrupts_Setup.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Interrupts_Setup.o.asm.d",--gdwarf-2
+	
+${OBJECTDIR}/Vector.o: Vector.S  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Vector.o.d 
+	@${RM} ${OBJECTDIR}/Vector.o 
+	@${RM} ${OBJECTDIR}/Vector.o.ok ${OBJECTDIR}/Vector.o.err 
+	@${FIXDEPS} "${OBJECTDIR}/Vector.o.d" "${OBJECTDIR}/Vector.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Vector.o.d"  -o ${OBJECTDIR}/Vector.o Vector.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Vector.o.asm.d",--gdwarf-2
+	
+${OBJECTDIR}/ISR_UART.o: ISR_UART.S  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ISR_UART.o.d 
+	@${RM} ${OBJECTDIR}/ISR_UART.o 
+	@${RM} ${OBJECTDIR}/ISR_UART.o.ok ${OBJECTDIR}/ISR_UART.o.err 
+	@${FIXDEPS} "${OBJECTDIR}/ISR_UART.o.d" "${OBJECTDIR}/ISR_UART.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/ISR_UART.o.d"  -o ${OBJECTDIR}/ISR_UART.o ISR_UART.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/ISR_UART.o.asm.d",--gdwarf-2
+	
+${OBJECTDIR}/ISR_Timer1.o: ISR_Timer1.S  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ISR_Timer1.o.d 
+	@${RM} ${OBJECTDIR}/ISR_Timer1.o 
+	@${RM} ${OBJECTDIR}/ISR_Timer1.o.ok ${OBJECTDIR}/ISR_Timer1.o.err 
+	@${FIXDEPS} "${OBJECTDIR}/ISR_Timer1.o.d" "${OBJECTDIR}/ISR_Timer1.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/ISR_Timer1.o.d"  -o ${OBJECTDIR}/ISR_Timer1.o ISR_Timer1.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/ISR_Timer1.o.asm.d",--gdwarf-2
+	
+${OBJECTDIR}/Increment_Times.o: Increment_Times.S  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Increment_Times.o.d 
+	@${RM} ${OBJECTDIR}/Increment_Times.o 
+	@${RM} ${OBJECTDIR}/Increment_Times.o.ok ${OBJECTDIR}/Increment_Times.o.err 
+	@${FIXDEPS} "${OBJECTDIR}/Increment_Times.o.d" "${OBJECTDIR}/Increment_Times.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Increment_Times.o.d"  -o ${OBJECTDIR}/Increment_Times.o Increment_Times.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Increment_Times.o.asm.d",--gdwarf-2
+	
 endif
 
 # ------------------------------------------------------------------------------------
@@ -386,15 +456,15 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: link
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-dist/${CND_CONF}/${IMAGE_TYPE}/Snake.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
+dist/${CND_CONF}/${IMAGE_TYPE}/SNAKE.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -mdebugger -D__MPLAB_DEBUGGER_PK3=1 -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/Snake.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}           -mreserve=data@0x0:0x1FC -mreserve=boot@0x1FC02000:0x1FC02FEF -mreserve=boot@0x1FC02000:0x1FC024FF  -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -mdebugger -D__MPLAB_DEBUGGER_PK3=1 -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/SNAKE.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}           -mreserve=data@0x0:0x1FC -mreserve=boot@0x1FC02000:0x1FC02FEF -mreserve=boot@0x1FC02000:0x1FC024FF  -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"
 	
 else
-dist/${CND_CONF}/${IMAGE_TYPE}/Snake.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
+dist/${CND_CONF}/${IMAGE_TYPE}/SNAKE.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/Snake.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"
-	${MP_CC_DIR}/xc32-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/Snake.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} 
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/SNAKE.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"
+	${MP_CC_DIR}/xc32-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/SNAKE.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} 
 endif
 
 

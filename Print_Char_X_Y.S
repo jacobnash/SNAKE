@@ -28,55 +28,54 @@ bal Transmit_Print_Char_X_Y
 nop
 
 lb s7, 1(t0)
-        srl s7, s7, 4
-        addi s7, s7, 0x30
-        bal Transmit_Print_Char_X_Y
-        nop
+srl s7, s7, 4
+addi s7, s7, 0x30
+bal Transmit_Print_Char_X_Y
+nop
 
 lb s7, 1(t0)
-        andi s7, s7, 0x0F
-        addi s7, s7, 0x30
-        bal Transmit_Print_Char_X_Y
-        nop
+andi s7, s7, 0x0F
+addi s7, s7, 0x30
+bal Transmit_Print_Char_X_Y
+nop
 
 #Send escape sequence via TXREG
-        li s7,0x3B          # ;
-        bal Transmit_Print_Char_X_Y
-        nop
+li s7,0x3B          # ;
+bal Transmit_Print_Char_X_Y
+nop
 
 lb s7, 0(t0)
-        srl s7, s7, 4
-        addi s7, s7, 0x30
-        bal Transmit_Print_Char_X_Y
-        nop
+srl s7, s7, 4
+addi s7, s7, 0x30
+bal Transmit_Print_Char_X_Y
+nop
 
 lb s7, 0(t0)
-        andi s7, s7, 0x0F
-        addi s7, s7, 0x30
-        bal Transmit_Print_Char_X_Y
-        nop
+andi s7, s7, 0x0F
+addi s7, s7, 0x30
+bal Transmit_Print_Char_X_Y
+nop
 
 #Send escape sequence via TXREG
-        li s7,0x66          # f
-        bal Transmit_Print_Char_X_Y
-        nop
+li s7,0x66          # f
+bal Transmit_Print_Char_X_Y
+nop
 
 #Send char
 lb s7, 0x2(t0)
-        bal Transmit_Print_Char_X_Y
-        nop
+bal Transmit_Print_Char_X_Y
+nop
+jr s1
+nop
+Transmit_Print_Char_X_Y:
+li s2, 0
+or s2, s2, ra
+lw t2, U1STA		   # U1STA (status)
+andi t2, t2, 0x200     # check if able to Transmit_Print_Char_X_Y
+bne t2, zero, Transmit_Print_Char_X_Y   #cannot transmit right now
+nop                    # otherwise continue
+sw s7, U1TXREG	       # char -> U1TXREG
+jr s2                  # return
+nop
 
-        jr s1
-        nop
-        Transmit_Print_Char_X_Y:
-        li s2, 0
-        or s2, s2, ra
-        lw t2, U1STA		 # U1STA (status)
-        andi t2,t2,0x200     # check if able to Transmit_Print_Char_X_Y
-        bne t2,zero,Transmit_Print_Char_X_Y #Cannot Transmit_Print_Char_X_Y
-        nop                  # otherwise continue
-        sw s7,U1TXREG	     # char -> U1TXREG
-        jr s2                # return
-        nop
-
-        .end Print_Char_X_Y
+.end Print_Char_X_Y

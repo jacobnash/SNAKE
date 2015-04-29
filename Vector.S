@@ -1,0 +1,1 @@
+.set noreorder.section .vector_4, code.ent _vector_4_vector_4:	j ISR_Timer1	nop.end _vector_4.section .vector_24, code.ent _vector_24_vector_24:	j ISR_UART    nop.end _vector_24
