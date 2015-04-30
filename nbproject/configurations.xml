@@ -14,20 +14,15 @@
                    projectFiles="true">
       <itemPath>config.S</itemPath>
       <itemPath>Main.S</itemPath>
-      <itemPath>UART_SETUP.S</itemPath>
       <itemPath>Clear_Screen.S</itemPath>
       <itemPath>Read_Time.S</itemPath>
       <itemPath>Verify_Read.S</itemPath>
       <itemPath>Print_Time.S</itemPath>
       <itemPath>Print_Board.S</itemPath>
-      <itemPath>Print_Time_String.S</itemPath>
       <itemPath>Print_Char_X_Y.S</itemPath>
       <itemPath>Create_Worm.S</itemPath>
       <itemPath>Check_Mailbox.S</itemPath>
-      <itemPath>Update_Worm.S</itemPath>
-      <itemPath>Print_Worm.S</itemPath>
       <itemPath>Move_Snake.S</itemPath>
-      <itemPath>MailBox.S</itemPath>
       <itemPath>Print_Snake.S</itemPath>
       <itemPath>Update_Time.S</itemPath>
       <itemPath>Keep_Score.S</itemPath>
@@ -37,6 +32,8 @@
       <itemPath>ISR_UART.S</itemPath>
       <itemPath>ISR_Timer1.S</itemPath>
       <itemPath>Increment_Times.S</itemPath>
+      <itemPath>Print_Ask_User.S</itemPath>
+      <itemPath>UART_Setup.S</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

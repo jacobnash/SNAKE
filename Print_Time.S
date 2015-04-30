@@ -1,6 +1,6 @@
 #include <p32xxxx.h>
-
 .global Print_Time
+.data
 .text
 .set noreorder
 .ent Print_Time
@@ -14,7 +14,6 @@ li s0, 0
 or s0, s0, ra
 
 Go_Home_Print_Time:
-
 li t0, 0x202401
 sw t0, TO_PRINT
 bal Print_Char_X_Y
@@ -120,9 +119,8 @@ load_Print_Time:
 lb s2, 0(s5)                    # load char into s2
 beq s2, zero, Done_Print_Time   # s2 == 0 (NULL), done sending chars
 nop
-bal Print_Print_Time            # start subroutine ?printChar?
+bal Print_Print_Time            # print time
 nop
-#return from Print_Print_Time here
 addi s5, 1                      # increment t0 pointer
 b load_Print_Time               # load next char
 nop

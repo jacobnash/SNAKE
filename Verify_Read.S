@@ -1,5 +1,6 @@
 #include <p32xxxx.h>
 .global Verify_Read
+.data
 .text
 .set noreorder
 .ent Verify_Read
@@ -7,6 +8,7 @@
 Verify_Read:
 li s0, 0
 or s0, s0, ra
+
 li t2, 0
 la t0, 0xA0000200  # base address to store chars
 
@@ -51,14 +53,13 @@ li t2, 0x15144
 sw t2, 4(t0)
 
 sub t1, t1, t2
-bgtz t1, main
+bgtz t1, main       # ask user again
 nop
 
-la t1 ,0xA0000210
-li t2, 0
-sw t2, 8(t1)
+la t1, 0xA0000210
+sw zero, 8(t1)
 
-jr s0
+jr s0               # return
 nop
 
 .end Verify_Read

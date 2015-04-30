@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=config.S Main.S UART_SETUP.S Clear_Screen.S Read_Time.S Verify_Read.S Print_Time.S Print_Board.S Print_Time_String.S Print_Char_X_Y.S Create_Worm.S Check_Mailbox.S Update_Worm.S Print_Worm.S Move_Snake.S MailBox.S Print_Snake.S Update_Time.S Keep_Score.S Timer_Setup.S Interrupts_Setup.S Vector.S ISR_UART.S ISR_Timer1.S Increment_Times.S
+SOURCEFILES_QUOTED_IF_SPACED=config.S Main.S Clear_Screen.S Read_Time.S Verify_Read.S Print_Time.S Print_Board.S Print_Char_X_Y.S Create_Worm.S Check_Mailbox.S Move_Snake.S Print_Snake.S Update_Time.S Keep_Score.S Timer_Setup.S Interrupts_Setup.S Vector.S ISR_UART.S ISR_Timer1.S Increment_Times.S Print_Ask_User.S UART_Setup.S
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/config.o ${OBJECTDIR}/Main.o ${OBJECTDIR}/UART_SETUP.o ${OBJECTDIR}/Clear_Screen.o ${OBJECTDIR}/Read_Time.o ${OBJECTDIR}/Verify_Read.o ${OBJECTDIR}/Print_Time.o ${OBJECTDIR}/Print_Board.o ${OBJECTDIR}/Print_Time_String.o ${OBJECTDIR}/Print_Char_X_Y.o ${OBJECTDIR}/Create_Worm.o ${OBJECTDIR}/Check_Mailbox.o ${OBJECTDIR}/Update_Worm.o ${OBJECTDIR}/Print_Worm.o ${OBJECTDIR}/Move_Snake.o ${OBJECTDIR}/MailBox.o ${OBJECTDIR}/Print_Snake.o ${OBJECTDIR}/Update_Time.o ${OBJECTDIR}/Keep_Score.o ${OBJECTDIR}/Timer_Setup.o ${OBJECTDIR}/Interrupts_Setup.o ${OBJECTDIR}/Vector.o ${OBJECTDIR}/ISR_UART.o ${OBJECTDIR}/ISR_Timer1.o ${OBJECTDIR}/Increment_Times.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/config.o.d ${OBJECTDIR}/Main.o.d ${OBJECTDIR}/UART_SETUP.o.d ${OBJECTDIR}/Clear_Screen.o.d ${OBJECTDIR}/Read_Time.o.d ${OBJECTDIR}/Verify_Read.o.d ${OBJECTDIR}/Print_Time.o.d ${OBJECTDIR}/Print_Board.o.d ${OBJECTDIR}/Print_Time_String.o.d ${OBJECTDIR}/Print_Char_X_Y.o.d ${OBJECTDIR}/Create_Worm.o.d ${OBJECTDIR}/Check_Mailbox.o.d ${OBJECTDIR}/Update_Worm.o.d ${OBJECTDIR}/Print_Worm.o.d ${OBJECTDIR}/Move_Snake.o.d ${OBJECTDIR}/MailBox.o.d ${OBJECTDIR}/Print_Snake.o.d ${OBJECTDIR}/Update_Time.o.d ${OBJECTDIR}/Keep_Score.o.d ${OBJECTDIR}/Timer_Setup.o.d ${OBJECTDIR}/Interrupts_Setup.o.d ${OBJECTDIR}/Vector.o.d ${OBJECTDIR}/ISR_UART.o.d ${OBJECTDIR}/ISR_Timer1.o.d ${OBJECTDIR}/Increment_Times.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/config.o ${OBJECTDIR}/Main.o ${OBJECTDIR}/Clear_Screen.o ${OBJECTDIR}/Read_Time.o ${OBJECTDIR}/Verify_Read.o ${OBJECTDIR}/Print_Time.o ${OBJECTDIR}/Print_Board.o ${OBJECTDIR}/Print_Char_X_Y.o ${OBJECTDIR}/Create_Worm.o ${OBJECTDIR}/Check_Mailbox.o ${OBJECTDIR}/Move_Snake.o ${OBJECTDIR}/Print_Snake.o ${OBJECTDIR}/Update_Time.o ${OBJECTDIR}/Keep_Score.o ${OBJECTDIR}/Timer_Setup.o ${OBJECTDIR}/Interrupts_Setup.o ${OBJECTDIR}/Vector.o ${OBJECTDIR}/ISR_UART.o ${OBJECTDIR}/ISR_Timer1.o ${OBJECTDIR}/Increment_Times.o ${OBJECTDIR}/Print_Ask_User.o ${OBJECTDIR}/UART_Setup.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/config.o.d ${OBJECTDIR}/Main.o.d ${OBJECTDIR}/Clear_Screen.o.d ${OBJECTDIR}/Read_Time.o.d ${OBJECTDIR}/Verify_Read.o.d ${OBJECTDIR}/Print_Time.o.d ${OBJECTDIR}/Print_Board.o.d ${OBJECTDIR}/Print_Char_X_Y.o.d ${OBJECTDIR}/Create_Worm.o.d ${OBJECTDIR}/Check_Mailbox.o.d ${OBJECTDIR}/Move_Snake.o.d ${OBJECTDIR}/Print_Snake.o.d ${OBJECTDIR}/Update_Time.o.d ${OBJECTDIR}/Keep_Score.o.d ${OBJECTDIR}/Timer_Setup.o.d ${OBJECTDIR}/Interrupts_Setup.o.d ${OBJECTDIR}/Vector.o.d ${OBJECTDIR}/ISR_UART.o.d ${OBJECTDIR}/ISR_Timer1.o.d ${OBJECTDIR}/Increment_Times.o.d ${OBJECTDIR}/Print_Ask_User.o.d ${OBJECTDIR}/UART_Setup.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/config.o ${OBJECTDIR}/Main.o ${OBJECTDIR}/UART_SETUP.o ${OBJECTDIR}/Clear_Screen.o ${OBJECTDIR}/Read_Time.o ${OBJECTDIR}/Verify_Read.o ${OBJECTDIR}/Print_Time.o ${OBJECTDIR}/Print_Board.o ${OBJECTDIR}/Print_Time_String.o ${OBJECTDIR}/Print_Char_X_Y.o ${OBJECTDIR}/Create_Worm.o ${OBJECTDIR}/Check_Mailbox.o ${OBJECTDIR}/Update_Worm.o ${OBJECTDIR}/Print_Worm.o ${OBJECTDIR}/Move_Snake.o ${OBJECTDIR}/MailBox.o ${OBJECTDIR}/Print_Snake.o ${OBJECTDIR}/Update_Time.o ${OBJECTDIR}/Keep_Score.o ${OBJECTDIR}/Timer_Setup.o ${OBJECTDIR}/Interrupts_Setup.o ${OBJECTDIR}/Vector.o ${OBJECTDIR}/ISR_UART.o ${OBJECTDIR}/ISR_Timer1.o ${OBJECTDIR}/Increment_Times.o
+OBJECTFILES=${OBJECTDIR}/config.o ${OBJECTDIR}/Main.o ${OBJECTDIR}/Clear_Screen.o ${OBJECTDIR}/Read_Time.o ${OBJECTDIR}/Verify_Read.o ${OBJECTDIR}/Print_Time.o ${OBJECTDIR}/Print_Board.o ${OBJECTDIR}/Print_Char_X_Y.o ${OBJECTDIR}/Create_Worm.o ${OBJECTDIR}/Check_Mailbox.o ${OBJECTDIR}/Move_Snake.o ${OBJECTDIR}/Print_Snake.o ${OBJECTDIR}/Update_Time.o ${OBJECTDIR}/Keep_Score.o ${OBJECTDIR}/Timer_Setup.o ${OBJECTDIR}/Interrupts_Setup.o ${OBJECTDIR}/Vector.o ${OBJECTDIR}/ISR_UART.o ${OBJECTDIR}/ISR_Timer1.o ${OBJECTDIR}/Increment_Times.o ${OBJECTDIR}/Print_Ask_User.o ${OBJECTDIR}/UART_Setup.o
 
 # Source Files
-SOURCEFILES=config.S Main.S UART_SETUP.S Clear_Screen.S Read_Time.S Verify_Read.S Print_Time.S Print_Board.S Print_Time_String.S Print_Char_X_Y.S Create_Worm.S Check_Mailbox.S Update_Worm.S Print_Worm.S Move_Snake.S MailBox.S Print_Snake.S Update_Time.S Keep_Score.S Timer_Setup.S Interrupts_Setup.S Vector.S ISR_UART.S ISR_Timer1.S Increment_Times.S
+SOURCEFILES=config.S Main.S Clear_Screen.S Read_Time.S Verify_Read.S Print_Time.S Print_Board.S Print_Char_X_Y.S Create_Worm.S Check_Mailbox.S Move_Snake.S Print_Snake.S Update_Time.S Keep_Score.S Timer_Setup.S Interrupts_Setup.S Vector.S ISR_UART.S ISR_Timer1.S Increment_Times.S Print_Ask_User.S UART_Setup.S
 
 
 CFLAGS=
@@ -102,13 +102,6 @@ ${OBJECTDIR}/Main.o: Main.S  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/Main.o.ok ${OBJECTDIR}/Main.o.err 
 	@${FIXDEPS} "${OBJECTDIR}/Main.o.d" "${OBJECTDIR}/Main.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Main.o.d"  -o ${OBJECTDIR}/Main.o Main.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Main.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
 	
-${OBJECTDIR}/UART_SETUP.o: UART_SETUP.S  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/UART_SETUP.o.d 
-	@${RM} ${OBJECTDIR}/UART_SETUP.o 
-	@${RM} ${OBJECTDIR}/UART_SETUP.o.ok ${OBJECTDIR}/UART_SETUP.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/UART_SETUP.o.d" "${OBJECTDIR}/UART_SETUP.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/UART_SETUP.o.d"  -o ${OBJECTDIR}/UART_SETUP.o UART_SETUP.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/UART_SETUP.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
-	
 ${OBJECTDIR}/Clear_Screen.o: Clear_Screen.S  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Clear_Screen.o.d 
@@ -144,13 +137,6 @@ ${OBJECTDIR}/Print_Board.o: Print_Board.S  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/Print_Board.o.ok ${OBJECTDIR}/Print_Board.o.err 
 	@${FIXDEPS} "${OBJECTDIR}/Print_Board.o.d" "${OBJECTDIR}/Print_Board.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Print_Board.o.d"  -o ${OBJECTDIR}/Print_Board.o Print_Board.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Print_Board.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
 	
-${OBJECTDIR}/Print_Time_String.o: Print_Time_String.S  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Print_Time_String.o.d 
-	@${RM} ${OBJECTDIR}/Print_Time_String.o 
-	@${RM} ${OBJECTDIR}/Print_Time_String.o.ok ${OBJECTDIR}/Print_Time_String.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/Print_Time_String.o.d" "${OBJECTDIR}/Print_Time_String.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Print_Time_String.o.d"  -o ${OBJECTDIR}/Print_Time_String.o Print_Time_String.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Print_Time_String.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
-	
 ${OBJECTDIR}/Print_Char_X_Y.o: Print_Char_X_Y.S  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Print_Char_X_Y.o.d 
@@ -172,33 +158,12 @@ ${OBJECTDIR}/Check_Mailbox.o: Check_Mailbox.S  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/Check_Mailbox.o.ok ${OBJECTDIR}/Check_Mailbox.o.err 
 	@${FIXDEPS} "${OBJECTDIR}/Check_Mailbox.o.d" "${OBJECTDIR}/Check_Mailbox.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Check_Mailbox.o.d"  -o ${OBJECTDIR}/Check_Mailbox.o Check_Mailbox.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Check_Mailbox.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
 	
-${OBJECTDIR}/Update_Worm.o: Update_Worm.S  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Update_Worm.o.d 
-	@${RM} ${OBJECTDIR}/Update_Worm.o 
-	@${RM} ${OBJECTDIR}/Update_Worm.o.ok ${OBJECTDIR}/Update_Worm.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/Update_Worm.o.d" "${OBJECTDIR}/Update_Worm.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Update_Worm.o.d"  -o ${OBJECTDIR}/Update_Worm.o Update_Worm.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Update_Worm.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
-	
-${OBJECTDIR}/Print_Worm.o: Print_Worm.S  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Print_Worm.o.d 
-	@${RM} ${OBJECTDIR}/Print_Worm.o 
-	@${RM} ${OBJECTDIR}/Print_Worm.o.ok ${OBJECTDIR}/Print_Worm.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/Print_Worm.o.d" "${OBJECTDIR}/Print_Worm.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Print_Worm.o.d"  -o ${OBJECTDIR}/Print_Worm.o Print_Worm.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Print_Worm.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
-	
 ${OBJECTDIR}/Move_Snake.o: Move_Snake.S  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Move_Snake.o.d 
 	@${RM} ${OBJECTDIR}/Move_Snake.o 
 	@${RM} ${OBJECTDIR}/Move_Snake.o.ok ${OBJECTDIR}/Move_Snake.o.err 
 	@${FIXDEPS} "${OBJECTDIR}/Move_Snake.o.d" "${OBJECTDIR}/Move_Snake.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Move_Snake.o.d"  -o ${OBJECTDIR}/Move_Snake.o Move_Snake.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Move_Snake.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
-	
-${OBJECTDIR}/MailBox.o: MailBox.S  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/MailBox.o.d 
-	@${RM} ${OBJECTDIR}/MailBox.o 
-	@${RM} ${OBJECTDIR}/MailBox.o.ok ${OBJECTDIR}/MailBox.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/MailBox.o.d" "${OBJECTDIR}/MailBox.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/MailBox.o.d"  -o ${OBJECTDIR}/MailBox.o MailBox.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/MailBox.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
 	
 ${OBJECTDIR}/Print_Snake.o: Print_Snake.S  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -263,6 +228,20 @@ ${OBJECTDIR}/Increment_Times.o: Increment_Times.S  nbproject/Makefile-${CND_CONF
 	@${RM} ${OBJECTDIR}/Increment_Times.o.ok ${OBJECTDIR}/Increment_Times.o.err 
 	@${FIXDEPS} "${OBJECTDIR}/Increment_Times.o.d" "${OBJECTDIR}/Increment_Times.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Increment_Times.o.d"  -o ${OBJECTDIR}/Increment_Times.o Increment_Times.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Increment_Times.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
 	
+${OBJECTDIR}/Print_Ask_User.o: Print_Ask_User.S  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Print_Ask_User.o.d 
+	@${RM} ${OBJECTDIR}/Print_Ask_User.o 
+	@${RM} ${OBJECTDIR}/Print_Ask_User.o.ok ${OBJECTDIR}/Print_Ask_User.o.err 
+	@${FIXDEPS} "${OBJECTDIR}/Print_Ask_User.o.d" "${OBJECTDIR}/Print_Ask_User.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Print_Ask_User.o.d"  -o ${OBJECTDIR}/Print_Ask_User.o Print_Ask_User.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Print_Ask_User.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
+	
+${OBJECTDIR}/UART_Setup.o: UART_Setup.S  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/UART_Setup.o.d 
+	@${RM} ${OBJECTDIR}/UART_Setup.o 
+	@${RM} ${OBJECTDIR}/UART_Setup.o.ok ${OBJECTDIR}/UART_Setup.o.err 
+	@${FIXDEPS} "${OBJECTDIR}/UART_Setup.o.d" "${OBJECTDIR}/UART_Setup.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/UART_Setup.o.d"  -o ${OBJECTDIR}/UART_Setup.o UART_Setup.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/UART_Setup.o.asm.d",--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1
+	
 else
 ${OBJECTDIR}/config.o: config.S  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -277,13 +256,6 @@ ${OBJECTDIR}/Main.o: Main.S  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/Main.o 
 	@${RM} ${OBJECTDIR}/Main.o.ok ${OBJECTDIR}/Main.o.err 
 	@${FIXDEPS} "${OBJECTDIR}/Main.o.d" "${OBJECTDIR}/Main.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Main.o.d"  -o ${OBJECTDIR}/Main.o Main.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Main.o.asm.d",--gdwarf-2
-	
-${OBJECTDIR}/UART_SETUP.o: UART_SETUP.S  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/UART_SETUP.o.d 
-	@${RM} ${OBJECTDIR}/UART_SETUP.o 
-	@${RM} ${OBJECTDIR}/UART_SETUP.o.ok ${OBJECTDIR}/UART_SETUP.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/UART_SETUP.o.d" "${OBJECTDIR}/UART_SETUP.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/UART_SETUP.o.d"  -o ${OBJECTDIR}/UART_SETUP.o UART_SETUP.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/UART_SETUP.o.asm.d",--gdwarf-2
 	
 ${OBJECTDIR}/Clear_Screen.o: Clear_Screen.S  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -320,13 +292,6 @@ ${OBJECTDIR}/Print_Board.o: Print_Board.S  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/Print_Board.o.ok ${OBJECTDIR}/Print_Board.o.err 
 	@${FIXDEPS} "${OBJECTDIR}/Print_Board.o.d" "${OBJECTDIR}/Print_Board.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Print_Board.o.d"  -o ${OBJECTDIR}/Print_Board.o Print_Board.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Print_Board.o.asm.d",--gdwarf-2
 	
-${OBJECTDIR}/Print_Time_String.o: Print_Time_String.S  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Print_Time_String.o.d 
-	@${RM} ${OBJECTDIR}/Print_Time_String.o 
-	@${RM} ${OBJECTDIR}/Print_Time_String.o.ok ${OBJECTDIR}/Print_Time_String.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/Print_Time_String.o.d" "${OBJECTDIR}/Print_Time_String.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Print_Time_String.o.d"  -o ${OBJECTDIR}/Print_Time_String.o Print_Time_String.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Print_Time_String.o.asm.d",--gdwarf-2
-	
 ${OBJECTDIR}/Print_Char_X_Y.o: Print_Char_X_Y.S  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Print_Char_X_Y.o.d 
@@ -348,33 +313,12 @@ ${OBJECTDIR}/Check_Mailbox.o: Check_Mailbox.S  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/Check_Mailbox.o.ok ${OBJECTDIR}/Check_Mailbox.o.err 
 	@${FIXDEPS} "${OBJECTDIR}/Check_Mailbox.o.d" "${OBJECTDIR}/Check_Mailbox.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Check_Mailbox.o.d"  -o ${OBJECTDIR}/Check_Mailbox.o Check_Mailbox.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Check_Mailbox.o.asm.d",--gdwarf-2
 	
-${OBJECTDIR}/Update_Worm.o: Update_Worm.S  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Update_Worm.o.d 
-	@${RM} ${OBJECTDIR}/Update_Worm.o 
-	@${RM} ${OBJECTDIR}/Update_Worm.o.ok ${OBJECTDIR}/Update_Worm.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/Update_Worm.o.d" "${OBJECTDIR}/Update_Worm.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Update_Worm.o.d"  -o ${OBJECTDIR}/Update_Worm.o Update_Worm.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Update_Worm.o.asm.d",--gdwarf-2
-	
-${OBJECTDIR}/Print_Worm.o: Print_Worm.S  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Print_Worm.o.d 
-	@${RM} ${OBJECTDIR}/Print_Worm.o 
-	@${RM} ${OBJECTDIR}/Print_Worm.o.ok ${OBJECTDIR}/Print_Worm.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/Print_Worm.o.d" "${OBJECTDIR}/Print_Worm.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Print_Worm.o.d"  -o ${OBJECTDIR}/Print_Worm.o Print_Worm.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Print_Worm.o.asm.d",--gdwarf-2
-	
 ${OBJECTDIR}/Move_Snake.o: Move_Snake.S  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Move_Snake.o.d 
 	@${RM} ${OBJECTDIR}/Move_Snake.o 
 	@${RM} ${OBJECTDIR}/Move_Snake.o.ok ${OBJECTDIR}/Move_Snake.o.err 
 	@${FIXDEPS} "${OBJECTDIR}/Move_Snake.o.d" "${OBJECTDIR}/Move_Snake.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Move_Snake.o.d"  -o ${OBJECTDIR}/Move_Snake.o Move_Snake.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Move_Snake.o.asm.d",--gdwarf-2
-	
-${OBJECTDIR}/MailBox.o: MailBox.S  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/MailBox.o.d 
-	@${RM} ${OBJECTDIR}/MailBox.o 
-	@${RM} ${OBJECTDIR}/MailBox.o.ok ${OBJECTDIR}/MailBox.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/MailBox.o.d" "${OBJECTDIR}/MailBox.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/MailBox.o.d"  -o ${OBJECTDIR}/MailBox.o MailBox.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/MailBox.o.asm.d",--gdwarf-2
 	
 ${OBJECTDIR}/Print_Snake.o: Print_Snake.S  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -438,6 +382,20 @@ ${OBJECTDIR}/Increment_Times.o: Increment_Times.S  nbproject/Makefile-${CND_CONF
 	@${RM} ${OBJECTDIR}/Increment_Times.o 
 	@${RM} ${OBJECTDIR}/Increment_Times.o.ok ${OBJECTDIR}/Increment_Times.o.err 
 	@${FIXDEPS} "${OBJECTDIR}/Increment_Times.o.d" "${OBJECTDIR}/Increment_Times.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Increment_Times.o.d"  -o ${OBJECTDIR}/Increment_Times.o Increment_Times.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Increment_Times.o.asm.d",--gdwarf-2
+	
+${OBJECTDIR}/Print_Ask_User.o: Print_Ask_User.S  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Print_Ask_User.o.d 
+	@${RM} ${OBJECTDIR}/Print_Ask_User.o 
+	@${RM} ${OBJECTDIR}/Print_Ask_User.o.ok ${OBJECTDIR}/Print_Ask_User.o.err 
+	@${FIXDEPS} "${OBJECTDIR}/Print_Ask_User.o.d" "${OBJECTDIR}/Print_Ask_User.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Print_Ask_User.o.d"  -o ${OBJECTDIR}/Print_Ask_User.o Print_Ask_User.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/Print_Ask_User.o.asm.d",--gdwarf-2
+	
+${OBJECTDIR}/UART_Setup.o: UART_Setup.S  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/UART_Setup.o.d 
+	@${RM} ${OBJECTDIR}/UART_Setup.o 
+	@${RM} ${OBJECTDIR}/UART_Setup.o.ok ${OBJECTDIR}/UART_Setup.o.err 
+	@${FIXDEPS} "${OBJECTDIR}/UART_Setup.o.d" "${OBJECTDIR}/UART_Setup.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/UART_Setup.o.d"  -o ${OBJECTDIR}/UART_Setup.o UART_Setup.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/UART_Setup.o.asm.d",--gdwarf-2
 	
 endif
 
