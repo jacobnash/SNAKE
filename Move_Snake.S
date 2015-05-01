@@ -3,6 +3,7 @@
 .global Move_Snake
 .text
 .set noreorder
+.set TO_PRINT, 0xA0000400
 .set WORM_LENGTH, 0xA00004FC
 .set WORM, 0xA0000500
 .SET MAILBOX, 0xA0000440
@@ -114,12 +115,41 @@ Is_A_Move_Snake:
     nop
 
 Border_Check_Move_Snake:
-    addi t5, -2
-    lw s1, 0(t5)
+    la t5, 0xA00004F0     # repoint t5 to snake values
+    lw s1, 0(t5)          # copy corrected value from *t5 to s1
+    #col<=3
+    andi t4, s1, 0x00FF
+    addi t4, t4, -0x0003
+    bltz t4, Stop_Game
+    nop
+    #col>=79
+    andi t4, s1, 0x00FF
+    addi t4, t4, -0x0078
+    bgtz t4, Stop_Game
+    nop
+    #row<=3
+    andi t4, s1, 0xFF00
+    addi t4, t4, -0x0300
+    bltz t4, Stop_Game
+    nop
+    #row>=23
+    andi t4, s1, 0xFF00
+    addi t4, t4, -0x2200
+    bgtz t4, Stop_Game
     nop
 
 Load_Move_Snake:
     b Cont_Move_Snake
-    nop 
+    nop
+
+Stop_Game:
+    #sample code to prove Stop_Game is accessible
+    #prints '%' at 12, 40 (center)
+    li t4, 0x251240
+    sw t4, TO_PRINT
+    bal Print_Char_X_Y
+    nop
+    b Load_Move_Snake
+    nop
 
 .end Move_Snake
