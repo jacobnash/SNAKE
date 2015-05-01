@@ -15,6 +15,14 @@
 #0x6B - 'k' up
 #0x6C - 'l' right
 
+CheckFOOD: ## probably should be done here.
+#check if head meets food,
+#updates Score
+#then Creates new food that isnt in-line with head... I dont think it
+#is a problem if it is under the snake aslongas we print food before snake
+# and make that a part of this 
+
+
 Move_Snake:
     li s0, 0
     or s0, s0, ra

@@ -11,7 +11,7 @@ Timer_Setup:
     #Initialize Timer 1
     sw zero, T1CON          #Disable/Stop Timer1
 	sw zero, TMR1			#Clear Timer1
-	li t1, 0x8000
+	li t1, 0x9000
 	sw t1, PR1				#Store Period
 	li t1, 0x8070
 	sw t1, T1CON			#Enable Timer1

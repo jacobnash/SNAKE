@@ -57,6 +57,12 @@ nop
 li t6, 0x68
 sw t6, MAILBOX
 
+BAL Create_Food
+
+nop
+
+
+
 Loop_Main:
 b Loop_Main
 nop
