@@ -7,9 +7,9 @@
 .set User_Input,  0xA0000200
 .set ELAPSEDTIME, 0xA0000210
 .set MAILBOX,     0xA0000440
-.set RESTART,     0xA00004DD
-.set PAUSED,      0xA00004DE
-.set SPEED,       0xA00004DF
+.set PAUSED,      0xA00004D0
+.set RESTART,     0xA00004D4
+.set SPEED,       0xA00004D8
 
 Ask_User:
 .ASCIZ "Please Enter a Time(HH:MM):"
@@ -60,22 +60,27 @@ nop
 li t4, 0x68
 sw t4, MAILBOX
 #clear game flags
-sb zero, RESTART
-sb zero, PAUSED
-sb zero, SPEED
+sw zero, RESTART
+sw zero, PAUSED
+sw zero, SPEED
+
+bal Create_Food
+nop
 
 Loop_Main:
 #main loop will continually check flags
+li a0, 0
+li a1, 0
 
 #Check if game paused
-lb t0, PAUSED
-bgtz t0, Check_Restart
+lb a0, PAUSED
+bgtz a0, Check_Restart
 nop
 
 #Speed (number 0-9)
-#lb t1, SPEED
-#bne t1, zero, Change_Speed_Main
-#nop
+lb a1, SPEED
+bne a1, zero, Change_Speed_Main
+nop
 
 #Otherwise continue
 b Loop_Main
@@ -83,32 +88,34 @@ nop
 
 Check_Restart:
 sw zero, T1CON          #Disable/Stop Timer1
-lb t0, RESTART
-bgtz t0, Restart_Main
+lb a3, RESTART
+bgtz a3, Restart_Main
 nop
 b Loop_Main
 nop
 
 
 Change_Speed_Main:
+sw zero, SPEED
+#a1 has char value from SPEED
+andi a1, a1, 0xF
+#a1 has decimal value (0-9)
+
 sw zero, T1CON          #Disable/Stop Timer1
 sw zero, TMR1			#Clear Timer1
 
-#t1 has char value from SPEED
-andi t1, t1, 0xF
-#t1 has decimal value (0-9)
-li t2, 0x8000
-beq t1, zero, Store_Period_Main
+li a2, 0x9000
+beq a1, zero, Store_Period_Main
 nop
 
-mul t2, t2, t1
-div t2, 10
-mflo t2
+mul a2, a2, a1
+div a2, 10
+mflo a2
 
 Store_Period_Main:
-sw t2, PR1				#Store Period
-li t2, 0x8070
-sw t2, T1CON			#Enable Timer1
+sw a2, PR1				#Store Period
+li a2, 0x8070
+sw a2, T1CON			#Enable Timer1
 
 b Loop_Main
 nop

@@ -3,10 +3,12 @@
 .global Move_Snake
 .text
 .set noreorder
-.set TO_PRINT, 0xA0000400
+.set TO_PRINT,    0xA0000400
+.SET MAILBOX,     0xA0000440
+.set PAUSED,      0xA00004D0
 .set WORM_LENGTH, 0xA00004FC
-.set WORM, 0xA0000500
-.SET MAILBOX, 0xA0000440
+.set WORM,        0xA0000500
+
 .ent Move_Snake
 
 #0x63 - 'c' start/stop
@@ -14,6 +16,14 @@
 #0x6A - 'j' down
 #0x6B - 'k' up
 #0x6C - 'l' right
+
+CheckFOOD: ## probably should be done here.
+#check if head meets food,
+#updates Score
+#then Creates new food that isnt in-line with head... I dont think it
+#is a problem if it is under the snake aslongas we print food before snake
+# and make that a part of this 
+
 
 Move_Snake:
     li s0, 0
@@ -156,6 +166,8 @@ Check_Loop_Move_Snake:
 
 Stop_Game:
     #sample code to prove Stop_Game is accessible
+    li t2, 1
+    sw t2, PAUSED
     #prints '%' at 12, 40 (center)
     li t2, 0x251240
     sw t2, TO_PRINT
