@@ -18,11 +18,11 @@ Create_Food:
     lw t0, TMR1
     li t2, 19
     div t0, t2
-    mflo t2
+    mfhi t2
     lw t0, TMR1
     li t3, 75
     div t0, t3
-    mflo t3
+    mfhi t3
     la t0, Food_Location
     addi t1, 3
     addi t2, 3
@@ -35,7 +35,7 @@ Create_Food:
     sw t1, TO_PRINT
 
     bal Print_Char_X_Y
-
+    nop
     jr s0
 
     nop

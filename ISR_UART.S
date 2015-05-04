@@ -3,7 +3,7 @@
 .text
 .set noreorder
 .set MAILBOX, 0xA0000440
-.set SPEED, 0xA00004DE
+.set SPEED, 0xA00004DC
 .ent ISR_UART
 #0x63 - 'c' start/stop
 #0x68 - 'h' left
