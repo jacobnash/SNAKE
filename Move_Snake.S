@@ -28,136 +28,150 @@ Move_Snake:
     or s0, s0, ra
     
     la t0, WORM
-    la t1, WORM_LENGTH
-    lw t2, 0(t1)  #worm length value
+    lw t1, WORM_LENGTH  #load worm length value
     #save current head location
-    lh s2, 0(t0)  #old location
-    lh s1, 0(t0)  #new location
-    #find new location
+    lh t9, 0(t0)  #old location
+    lh t8, 0(t0)  #new location
+    #generate new location
     b New_Location_Move_Snake
     nop
-    #s1 has new location
+Return_Move_Snake:
+    #t8 has new location
+    lw t1, WORM_LENGTH  #load worm length value
 Cont_Move_Snake:
-    lh s2, 0(t0)  #s2 = current value
-    sh s1, 0(t0)  #replace current body with new value
-    lh s1, 2(t0)  #save next body value
-    sh s2, 2(t0)  #replace next body with current body value
+    lh t9, 0(t0)  #t9 = current value
+    sh t8, 0(t0)  #replace current body with new value
+    lh t8, 2(t0)  #save next body value
+    sh t9, 2(t0)  #replace next body with current body value
     addi t0, 4    #incr worm pointer
-    addi t2, -1   #decr loop counter
-    bgtz t2, Cont_Move_Snake  #continue looping worm
+    addi t1, -1   #decr loop counter
+    bgtz t1, Cont_Move_Snake  #continue looping worm
     nop
 Done_Move_Snake:
     jr s0         #otherwise done
     nop
 
 New_Location_Move_Snake:
-    lw t3, MAILBOX     #value of MAILBOX
-    beq t3, 0x68, Left_Move_Snake
+    lw t2, MAILBOX     #value of MAILBOX
+    beq t2, 0x68, Left_Move_Snake
     nop
-    beq t3, 0x6A, Down_Move_Snake
+    beq t2, 0x6A, Down_Move_Snake
     nop
-    beq t3, 0x6B, Up_Move_Snake
+    beq t2, 0x6B, Up_Move_Snake
     nop
-    beq t3, 0x6C, Right_Move_Snake
+    beq t2, 0x6C, Right_Move_Snake
     nop
-    #beq t3, 0x63, Stop_Game
+    #beq t2, 0x63, Stop_Game
     #nop
     b Done_Move_Snake
     nop
     
 Left_Move_Snake:
     # y (column) decr
-    addi s1, -1
+    addi t8, -1
     b Error_Move_Snake
     nop
 
 Right_Move_Snake:
     # y (column) incr
-    addi s1, 1
+    addi t8, 1
     b Error_Move_Snake
     nop
 
 Down_Move_Snake:
     # x (row) incr
-    addi s1, 0x0100
+    addi t8, 0x0100
     b Error_Move_Snake
     nop
 
 Up_Move_Snake:
     # y (column) decr
-    addi s1, -0x0100
+    addi t8, -0x0100
     b Error_Move_Snake
     nop
 
 Error_Move_Snake:
-    la t5, 0xA00004F0
-    la t6, 0xA00004F2
-    sw s1, 0(t5)      #copy s1 to t5 (address)
+    la t2, 0xA00004E0
+    la t3, 0xA00004E2
+    sw t8, 0(t2)      #copy t8 to t2 (address)
 Loop_Move_Snake:
-    beq t6, t5, Border_Check_Move_Snake
+    beq t3, t2, Border_Check_Move_Snake
     nop
-    lb t7, 0(t5)
-    andi t7, 0xF
-    beq t7, 0xF, Is_F_Move_Snake
+    lb t4, 0(t2)
+    andi t4, t4, 0xF
+    beq t4, 0xF, Is_F_Move_Snake
     nop
-    beq t7, 0xA, Is_A_Move_Snake
+    beq t4, 0xA, Is_A_Move_Snake
     nop
-    addi t5, 1
+    addi t2, 1
     b Loop_Move_Snake
     nop
 
 Is_F_Move_Snake:
-    lb t7, 0(t5)
-    addi t7, -6
-    sb t7, 0(t5)
-    addi t5, 1
+    lb t4, 0(t2)
+    addi t4, t4, -6
+    sb t4, 0(t2)
+    addi t2, 1
     b Loop_Move_Snake
     nop
 
 Is_A_Move_Snake:
-    lb t7, 0(t5)
-    addi t7, 6
-    sb t7, 0(t5)
-    addi t5, 1
+    lb t4, 0(t2)
+    addi t4, t4, 6
+    sb t4, 0(t2)
+    addi t2, 1
     b Loop_Move_Snake
     nop
 
 Border_Check_Move_Snake:
-    la t5, 0xA00004F0     # repoint t5 to snake values
-    lw s1, 0(t5)          # copy corrected value from *t5 to s1
+    la t2, 0xA00004E0     # point t2 to new head location
+    lw t8, 0(t2)          # copy corrected value from *t2 to t8
     #col<=3
-    andi t4, s1, 0x00FF
+    andi t4, t8, 0x00FF
     addi t4, t4, -0x0003
     bltz t4, Stop_Game
     nop
     #col>=79
-    andi t4, s1, 0x00FF
+    andi t4, t8, 0x00FF
     addi t4, t4, -0x0078
     bgtz t4, Stop_Game
     nop
     #row<=3
-    andi t4, s1, 0xFF00
+    andi t4, t8, 0xFF00
     addi t4, t4, -0x0300
     bltz t4, Stop_Game
     nop
     #row>=23
-    andi t4, s1, 0xFF00
+    andi t4, t8, 0xFF00
     addi t4, t4, -0x2200
     bgtz t4, Stop_Game
     nop
 
-Load_Move_Snake:
-    b Cont_Move_Snake
+Body_Check_Move_Snake:
+    # t8 is HEAD new position
+    # t1 is WORM_LENGTH
+    la t2, WORM
+    addi t2, t2, 2
+Check_Loop_Move_Snake:
+    lh t4, 0(t2)
+    beq t8, t4, Stop_Game
+    nop
+    addi t2, t2, 2
+    addi t1, t1, -1
+    bne t1, zero, Check_Loop_Move_Snake
+    nop
+
+    b Return_Move_Snake
     nop
 
 Stop_Game:
     #sample code to prove Stop_Game is accessible
     #prints '%' at 12, 40 (center)
-    li t4, 0x251240
-    sw t4, TO_PRINT
+    li t2, 0x251240
+    sw t2, TO_PRINT
     bal Print_Char_X_Y
     nop
-    b Load_Move_Snake
+    b Return_Move_Snake
     nop
 
 .end Move_Snake
