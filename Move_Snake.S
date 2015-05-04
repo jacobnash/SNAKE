@@ -53,8 +53,6 @@ New_Location_Move_Snake:
     nop
     beq t2, 0x6C, Right_Move_Snake
     nop
-    #beq t2, 0x63, Stop_Game
-    #nop
     b Done_Move_Snake
     nop
     
