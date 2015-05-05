@@ -67,6 +67,8 @@ sw zero, RESTART
 sw zero, PAUSED
 sw zero, SPEED
 
+bal PORTE_SETUP
+nop
 bal Create_Food
 nop
 bal Print_Char_X_Y

@@ -48,6 +48,8 @@ la t1, Food_Location
 lb t2, 3(t0)
 addi t2, -0x30
 la t3, WORM_LENGTH
+lb t4, 3(t3)
+add t2, t2, t4
 sb t2, 3(t3)
 
 
