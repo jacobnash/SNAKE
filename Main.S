@@ -4,12 +4,13 @@
 .text
 .set noreorder
 
-.set User_Input,  0xA0000200
-.set ELAPSEDTIME, 0xA0000210
-.set MAILBOX,     0xA0000440
-.set PAUSED,      0xA00004D0
-.set RESTART,     0xA00004D4
-.set SPEED,       0xA00004D8
+.set User_Input,     0xA0000200
+.set ELAPSEDTIME,    0xA0000210
+.set ELAPSEDTIMERAW, 0xA0000218
+.set MAILBOX,        0xA0000440
+.set PAUSED,         0xA00004D0
+.set RESTART,        0xA00004D4
+.set SPEED,          0xA00004D8
 
 Ask_User:
 .ASCIZ "Please Enter a Time(HH:MM):"
@@ -44,8 +45,10 @@ bal Clear_Screen
 nop
 bal Print_Board
 nop
-li t3, 0x30303030
-sw t3, ELAPSEDTIME
+li t0, 0x30303030
+sw t0, ELAPSEDTIME
+li t0, 0
+sw t0, ELAPSEDTIMERAW
 bal Print_Time
 nop
 bal Create_Worm
@@ -89,7 +92,9 @@ b Loop_Main
 nop
 
 Check_Restart:
-sw zero, T1CON          #Disable/Stop Timer1
+sw zero, T1CON          #Stop Timer1
+li t0, 0x30303030
+sw t0, ELAPSEDTIME
 lb a3, RESTART
 bgtz a3, Restart_Main
 nop

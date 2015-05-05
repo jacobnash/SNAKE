@@ -19,14 +19,15 @@ Interrupts_Setup:
 	sw zero, IEC0			#Clear IEC0
 	sw zero, IEC1			#Clear IEC1
 	li t1, 0x19
-	sw t1, IPC1         	#Set Timer1 priority
-	li t1, 0x1A
 	sw t1, IPC6				#Set UART1 priority
+	li t1, 0x1A
+	sw t1, IPC1         	#Set Timer1 priority
+	li t1, 0x1B
+	sw t1, IPC2         	#Set Timer2 priority
 	li t1, 0x1000			#Bit pattern for multivector
 	sw t1, INTCON			#Enable multivector
-	li t1, 0x08000010	    #Timer 1 and U1RX enable bits
-	sw t1, IEC0      		#Enable Timer 1 and U1RX interrupts
-    li t1, 0x08000010
+	li t1, 0x08000110
+	sw t1, IEC0      		#Enable U1RX, Timer1, Timer2 interrupts
 	ei 						#Enable Interrupts
 
     jr s0

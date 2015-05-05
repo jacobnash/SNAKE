@@ -31,10 +31,12 @@
       <itemPath>Vector.S</itemPath>
       <itemPath>ISR_UART.S</itemPath>
       <itemPath>ISR_Timer1.S</itemPath>
-      <itemPath>Increment_Times.S</itemPath>
       <itemPath>Print_Ask_User.S</itemPath>
       <itemPath>UART_Setup.S</itemPath>
       <itemPath>Create_Food.S</itemPath>
+      <itemPath>ISR_Timer2.S</itemPath>
+      <itemPath>Increment_Clock_Time.S</itemPath>
+      <itemPath>Increment_Elapsed_Time.S</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
