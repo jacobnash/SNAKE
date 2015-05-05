@@ -7,8 +7,8 @@
 .set TO_PRINT, 0xA0000400
 
 Create_Food:
-    li s0, 0
-    or s0, s0, ra
+    li s1, 0
+    or s1, s1, ra
 
     lw t0, TMR1
     li t1, 7
@@ -16,11 +16,11 @@ Create_Food:
     mfhi t1
     addi t1, 0x30
     lw t0, TMR1
-    li t2, 19
+    li t2, 9
     div t0, t2
     mfhi t2
     lw t0, TMR1
-    li t3, 75
+    li t3, 9
     div t0, t3
     mfhi t3
     la t0, Food_Location
@@ -34,9 +34,9 @@ Create_Food:
     lw t1, 0x0(t0)
     sw t1, TO_PRINT
 
-    bal Print_Char_X_Y
+  
     nop
-    jr s0
+    jr s1
 
     nop
 

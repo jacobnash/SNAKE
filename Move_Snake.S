@@ -8,6 +8,7 @@
 .set PAUSED,      0xA00004D0
 .set WORM_LENGTH, 0xA00004FC
 .set WORM,        0xA0000500
+.set Food_Location, 0xA00004F8
 
 .ent Move_Snake
 
@@ -17,7 +18,11 @@
 #0x6B - 'k' up
 #0x6C - 'l' right
 
-CheckFOOD: ## probably should be done here.
+
+
+
+
+## probably should be done here.
 #check if head meets food,
 #updates Score
 #then Creates new food that isnt in-line with head... I dont think it
@@ -26,11 +31,37 @@ CheckFOOD: ## probably should be done here.
 
 
 Move_Snake:
-    li s0, 0
-    or s0, s0, ra
+li s0, 0
+or s0, s0, ra
+
+lh t1, Food_Location
+lh t2, WORM
+
+beq t1, t2, ITS_A_HIT
+nop
+B CheckedFOOD
+nop
+
+
+ITS_A_HIT:
+la t1, Food_Location
+lb t2, 3(t0)
+addi t2, -0x30
+la t3, WORM_LENGTH
+sb t2, 3(t3)
+
+
+BAL Create_Food
+nop
+BAL Print_Char_X_Y
+nop
+
+CheckedFOOD:
+
+
     
     la t0, WORM
-    lw t1, WORM_LENGTH  #load worm length value
+    lh t1, WORM_LENGTH  #load worm length value
     #save current head location
     lh t9, 0(t0)  #old location
     lh t8, 0(t0)  #new location
@@ -39,7 +70,8 @@ Move_Snake:
     nop
 Return_Move_Snake:
     #t8 has new location
-    lw t1, WORM_LENGTH  #load worm length value
+    lh t1, WORM_LENGTH  #load worm length value
+    addi t1, 1
 Cont_Move_Snake:
     lh t9, 0(t0)  #t9 = current value
     sh t8, 0(t0)  #replace current body with new value

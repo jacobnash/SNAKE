@@ -66,6 +66,8 @@ sw zero, SPEED
 
 bal Create_Food
 nop
+bal Print_Char_X_Y
+nop
 
 Loop_Main:
 #main loop will continually check flags
