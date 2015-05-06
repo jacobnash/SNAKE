@@ -3,8 +3,8 @@
 .data
 .text
 .set noreorder
-.ent Print_Char_X_Y
 .set TO_PRINT, 0xA0000400
+.ent Print_Char_X_Y
 
 #0x1B = ESC
 #0x5B = '['
@@ -12,8 +12,8 @@
 #0x66 = 'f'
 
 Print_Char_X_Y:
-li s1, 0
-or s1, s1, ra
+li s3, 0
+or s3, s3, ra
 
 la t0, TO_PRINT
 
@@ -62,20 +62,18 @@ bal Transmit_Print_Char_X_Y
 nop
 
 #Send char
-lb s7, 0x2(t0)
+lb s7, 2(t0)
 bal Transmit_Print_Char_X_Y
 nop
-jr s1
+jr s3
 nop
 Transmit_Print_Char_X_Y:
-li s2, 0
-or s2, s2, ra
 lw t2, U1STA		   # U1STA (status)
 andi t2, t2, 0x200     # check if able to Transmit_Print_Char_X_Y
 bne t2, zero, Transmit_Print_Char_X_Y   #cannot transmit right now
 nop                    # otherwise continue
 sw s7, U1TXREG	       # char -> U1TXREG
-jr s2                  # return
+jr ra                  # return
 nop
 
 .end Print_Char_X_Y

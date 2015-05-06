@@ -1,13 +1,17 @@
 #include <p32xxxx.h>
-						
-.global PORTE_SETUP
+.global PORTE_Setup
 .text
 .set noreorder
+.ent PORTE_Setup
 
-PORTE_SETUP:
+PORTE_Setup:
+li s0, 0
+or s0, s0, ra
 
-	sw zero, TRISE #clear TRISE
-	sw zero, ODCE  #clear OCDE
-    jr ra
+sw zero, TRISE #clear TRISE
+sw zero, ODCE  #clear OCDE
+sw zero, PORTE #clear PORTE
 
-.end PORTE_SETUP
+jr s0
+nop
+.end PORTE_Setup

@@ -3,58 +3,62 @@
 .data
 .text
 .set noreorder
-.ent Create_Worm
-.set WORM, 0xA0000500
+.set TO_PRINT,    0xA0000400
+.set MAILBOX,     0xA0000440
 .set WORM_LENGTH, 0xA00004FC
-.set PRINTER, 0xA0000400
+.set WORM,        0xA0000500
 
-#DATA STUCT FORMAT
-#XXYYPTRN
+.ent Create_Worm
+
 Create_Worm:
-    la a1, PRINTER
 	li s0, 0
 	or s0, s0, ra
-    la a2, WORM
-    li t0, 0x231240
-    sh t0, 0x0(a2)
-    sw t0, 0x0(a1)
+
+    la t0, WORM
+    li t1, 0x231240
+    sh t1, 0x0(t0)
+    sw t1, TO_PRINT
     bal Print_Char_X_Y
     nop
-    li t0, 0x5E1241
-    sh t0, 0x2(a2)
-    sw t0, 0x0(a1)
+    li t1, 0x5E1241
+    sh t1, 0x2(t0)
+    sw t1, TO_PRINT
     bal Print_Char_X_Y
     nop
-    li t0, 0x5E1242
-    sh t0, 0x4(a2)
-    sw t0, 0x0(a1)
+    li t1, 0x5E1242
+    sh t1, 0x4(t0)
+    sw t1, TO_PRINT
     bal Print_Char_X_Y
     nop
-    li t0, 0x5E1243
-    sh t0, 0x6(a2)
-    sw t0, 0x0(a1)
+    li t1, 0x5E1243
+    sh t1, 0x6(t0)
+    sw t1, TO_PRINT
     bal Print_Char_X_Y
     nop
-    li t0, 0x5E1244
-    sh t0, 0x8(a2)
-    sw t0, 0x0(a1)
+    li t1, 0x5E1244
+    sh t1, 0x8(t0)
+    sw t1, TO_PRINT
     bal Print_Char_X_Y
     nop
-    li t0, 0x5E1245
-    sh t0, 0xA(a2)
-    sw t0, 0x0(a1)
+    li t1, 0x5E1245
+    sh t1, 0xA(t0)
+    sw t1, TO_PRINT
     bal Print_Char_X_Y
     nop
-    li t0, 0x5E1246
-    sh t0, 0xC(a2)
-    sw t0, 0x0(a1)
+    li t1, 0x5E1246
+    sh t1, 0xC(t0)
+    sw t1, TO_PRINT
     bal Print_Char_X_Y
     nop
-    li t0, 0x0
-    sh t0, 0xE(a2)
-    
-    li t0, 6
-    sw t0, 0xA00004FC #WORM_LENGTH
-jr s0
-nop
+
+    #set initial length to 6
+    li t1, 6
+    sw t1, WORM_LENGTH
+
+    #set initial direction to left
+    li t1, 0x68
+    sw t1, MAILBOX
+
+    jr s0
+    nop
 .end Create_Worm

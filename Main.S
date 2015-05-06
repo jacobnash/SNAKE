@@ -11,6 +11,7 @@
 .set PAUSED,         0xA00004D0
 .set RESTART,        0xA00004D4
 .set SPEED,          0xA00004D8
+.set GAME_STARTED,   0xA0000B00
 
 Ask_User:
 .ASCIZ "Please Enter a Time(HH:MM):"
@@ -18,6 +19,7 @@ Ask_User:
 .ent main
 
 main:
+sw zero, GAME_STARTED
 la t0, Ask_User
 la t1, User_Input
 Load_Ask_User_String:
@@ -32,6 +34,8 @@ nop
 Done_Loading_String:
 bal UART_Setup
 nop
+bal PORTE_Setup
+nop
 bal Clear_Screen
 nop
 bal Print_Ask_User
@@ -43,6 +47,8 @@ nop
 Restart_Main:
 bal Clear_Screen
 nop
+bal Move_Cursor_To_Beginning
+nop
 bal Print_Board
 nop
 li t0, 0x30303030
@@ -53,26 +59,32 @@ bal Print_Time
 nop
 bal Create_Worm
 nop
-bal Print_Snake
+bal Create_Food
 nop
-bal Timer_Setup
-nop
-bal Interrupts_Setup
-nop
-#set initial direction to left
-li t4, 0x68
-sw t4, MAILBOX
+
 #clear game flags
 sw zero, RESTART
 sw zero, PAUSED
 sw zero, SPEED
 
-bal PORTE_SETUP
+#Determine if timer(s) and interrupts should be started
+lw t0, GAME_STARTED
+bne t0, zero, Start_Timer1
 nop
-bal Create_Food
+li t0, 1
+sw t0, GAME_STARTED
+bal Timer_Setup
 nop
-bal Print_Char_X_Y
+bal Interrupts_Setup
 nop
+b Loop_Main
+nop
+
+Start_Timer1:
+li t1, 0x9000
+sw t1, PR1				#Store Period
+li t1, 0x8070
+sw t1, T1CON			#Enable Timer1
 
 Loop_Main:
 #main loop will continually check flags
@@ -80,12 +92,12 @@ li a0, 0
 li a1, 0
 
 #Check if game paused
-lb a0, PAUSED
+lw a0, PAUSED
 bgtz a0, Check_Restart
 nop
 
 #Speed (number 0-9)
-lb a1, SPEED
+lw a1, SPEED
 bne a1, zero, Change_Speed_Main
 nop
 
@@ -97,12 +109,11 @@ Check_Restart:
 sw zero, T1CON          #Stop Timer1
 li t0, 0x30303030
 sw t0, ELAPSEDTIME
-lb a3, RESTART
+lw a3, RESTART
 bgtz a3, Restart_Main
 nop
 b Loop_Main
 nop
-
 
 Change_Speed_Main:
 sw zero, SPEED

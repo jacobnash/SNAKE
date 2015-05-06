@@ -10,7 +10,6 @@ or s0, s0, ra
 
 la t0, 0xA0000330
 Move_Cursor_Print_Board:
-
 li t1, 0x1B
 sb t1, 0(t0)
 addi t0, 1

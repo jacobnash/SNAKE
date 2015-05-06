@@ -10,6 +10,8 @@ ISR_Timer2:
 
     bal Increment_Clock_Time
     nop
+    bal Update_Score
+    nop
 
     lw t0, PAUSED
     # check PAUSED != 0, do not increment elapsed

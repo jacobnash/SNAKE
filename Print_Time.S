@@ -71,14 +71,13 @@ addi t0, 1
 
 la t3, 0xA0000348
 
-Filler_Print_Time:
+#Filler_Print_Time:
+#li t1, 0x2D
+#sb t1, 0(t0)
+#addi t0, 1
 
-li t1, 0x2D
-sb t1, 0(t0)
-addi t0, 1
-
-bne t0, t3, Filler_Print_Time
-nop
+#bne t0, t3, Filler_Print_Time
+#nop
 
 la t2, ELAPSEDTIME
 li t1, 0x20

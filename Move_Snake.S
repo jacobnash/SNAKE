@@ -18,10 +18,6 @@
 #0x6B - 'k' up
 #0x6C - 'l' right
 
-
-
-
-
 ## probably should be done here.
 #check if head meets food,
 #updates Score
@@ -29,39 +25,10 @@
 #is a problem if it is under the snake aslongas we print food before snake
 # and make that a part of this 
 
-
 Move_Snake:
 li s0, 0
 or s0, s0, ra
 
-lh t1, Food_Location
-lh t2, WORM
-
-beq t1, t2, ITS_A_HIT
-nop
-B CheckedFOOD
-nop
-
-
-ITS_A_HIT:
-la t1, Food_Location
-lb t2, 3(t0)
-addi t2, -0x30
-la t3, WORM_LENGTH
-lb t4, 3(t3)
-add t2, t2, t4
-sb t2, 3(t3)
-
-
-BAL Create_Food
-nop
-BAL Print_Char_X_Y
-nop
-
-CheckedFOOD:
-
-
-    
     la t0, WORM
     lh t1, WORM_LENGTH  #load worm length value
     #save current head location
@@ -72,8 +39,25 @@ CheckedFOOD:
     nop
 Return_Move_Snake:
     #t8 has new location
-    lh t1, WORM_LENGTH  #load worm length value
-    addi t1, 1
+    lh t1, Food_Location
+    bne t1, t8, No_Food_Move_Snake
+    nop
+    #b No_Food_Move_Snake
+    la t1, Food_Location
+    lb t2, 2(t1)        #char of food
+    addi t2, -0x30      #now (2-9)
+    lw t3, WORM_LENGTH  #load worm length
+    add t2, t2, t3      #add food to length
+    sw t2, WORM_LENGTH  #store it back
+    bal Update_Score
+    nop
+    bal Create_Food     #make another food
+    nop
+    nop
+No_Food_Move_Snake:
+    #t8 has new location
+    lw t1, WORM_LENGTH  #load worm length value
+    #addi t1, 1          #
 Cont_Move_Snake:
     lh t9, 0(t0)  #t9 = current value
     sh t8, 0(t0)  #replace current body with new value
