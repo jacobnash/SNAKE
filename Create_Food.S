@@ -11,7 +11,7 @@ Create_Food:
     or s1, s1, ra
 
     lw t0, TMR1
-    li t1, 1
+    li t1, 8
     div t0, t1
     mfhi t1
     addi t1, 0x30
