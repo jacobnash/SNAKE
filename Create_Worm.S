@@ -15,41 +15,27 @@ Create_Worm:
 	or s0, s0, ra
 
     la t0, WORM
-    li t1, 0x231240
+    li t1, 0x1240
     sh t1, 0x0(t0)
-    sw t1, TO_PRINT
-    bal Print_Char_X_Y
-    nop
-    li t1, 0x5E1241
+
+    li t1, 0x1241
     sh t1, 0x2(t0)
-    sw t1, TO_PRINT
-    bal Print_Char_X_Y
-    nop
-    li t1, 0x5E1242
+
+    li t1, 0x1242
     sh t1, 0x4(t0)
-    sw t1, TO_PRINT
-    bal Print_Char_X_Y
-    nop
-    li t1, 0x5E1243
+
+    li t1, 0x1243
     sh t1, 0x6(t0)
-    sw t1, TO_PRINT
-    bal Print_Char_X_Y
-    nop
-    li t1, 0x5E1244
+
+    li t1, 0x1244
     sh t1, 0x8(t0)
-    sw t1, TO_PRINT
-    bal Print_Char_X_Y
-    nop
-    li t1, 0x5E1245
+
+    li t1, 0x1245
     sh t1, 0xA(t0)
-    sw t1, TO_PRINT
-    bal Print_Char_X_Y
-    nop
-    li t1, 0x5E1246
+
+    li t1, 0x1246
     sh t1, 0xC(t0)
-    sw t1, TO_PRINT
-    bal Print_Char_X_Y
-    nop
+
 
     #set initial length to 6
     li t1, 6

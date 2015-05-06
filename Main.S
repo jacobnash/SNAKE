@@ -45,10 +45,11 @@ nop
 bal Verify_Read
 nop
 Restart_Main:
+di
 bal Clear_Screen
 nop
-bal Move_Cursor_To_Beginning
-nop
+#bal Move_Cursor_To_Beginning
+#nop
 bal Print_Board
 nop
 li t0, 0x30303030
@@ -60,6 +61,8 @@ nop
 bal Create_Worm
 nop
 bal Create_Food
+nop
+bal Print_Snake
 nop
 
 #clear game flags
@@ -85,6 +88,7 @@ li t1, 0x9000
 sw t1, PR1				#Store Period
 li t1, 0x8070
 sw t1, T1CON			#Enable Timer1
+ei
 
 Loop_Main:
 #main loop will continually check flags
