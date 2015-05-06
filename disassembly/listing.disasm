@@ -1,291 +1,527 @@
 Disassembly Listing for Snake
 Generated From:
-/Users/Jacob/Documents/School/Spring_2015/ECE_344/Snake/Snake.X/dist/default/debug/Snake.X.debug.elf
-Apr 16, 2015 12:55:45 PM
+/Users/mgreci/SNAKE/dist/default/debug/SNAKE.debug.elf
+May 6, 2015 4:22:54 PM
 
----  /Users/Jacob/Documents/School/Spring_2015/ECE_344/Snake/Snake.X/Verify_Read.S  ---------------------
+---  /Users/mgreci/SNAKE/Verify_Read.S  -----------------------------------------------------------------
                                                   1:     #include <p32xxxx.h>
                                                   2:     .global Verify_Read
-                                                  3:     .text
-                                                  4:     .set noreorder
-                                                  5:     .ent Verify_Read
-                                                  6:     
+                                                  3:     .data
+                                                  4:     .text
+                                                  5:     .set noreorder
+                                                  6:     .ent Verify_Read
                                                   7:     
-                                                  8:     
-                                                  9:     Verify_Read:
-9D000748  02008024   AND S0, S0, ZERO             10:       and s0, s0, zero
-9D00074C  021F8025   OR S0, S0, RA                11:       or s0, s0, ra
-9D000750  01405024   AND T2, T2, ZERO             12:       and t2, t2, zero
-9D000754  3C08A000   LUI T0, -24576               13:       la t0, 0xA0000300                  # base address to store chars
+                                                  8:     Verify_Read:
+9D000D90  24100000   ADDIU S0, ZERO, 0            9:     li s0, 0
+9D000D94  021F8025   OR S0, S0, RA                10:    or s0, s0, ra
+                                                  11:    
+9D000D98  240A0000   ADDIU T2, ZERO, 0            12:    li t2, 0
+9D000D9C  3C08A000   LUI T0, -24576               13:    la t0, 0xA0000200  # base address to store chars
                                                   14:    
                                                   15:    LOAD_TIME_VERIFY_READ:
                                                   16:    
-9D00075C  81090000   LB T1, 0(T0)                 17:     lb t1, 0x0(t0)
-9D000760  810A0001   LB T2, 1(T0)                 18:     lb t2, 0x1(t0)
-9D000764  810B0003   LB T3, 3(T0)                 19:     lb t3, 0x3(t0)
-9D000768  810C0004   LB T4, 4(T0)                 20:     lb t4, 0x4(t0)
+9D000DA4  81090000   LB T1, 0(T0)                 17:    lb t1, 0(t0)
+9D000DA8  810A0001   LB T2, 1(T0)                 18:    lb t2, 1(t0)
+9D000DAC  810B0003   LB T3, 3(T0)                 19:    lb t3, 3(t0)
+9D000DB0  810C0004   LB T4, 4(T0)                 20:    lb t4, 4(t0)
                                                   21:    
-9D00076C  AD000000   SW ZERO, 0(T0)               22:     sw zero, 0x0(t0)
-9D000770  AD000004   SW ZERO, 4(T0)               23:     sw zero, 0x4(t0)
+9D000DB4  AD000000   SW ZERO, 0(T0)               22:    sw zero, 0(t0)
+9D000DB8  AD000004   SW ZERO, 4(T0)               23:    sw zero, 4(t0)
                                                   24:    
-9D000774  A1090000   SB T1, 0(T0)                 25:     sb t1, 0x0(t0)
-9D000778  A10A0001   SB T2, 1(T0)                 26:     sb t2, 0x1(t0)
-9D00077C  A10B0002   SB T3, 2(T0)                 27:     sb t3, 0x2(t0)
-9D000780  A10C0003   SB T4, 3(T0)                 28:     sb t4, 0x3(t0)
+9D000DBC  A1090000   SB T1, 0(T0)                 25:    sb t1, 0(t0)
+9D000DC0  A10A0001   SB T2, 1(T0)                 26:    sb t2, 1(t0)
+9D000DC4  A10B0002   SB T3, 2(T0)                 27:    sb t3, 2(t0)
+9D000DC8  A10C0003   SB T4, 3(T0)                 28:    sb t4, 3(t0)
                                                   29:    
-                                                  30:    
-                                                  31:    
-                                                  32:    
-9D000784  02000008   JR S0                        33:      jr s0
-9D000788  00000000   NOP                          34:      nop
-                                                  35:    
-                                                  36:    .end Verify_Read
----  /Users/Jacob/Documents/School/Spring_2015/ECE_344/Snake/Snake.X/UART_SETUP.S  ----------------------
+9D000DCC  340D8CA0   ORI T5, ZERO, -29536         30:    li t5, 36000
+9D000DD0  2129FFD0   ADDI T1, T1, -48             31:    addi t1, -0x30
+9D000DD4  012D0018   MULT 0, T1, T5               32:    mult t1,t5
+9D000DD8  00004812   MFLO T1, 0                   33:    mflo t1
+9D000DDC  240D0E10   ADDIU T5, ZERO, 3600         34:    li t5, 3600
+9D000DE0  214AFFD0   ADDI T2, T2, -48             35:    addi t2, -0x30
+9D000DE4  014D0018   MULT 0, T2, T5               36:    mult t2,t5
+9D000DE8  00005012   MFLO T2, 0                   37:    mflo t2
+9D000DEC  240D0258   ADDIU T5, ZERO, 600          38:    li t5, 600
+9D000DF0  216BFFD0   ADDI T3, T3, -48             39:    addi t3, -0x30
+9D000DF4  016D0018   MULT 0, T3, T5               40:    mult t3,t5
+9D000DF8  00005812   MFLO T3, 0                   41:    mflo t3
+9D000DFC  240D003C   ADDIU T5, ZERO, 60           42:    li t5, 60
+9D000E00  218CFFD0   ADDI T4, T4, -48             43:    addi t4, -0x30
+9D000E04  018D0018   MULT 0, T4, T5               44:    mult t4,t5
+9D000E08  00006012   MFLO T4, 0                   45:    mflo t4
+                                                  46:    
+9D000E0C  012A4820   ADD T1, T1, T2               47:    add t1, t1, t2
+9D000E10  012B4820   ADD T1, T1, T3               48:    add t1, t1, t3
+9D000E14  012C4820   ADD T1, T1, T4               49:    add t1, t1, t4
+                                                  50:    
+9D000E18  AD090008   SW T1, 8(T0)                 51:    sw t1, 8(t0)
+9D000E1C  3C0A0001   LUI T2, 1                    52:    li t2, 0x15144
+9D000E24  AD0A0004   SW T2, 4(T0)                 53:    sw t2, 4(t0)
+                                                  54:    
+9D000E28  012A4822   SUB T1, T1, T2               55:    sub t1, t1, t2
+9D000E2C  1D20FD09   BGTZ T1, 0x9D000254          56:    bgtz t1, main       # ask user again
+9D000E30  00000000   NOP                          57:    nop
+                                                  58:    
+9D000E34  3C09A000   LUI T1, -24576               59:    la t1, 0xA0000210
+9D000E3C  AD200008   SW ZERO, 8(T1)               60:    sw zero, 8(t1)
+                                                  61:    
+9D000E40  02000008   JR S0                        62:    jr s0               # return
+9D000E44  00000000   NOP                          63:    nop
+                                                  64:    
+                                                  65:    .end Verify_Read
+---  /Users/mgreci/SNAKE/Vector.S  ----------------------------------------------------------------------
+                                                  1:     .set noreorder.section .vector_4, code.ent _vector_4_vector_4:	j ISR_Timer1	nop.end _vector_4.section .vector_8, code.ent _vector_8_vector_8:	j ISR_Timer2	nop.end _vector_8.section .vector_24, code.ent _vector_24_vector_24:	j ISR_UART    nop.end _vector_24
+---  /Users/mgreci/SNAKE/Update_Time.S  -----------------------------------------------------------------
                                                   1:     #include <p32xxxx.h>
-                                                  2:     .global UART_SETUP
+                                                  2:     
+                                                  3:     .global Update_Time
+                                                  4:     .text
+                                                  5:     .set noreorder
+                                                  6:     .ent Print_Time
+                                                  7:     .set ELAPSEDTIME, 0xA0000210
+                                                  8:     .set CLKTIME, 0xA0000200
+                                                  9:     
+                                                  10:    Update_Time:
+9D00094C  02008024   AND S0, S0, ZERO             11:    and s0, s0, zero
+9D000950  021F8025   OR S0, S0, RA                12:    or s0, s0, ra
+                                                  13:    
+                                                  14:    CLK_Update_Time:
+9D000954  3C08A000   LUI T0, -24576               15:    la t0, CLKTIME
+9D00095C  8D090008   LW T1, 8(T0)                 16:    lw t1, 8(t0)
+                                                  17:    
+9D000960  34018CA0   ORI AT, ZERO, -29536         18:    div t1, 36000
+9D00096C  00005812   MFLO T3, 0                   19:    mflo t3
+9D000970  00006010   MFHI T4, 0                   20:    mfhi t4
+                                                  21:    
+9D000974  216B0030   ADDI T3, T3, 48              22:    addi t3, 0x30
+9D000978  000C4820   ADD T1, ZERO, T4             23:    add t1, zero, t4
+9D00097C  A10B0000   SB T3, 0(T0)                 24:    sb t3, 0(t0)
+9D000980  24010E10   ADDIU AT, ZERO, 3600         25:    div t1, 3600
+9D00098C  00005812   MFLO T3, 0                   26:    mflo t3
+9D000990  00006010   MFHI T4, 0                   27:    mfhi t4
+9D000994  216B0030   ADDI T3, T3, 48              28:    addi t3, 0x30
+9D000998  000C4820   ADD T1, ZERO, T4             29:    add t1, zero, t4
+9D00099C  A10B0001   SB T3, 1(T0)                 30:    sb t3, 1(t0)
+9D0009A0  24010258   ADDIU AT, ZERO, 600          31:    div t1, 600
+9D0009AC  00005812   MFLO T3, 0                   32:    mflo t3
+9D0009B0  00006010   MFHI T4, 0                   33:    mfhi t4
+                                                  34:    
+9D0009B4  216B0030   ADDI T3, T3, 48              35:    addi t3, 0x30
+9D0009B8  000C4820   ADD T1, ZERO, T4             36:    add t1, zero, t4
+9D0009BC  A10B0002   SB T3, 2(T0)                 37:    sb t3, 2(t0)
+9D0009C0  2401003C   ADDIU AT, ZERO, 60           38:    div t1, 60
+9D0009CC  00005812   MFLO T3, 0                   39:    mflo t3
+9D0009D0  00006010   MFHI T4, 0                   40:    mfhi t4
+                                                  41:    
+9D0009D4  216B0030   ADDI T3, T3, 48              42:    addi t3, 0x30
+9D0009D8  000C4820   ADD T1, ZERO, T4             43:    add t1, zero, t4
+9D0009DC  A10B0003   SB T3, 3(T0)                 44:    sb t3, 3(t0)
+                                                  45:    
+                                                  46:    
+                                                  47:    ELSP_Update_Time:
+9D0009E0  3C08A000   LUI T0, -24576               48:    la t0, ELAPSEDTIME
+9D0009E8  8D090008   LW T1, 8(T0)                 49:    lw t1, 8(t0)
+                                                  50:    
+9D0009EC  240103E8   ADDIU AT, ZERO, 1000         51:    div t1, 1000
+9D0009F8  00005812   MFLO T3, 0                   52:    mflo t3
+9D0009FC  00006010   MFHI T4, 0                   53:    mfhi t4
+                                                  54:    
+9D000A00  216B0030   ADDI T3, T3, 48              55:    addi t3, 0x30
+9D000A04  000C4820   ADD T1, ZERO, T4             56:    add t1, zero, t4
+9D000A08  A10B0000   SB T3, 0(T0)                 57:    sb t3, 0(t0)
+9D000A0C  24010064   ADDIU AT, ZERO, 100          58:    div t1, 100
+9D000A18  00005812   MFLO T3, 0                   59:    mflo t3
+9D000A1C  00006010   MFHI T4, 0                   60:    mfhi t4
+                                                  61:    
+9D000A20  216B0030   ADDI T3, T3, 48              62:    addi t3, 0x30
+9D000A24  000C4820   ADD T1, ZERO, T4             63:    add t1, zero, t4
+9D000A28  A10B0001   SB T3, 1(T0)                 64:    sb t3, 1(t0)
+9D000A2C  2401000A   ADDIU AT, ZERO, 10           65:    div t1, 10
+9D000A38  00005812   MFLO T3, 0                   66:    mflo t3
+9D000A3C  00006010   MFHI T4, 0                   67:    mfhi t4
+                                                  68:    
+9D000A40  216B0030   ADDI T3, T3, 48              69:    addi t3, 0x30
+9D000A44  000C4820   ADD T1, ZERO, T4             70:    add t1, zero, t4
+9D000A48  A10B0002   SB T3, 2(T0)                 71:    sb t3, 2(t0)
+9D000A4C  218C0030   ADDI T4, T4, 48              72:    addi t4, 0x30
+9D000A50  A10C0003   SB T4, 3(T0)                 73:    sb t4, 3(t0)
+                                                  74:    
+                                                  75:    Done_Update_Time:
+9D000A54  02000008   JR S0                        76:    jr s0
+9D000A58  00000000   NOP                          77:    nop
+                                                  78:    
+                                                  79:    .end Update_Time
+---  /Users/mgreci/SNAKE/Update_Score.S  ----------------------------------------------------------------
+                                                  1:     #include <p32xxxx.h>
+                                                  2:     .global Update_Score
                                                   3:     .text
                                                   4:     .set noreorder
-                                                  5:     .ent UART_SETUP
-                                                  6:     
+                                                  5:     .set TO_PRINT, 0xA0000400
+                                                  6:     .set WORM_LENGTH, 0xA00004FC
+                                                  7:     .ent Update_Score
+                                                  8:     
+                                                  9:     Update_Score:
+9D000B38  24110000   ADDIU S1, ZERO, 0            10:        li s1, 0
+9D000B3C  023F8825   OR S1, S1, RA                11:        or s1, s1, ra
+                                                  12:    
+9D000B40  3C08A000   LUI T0, -24576               13:        lw t0, WORM_LENGTH
+9D000B48  2108FFFA   ADDI T0, T0, -6              14:        addi t0, t0, -6    #length starts at 6, score starts at 0
+                                                  15:        
+                                                  16:        #display in LEDs
+9D000B4C  3C01BF88   LUI AT, -16504               17:        sw t0, PORTE
+                                                  18:    
+                                                  19:        #print on UART
+9D000B54  2109FFF6   ADDI T1, T0, -10             20:        addi t1, t0, -10
+9D000B58  0521000A   BGEZ T1, 0x9D000B84          21:        bgez t1, Print_Double_Digits
+9D000B5C  00000000   NOP                          22:        nop
+                                                  23:        #single digit score
+9D000B60  21080030   ADDI T0, T0, 48              24:        addi t0, t0, 0x30
+9D000B64  00084400   SLL T0, T0, 16               25:        sll t0, t0, 16
+9D000B68  35082441   ORI T0, T0, 9281             26:        ori t0, t0, 0x2441
+9D000B6C  3C01A000   LUI AT, -24576               27:        sw t0, TO_PRINT
+9D000B74  04110024   BGEZAL ZERO, 0x9D000C08      28:        bal Print_Char_X_Y
+9D000B78  00000000   NOP                          29:        nop
+9D000B7C  10000020   BEQ ZERO, ZERO, 0x9D000C00   30:        b Done_Update_Score
+9D000B80  00000000   NOP                          31:        nop
+                                                  32:    
+                                                  33:    Print_Double_Digits:
+9D000B84  2409000A   ADDIU T1, ZERO, 10           34:        li t1, 10
+9D000B88  012001F4   TEQ T1, ZERO                 35:        div t0, t1
+9D000BA4  00005012   MFLO T2, 0                   36:        mflo t2     #grab tens place
+9D000BA8  214A0030   ADDI T2, T2, 48              37:        addi t2, t2, 0x30
+9D000BAC  000A5400   SLL T2, T2, 16               38:        sll t2, t2, 16
+9D000BB0  354A2440   ORI T2, T2, 9280             39:        ori t2, t2, 0x2440
+9D000BB4  3C01A000   LUI AT, -24576               40:        sw t0, TO_PRINT
+9D000BBC  04110012   BGEZAL ZERO, 0x9D000C08      41:        bal Print_Char_X_Y
+9D000BC0  00000000   NOP                          42:        nop
+                                                  43:    
+9D000BC4  012001F4   TEQ T1, ZERO                 44:        div t0, t1
+9D000BE0  00005010   MFHI T2, 0                   45:        mfhi t2     #grab ones place
+9D000BE4  214A0030   ADDI T2, T2, 48              46:        addi t2, t2, 0x30
+9D000BE8  000A5400   SLL T2, T2, 16               47:        sll t2, t2, 16
+9D000BEC  354A2440   ORI T2, T2, 9280             48:        ori t2, t2, 0x2440
+9D000BF0  3C01A000   LUI AT, -24576               49:        sw t0, TO_PRINT
+9D000BF8  04110003   BGEZAL ZERO, 0x9D000C08      50:        bal Print_Char_X_Y
+9D000BFC  00000000   NOP                          51:        nop
+                                                  52:    
+                                                  53:    Done_Update_Score:
+9D000C00  02200008   JR S1                        54:        jr s1
+9D000C04  00000000   NOP                          55:        nop
+                                                  56:    
+                                                  57:    .end Update_Score
+---  /Users/mgreci/SNAKE/UART_Setup.S  ------------------------------------------------------------------
+                                                  1:     #include <p32xxxx.h>
+                                                  2:     .global UART_Setup
+                                                  3:     .data
+                                                  4:     .text
+                                                  5:     .set noreorder
+                                                  6:     .ent UART_Setup
                                                   7:     
-                                                  8:     UART_SETUP:
-                                                  9:     # UART Setup
-9D0007D0  00000000   NOP                          10:        nop
-9D0007D4  3C09BF81   LUI T1, -16511               11:        lw t1, OSCCON       # chang this to PBDIV 00
-9D0007DC  2409000A   ADDIU T1, ZERO, 10           12:        li t1,0x0a          # t1 is temp storage
-9D0007E0  3C01BF80   LUI AT, -16512               13:        sw t1,U1BRG         # 0x20 (baud=19200) -> U2BRG (offset 6240)
-9D0007E8  3C01BF80   LUI AT, -16512               14:        sw zero,U1STA       # clear U2STA (offset 6210)
-9D0007F0  34098B00   ORI T1, ZERO, -29952         15:        li t1,0x8B00        # set bits 15(ON) 11(RTSMD) 9:8 (UEN)
-9D0007F4  3C01BF80   LUI AT, -16512               16:        sw t1,U1MODE        # 0x8B00 -> MODE (offset=6200)
-9D0007FC  24091400   ADDIU T1, ZERO, 5120         17:        li t1,0x1400        # set bits 10,12 (UTXEN, URXEN) on
-9D000800  3C01BF80   LUI AT, -16512               18:        sw t1,U1STA         # enable U2STA (offset 6210)
-9D000808  03E00008   JR RA                        19:        jr ra
-9D00080C  00000000   NOP                          20:        nop
-                                                  21:    
-                                                  22:    .end UART_SETUP
----  /Users/Jacob/Documents/School/Spring_2015/ECE_344/Snake/Snake.X/Read_Time.S  -----------------------
+                                                  8:     UART_Setup:
+9D0012FC  24100000   ADDIU S0, ZERO, 0            9:         li s0, 0
+9D001300  021F8025   OR S0, S0, RA                10:        or s0, s0, ra
+                                                  11:    
+9D001304  00000000   NOP                          12:        nop
+9D001308  3C01BF80   LUI AT, -16512               13:        sw zero, U1STA       # clear U2STA
+9D001310  2409000A   ADDIU T1, ZERO, 10           14:        li t1, 0x0A          # t1 is temp storage
+9D001314  3C01BF80   LUI AT, -16512               15:        sw t1, U1BRG         # 0x0A (baud=57600) -> U1BRG
+9D00131C  34098B00   ORI T1, ZERO, -29952         16:        li t1, 0x8B00        # set bits 15(ON) 11(RTSMD) 9:8 (UEN)
+9D001320  3C01BF80   LUI AT, -16512               17:        sw t1, U1MODE        # 0x8B00 -> MODE
+9D001328  24091400   ADDIU T1, ZERO, 5120         18:        li t1, 0x1400        # set bits 10,12 (UTXEN, URXEN) on
+9D00132C  3C01BF80   LUI AT, -16512               19:        sw t1, U1STA         # enable U1STA
+                                                  20:    
+9D001334  02000008   JR S0                        21:        jr s0
+9D001338  00000000   NOP                          22:        nop
+                                                  23:    
+                                                  24:    .end UART_Setup
+---  /Users/mgreci/SNAKE/Timer_Setup.S  -----------------------------------------------------------------
+                                                  1:     #include <p32xxxx.h>
+                                                  2:     .global Timer_Setup
+                                                  3:     .text
+                                                  4:     .set noreorder
+                                                  5:     .ent Timer_Setup
+                                                  6:     
+                                                  7:     Timer_Setup:
+9D00107C  24100000   ADDIU S0, ZERO, 0            8:         li s0, 0
+9D001080  021F8025   OR S0, S0, RA                9:         or s0, s0, ra
+                                                  10:    
+                                                  11:        #Initialize Timer1
+9D001084  3C01BF80   LUI AT, -16512               12:        sw zero, T1CON          #Disable/Stop Timer1
+9D00108C  3C01BF80   LUI AT, -16512               13:    	sw zero, TMR1			#Clear Timer1
+9D001094  34099000   ORI T1, ZERO, -28672         14:    	li t1, 0x9000
+9D001098  3C01BF80   LUI AT, -16512               15:    	sw t1, PR1				#Store Period
+9D0010A0  34098070   ORI T1, ZERO, -32656         16:    	li t1, 0x8070
+9D0010A4  3C01BF80   LUI AT, -16512               17:    	sw t1, T1CON			#Enable Timer1
+                                                  18:    
+                                                  19:        #Initialize Timer2
+9D0010AC  3C01BF80   LUI AT, -16512               20:        sw zero, T2CON          #Disable/Stop Timer2
+9D0010B4  3C01BF80   LUI AT, -16512               21:    	sw zero, TMR2			#Clear Timer1
+9D0010BC  34099000   ORI T1, ZERO, -28672         22:    	li t1, 0x9000
+9D0010C0  3C01BF80   LUI AT, -16512               23:    	sw t1, PR2				#Store Period
+9D0010C8  34098070   ORI T1, ZERO, -32656         24:    	li t1, 0x8070
+9D0010CC  3C01BF80   LUI AT, -16512               25:    	sw t1, T2CON			#Enable Timer2
+                                                  26:    
+9D0010D4  02000008   JR S0                        27:        jr s0
+9D0010D8  00000000   NOP                          28:        nop
+                                                  29:    
+                                                  30:    .end Timer_Setup
+---  /Users/mgreci/SNAKE/Read_Time.S  -------------------------------------------------------------------
                                                   1:     #include <p32xxxx.h>
                                                   2:     .global Read_Time
-                                                  3:     .text
-                                                  4:     .set noreorder
-                                                  5:     .ent Read_Time
-                                                  6:     
-                                                  7:     Read_Time:
-9D00059C  02008024   AND S0, S0, ZERO             8:        and s0, s0, zero
-9D0005A0  021F8025   OR S0, S0, RA                9:        or s0, s0, ra
-                                                  10:    
-9D0005A4  3C08A000   LUI T0, -24576               11:       la t0, 0xA0000300                  # base address to store chars
-9D0005AC  240C000D   ADDIU T4, ZERO, 13           12:       li t4, 0x0D                        # constant for new line
-                                                  13:                                          # Read from RXREG
-                                                  14:    CharCheck_Read_Time:
-9D0005B0  3C09BF80   LUI T1, -16512               15:       lw t1, U1STA                       # read U2STA (6210) -> t1
-9D0005B8  31290001   ANDI T1, T1, 1               16:       andi t1, t1, 0x01                  # check if least sig bit (LSb) == 1
-9D0005BC  1120FFFC   BEQ T1, ZERO, 0x9D0005B0     17:       beq t1, zero, CharCheck_Read_Time  # if LSb != 1
-9D0005C0  00000000   NOP                          18:       nop                    
-                                                  19:    Store_Read_Time:
-                                                  20:       
-9D0005C4  3C0ABF80   LUI T2, -16512               21:       lb t2, U1RXREG                 # load value from U2RXREG -> t2
-9D0005CC  114C000C   BEQ T2, T4, 0x9D000600       22:      beq t2,t4,Submitted_Read_Time   # branch (print history) if t2 == 0xA
-9D0005D0  00000000   NOP                          23:      nop                             # otherwise continue
-9D0005D4  A10A0000   SB T2, 0(T0)                 24:       sb t2, 0(t0)                   # store value into memory
-9D0005D8  21080001   ADDI T0, T0, 1               25:     addi t0, t0, 1                   # increment base address pointer
-                                                  26:    
-                                                  27:    Echo_Read_Time:
-                                                  28:       #Send char via TXREG
-9D0005DC  3C09BF80   LUI T1, -16512               29:       lb t1, U1STA                    # read U1STA
-9D0005E4  31290200   ANDI T1, T1, 512             30:       andi t1, t1, 0x200               # check if able to transmit
-9D0005E8  1520FFFC   BNE T1, ZERO, 0x9D0005DC     31:       bne t1, zero, Echo_Read_Time     # go to transmit, cannot transmit right now
-9D0005EC  00000000   NOP                          32:       nop                            # otherwise continue
-9D0005F0  3C01BF80   LUI AT, -16512               33:       sb t2, U1TXREG                 # char -> U2TXREG (6220)
-9D0005F8  1000FFED   BEQ ZERO, ZERO, 0x9D0005B0   34:       b CharCheck_Read_Time          # go back to start of loop
-9D0005FC  00000000   NOP                          35:       nop
+                                                  3:     .data
+                                                  4:     .text
+                                                  5:     .set noreorder
+                                                  6:     .ent Read_Time
+                                                  7:     
+                                                  8:     Read_Time:
+9D0010DC  24100000   ADDIU S0, ZERO, 0            9:     li s0, 0
+9D0010E0  021F8025   OR S0, S0, RA                10:    or s0, s0, ra
+                                                  11:    
+9D0010E4  3C08A000   LUI T0, -24576               12:    la t0, 0xA0000200                  # base address to store chars
+9D0010EC  3C0BA000   LUI T3, -24576               13:    la t3, 0xA0000205
+                                                  14:    
+                                                  15:    CharCheck_Read_Time:
+9D0010F4  3C09BF80   LUI T1, -16512               16:    lw t1, U1STA                       # read U1STA -> t1
+9D0010FC  31290001   ANDI T1, T1, 1               17:    andi t1, t1, 0x01                  # check if least sig bit (LSb) == 1
+9D001100  1120FFFC   BEQ T1, ZERO, 0x9D0010F4     18:    beq t1, zero, CharCheck_Read_Time  # if LSb == 0, check again
+9D001104  00000000   NOP                          19:    nop                                # otherwise continue
+                                                  20:    
+                                                  21:    #store char
+9D001108  3C0ABF80   LUI T2, -16512               22:    lb t2, U1RXREG                     # load value from U1RXREG -> t2
+9D001110  A10A0000   SB T2, 0(T0)                 23:    sb t2, 0(t0)                       # store value into memory
+9D001114  21080001   ADDI T0, T0, 1               24:    addi t0, 1                         # incr base address pointer
+                                                  25:    
+                                                  26:    Echo_Read_Time:
+9D001118  3C01BF80   LUI AT, -16512               27:    sb t2, U1TXREG                     # char -> U1TXREG
+9D001120  150BFFF4   BNE T0, T3, 0x9D0010F4       28:    bne t0, t3, CharCheck_Read_Time    # keep going
+9D001124  00000000   NOP                          29:    nop
+                                                  30:    
+                                                  31:    #done
+9D001128  21080001   ADDI T0, T0, 1               32:    addi t0, 1
+9D00112C  A1000000   SB ZERO, 0(T0)               33:    sb zero, 0(t0)
+9D001130  02000008   JR S0                        34:    jr s0
+9D001134  00000000   NOP                          35:    nop
                                                   36:    
-                                                  37:    Submitted_Read_Time:
-9D000600  02000008   JR S0                        38:      jr s0
-9D000604  00000000   NOP                          39:      nop
-                                                  40:    
-                                                  41:    .end Read_Time
----  /Users/Jacob/Documents/School/Spring_2015/ECE_344/Snake/Snake.X/Print_Time_String.S  ---------------
-                                                  1:     #include <p32xxxx.h>.global Print_Time_String.text.set noreorder.ent Print_Time_String.set WHATTIMEISIT, 0xA0000200Print_Time_String:    and s0, s0, zero     or s0, s0, ra    nop                           # point PC here    la t0, WHATTIMEISIT        # address of string -> t0Load_Char_Print_Time_String:                         #Send each char from the address pointed by t0    lb t2, 0x0(t0)       # load char into t2    beq t2, zero, Done_Print_Time_String   # t2 == 0 (NULL), done sending chars    nop                  # otherwise continue (more chars to send)    bal Print_Print_Time_String      # start subroutine ‰??printChar‰??    nop                                    #return from printChar here    addi t0, t0, 1                  # increment t0 pointer    b Load_Char_Print_Time_String   # load next char    nopPrint_Print_Time_String:    lw t1,U1STA           # (status) U2STA (6210) -> t1    andi t1,t1,0x200      # check transmit status    bne t1,zero,Print_Print_Time_String  # cannot transmit now, try again    nop                   # otherwise continue    sb t2,U1TXREG         # char (t2) -> U2TXREG (6220)    jr ra                 # return to ‰??return from printChar here‰??    nopDone_Print_Time_String:   nop   jr s0   nop.end Print_Time_String
----  /Users/Jacob/Documents/School/Spring_2015/ECE_344/Snake/Snake.X/Print_Time.S  ----------------------
+                                                  37:    .end Read_Time
+---  /Users/mgreci/SNAKE/Print_Time.S  ------------------------------------------------------------------
                                                   1:     #include <p32xxxx.h>
                                                   2:     .global Print_Time
-                                                  3:     .text
-                                                  4:     .set noreorder
-                                                  5:     .ent Print_Time
-                                                  6:     
-                                                  7:     .set WHATTIMEISIT, 0xA0000200
-                                                  8:     
-                                                  9:     Print_Time:
-9D0002E0  02008024   AND S0, S0, ZERO             10:        and s0, s0, zero
-9D0002E4  021F8025   OR S0, S0, RA                11:        or s0, s0, ra
-                                                  12:    
-                                                  13:    Move_Cursor_Print_Time:
-9D0002E8  3C08A000   LUI T0, -24576               14:         la t0, 0xA0000330
-9D0002F0  3C0AA000   LUI T2, -24576               15:         la t2, 0xA0000300
-9D0002F8  2409001B   ADDIU T1, ZERO, 27           16:         li t1, 0x1B
-9D0002FC  A1090004   SB T1, 4(T0)                 17:         sb t1, 0x4(t0)
-9D000300  2409005B   ADDIU T1, ZERO, 91           18:         li t1, 0x5B
-9D000304  A1090005   SB T1, 5(T0)                 19:         sb t1, 0x5(t0)
-9D000308  24090031   ADDIU T1, ZERO, 49           20:         li t1, 0x31
-9D00030C  A1090006   SB T1, 6(T0)                 21:         sb t1, 0x6(t0)
-9D000310  2409003B   ADDIU T1, ZERO, 59           22:         li t1, 0x3b
-9D000314  A1090007   SB T1, 7(T0)                 23:         sb t1, 0x7(t0)
-9D000318  24090032   ADDIU T1, ZERO, 50           24:         li t1, 0x32
-9D00031C  A1090008   SB T1, 8(T0)                 25:         sb t1, 0x8(t0)
-9D000320  24090066   ADDIU T1, ZERO, 102          26:         li t1, 0x66
-9D000324  A1090009   SB T1, 9(T0)                 27:         sb t1, 0x9(t0)
-9D000328  81490000   LB T1, 0(T2)                 28:         lb t1, 0x0(t2)
-9D00032C  A109000A   SB T1, 10(T0)                29:         sb t1, 0xa(t0)
-9D000330  81490001   LB T1, 1(T2)                 30:         lb t1, 0x1(t2)
-9D000334  A109000B   SB T1, 11(T0)                31:         sb t1, 0xb(t0)
-9D000338  2409003A   ADDIU T1, ZERO, 58           32:         li t1, 0x3a
-9D00033C  A109000C   SB T1, 12(T0)                33:         sb t1, 0xc(t0)
-9D000340  81490002   LB T1, 2(T2)                 34:         lb t1, 0x2(t2)
-9D000344  A109000D   SB T1, 13(T0)                35:         sb t1, 0xd(t0)
-9D000348  81490003   LB T1, 3(T2)                 36:         lb t1, 0x3(t2)
-9D00034C  A109000E   SB T1, 14(T0)                37:         sb t1, 0xe(t0)
-9D000350  24090000   ADDIU T1, ZERO, 0            38:         li t1, 0x00
-9D000354  A109000F   SB T1, 15(T0)                39:         sb t1, 0xf(t0)
-                                                  40:    
-                                                  41:    load_Print_Time:
-                                                  42:        #Send each char from the address pointed by t0
-9D000358  810A0000   LB T2, 0(T0)                 43:        lb t2, 0x0(t0)                  # load char into t2
-9D00035C  1140000F   BEQ T2, ZERO, 0x9D00039C     44:        beq t2, zero, Done_Print_Time   # t2 == 0 (NULL), done sending chars
-9D000360  00000000   NOP                          45:        nop                             # otherwise continue (more chars to send)
-9D000364  04110004   BGEZAL ZERO, 0x9D000378      46:        bal Print_Print_Time            # start subroutine ‰??printChar‰??
-9D000368  00000000   NOP                          47:        nop
-                                                  48:        #return from Print_Print_Time here
-9D00036C  21080001   ADDI T0, T0, 1               49:        addi t0, t0, 1              # increment t0 pointer
-9D000370  1000FFF9   BEQ ZERO, ZERO, 0x9D000358   50:        b load_Print_Time           # load next char
-9D000374  00000000   NOP                          51:        nop
-                                                  52:    Print_Print_Time:
-9D000378  3C09BF80   LUI T1, -16512               53:        lw t1,U1STA                 # (status) U2STA (6210) -> t1
-9D000380  31290200   ANDI T1, T1, 512             54:        andi t1,t1,0x200            # check transmit status
-9D000384  1520FFFC   BNE T1, ZERO, 0x9D000378     55:        bne t1,zero,Print_Print_Time # cannot transmit now, try again
-9D000388  00000000   NOP                          56:        nop                         # otherwise continue
-9D00038C  3C01BF80   LUI AT, -16512               57:        sb t2,U1TXREG               # char (t2) -> U2TXREG (6220)
-9D000394  03E00008   JR RA                        58:        jr ra                       # return to ‰??return from printChar here‰??
-9D000398  00000000   NOP                          59:        nop
-                                                  60:    
-                                                  61:    Done_Print_Time:
-9D00039C  00000000   NOP                          62:       nop
-9D0003A0  02000008   JR S0                        63:       jr s0
-9D0003A4  00000000   NOP                          64:       nop
-                                                  65:    
-                                                  66:    .end Print_Time
----  /Users/Jacob/Documents/School/Spring_2015/ECE_344/Snake/Snake.X/Print_Board.S  ---------------------
-                                                  1:     #include <p32xxxx.h>
-                                                  2:     .global Print_Board
-                                                  3:     .text
-                                                  4:     .set noreorder
-                                                  5:     .ent Print_Board
-                                                  6:     
-                                                  7:     .set WHATTIMEISIT, 0xA0000200
-                                                  8:     
-                                                  9:     Print_Board:
-9D000000  02008024   AND S0, S0, ZERO             10:        and s0, s0, zero
-9D000004  021F8025   OR S0, S0, RA                11:        or s0, s0, ra
-9D000008  3C08A000   LUI T0, -24576               12:        la t0, 0xA0000330
-                                                  13:    Move_Cursor_Print_Board:
-                                                  14:         
-9D000010  2409001B   ADDIU T1, ZERO, 27           15:         li t1, 0x1B
-9D000014  A1090000   SB T1, 0(T0)                 16:         sb t1, 0(t0)
-9D000018  21080001   ADDI T0, T0, 1               17:         addi t0,1
-9D00001C  2409005B   ADDIU T1, ZERO, 91           18:         li t1, 0x5B
-9D000020  A1090000   SB T1, 0(T0)                 19:         sb t1, 0x0(t0)
-9D000024  21080001   ADDI T0, T0, 1               20:         addi t0,1
-9D000028  24090031   ADDIU T1, ZERO, 49           21:         li t1, 0x31
-9D00002C  A1090000   SB T1, 0(T0)                 22:         sb t1, 0x0(t0)
-9D000030  21080001   ADDI T0, T0, 1               23:         addi t0,1
-9D000034  2409003B   ADDIU T1, ZERO, 59           24:         li t1, 0x3b
-9D000038  A1090000   SB T1, 0(T0)                 25:         sb t1, 0x0(t0)
-9D00003C  21080001   ADDI T0, T0, 1               26:         addi t0,1
-9D000040  24090031   ADDIU T1, ZERO, 49           27:         li t1, 0x31
-9D000044  A1090000   SB T1, 0(T0)                 28:         sb t1, 0x0(t0)
-9D000048  21080001   ADDI T0, T0, 1               29:         addi t0,1
-9D00004C  24090066   ADDIU T1, ZERO, 102          30:         li t1, 0x66
-9D000050  A1090000   SB T1, 0(T0)                 31:         sb t1, 0x0(t0)
-9D000054  240A009E   ADDIU T2, ZERO, 158          32:         li t2, 158
-9D000058  240B0058   ADDIU T3, ZERO, 88           33:         li t3, 0x58
-                                                  34:    #print out 74 x
+                                                  3:     .data
+                                                  4:     .text
+                                                  5:     .set noreorder
+                                                  6:     .ent Print_Time
+                                                  7:     .set TO_PRINT, 0xA0000400
+                                                  8:     .set ELAPSEDTIME, 0xA0000210
+                                                  9:     .set CLKTIME, 0xA0000200
+                                                  10:    .set STRING, 0xA0000300
+                                                  11:    
+                                                  12:    Print_Time:
+9D00042C  24100000   ADDIU S0, ZERO, 0            13:    li s0, 0
+9D000430  021F8025   OR S0, S0, RA                14:    or s0, s0, ra
+                                                  15:    
+                                                  16:    Go_Home_Print_Time:
+9D000434  3C080020   LUI T0, 32                   17:    li t0, 0x202401
+9D00043C  3C01A000   LUI AT, -24576               18:    sw t0, TO_PRINT
+9D000444  041101F0   BGEZAL ZERO, 0x9D000C08      19:    bal Print_Char_X_Y
+9D000448  00000000   NOP                          20:    nop
+9D00044C  3C0AA000   LUI T2, -24576               21:    la t2, CLKTIME
+9D000454  3C08A000   LUI T0, -24576               22:    la t0, STRING
+                                                  23:    
+9D00045C  24090054   ADDIU T1, ZERO, 84           24:    li t1, 0x54
+9D000460  A1090000   SB T1, 0(T0)                 25:    sb t1, 0(t0)
+9D000464  21080001   ADDI T0, T0, 1               26:    addi t0, 1
+                                                  27:    
+9D000468  24090049   ADDIU T1, ZERO, 73           28:    li t1, 0x49
+9D00046C  A1090000   SB T1, 0(T0)                 29:    sb t1, 0(t0)
+9D000470  21080001   ADDI T0, T0, 1               30:    addi t0, 1
+                                                  31:    
+9D000474  2409004D   ADDIU T1, ZERO, 77           32:    li t1, 0x4D
+9D000478  A1090000   SB T1, 0(T0)                 33:    sb t1, 0(t0)
+9D00047C  21080001   ADDI T0, T0, 1               34:    addi t0, 1
                                                   35:    
-                                                  36:    Print_X:
-9D00005C  21080001   ADDI T0, T0, 1               37:         addi t0, 1
-9D000060  214AFFFF   ADDI T2, T2, -1              38:         addi t2, -1
-9D000064  A10B0000   SB T3, 0(T0)                 39:         sb t3, 0x0(t0)
-9D000068  140AFFFC   BNE ZERO, T2, 0x9D00005C     40:         bne zero, t2, Print_X
-9D00006C  00000000   NOP                          41:         nop
-9D000070  240C0014   ADDIU T4, ZERO, 20           42:         li t4, 20
-                                                  43:    Print_Other:
-9D000074  240D0004   ADDIU T5, ZERO, 4            44:         li t5, 4
-                                                  45:    Print_4_X:
-9D000078  21080001   ADDI T0, T0, 1               46:         addi t0, 1
-9D00007C  21ADFFFF   ADDI T5, T5, -1              47:         addi t5, -1
-9D000080  A10B0000   SB T3, 0(T0)                 48:         sb t3, 0x0(t0)
-9D000084  140DFFFC   BNE ZERO, T5, 0x9D000078     49:         bne zero, t5, Print_4_X
-9D000088  00000000   NOP                          50:         nop
-9D00008C  240E004C   ADDIU T6, ZERO, 76           51:         li t6, 76
-                                                  52:    Print_Space:
-9D000090  21CEFFFF   ADDI T6, T6, -1              53:         addi t6, -1
-9D000094  21080001   ADDI T0, T0, 1               54:         addi t0, 1
-9D000098  24090020   ADDIU T1, ZERO, 32           55:         li t1, 0x20
-9D00009C  A1090000   SB T1, 0(T0)                 56:         sb t1, 0x0(t0)
-9D0000A0  140EFFFB   BNE ZERO, T6, 0x9D000090     57:         bne zero, t6, Print_Space
-9D0000A4  00000000   NOP                          58:         nop
-9D0000A8  218CFFFF   ADDI T4, T4, -1              59:         addi t4, -1
-9D0000AC  1580FFF1   BNE T4, ZERO, 0x9D000074     60:         bne  t4, zero, Print_Other
-9D0000B0  00000000   NOP                          61:         nop
-9D0000B4  240A00A2   ADDIU T2, ZERO, 162          62:         li t2, 162
-9D0000B8  240B0058   ADDIU T3, ZERO, 88           63:         li t3, 0x58
-                                                  64:    #print out 74 x
-                                                  65:    
-                                                  66:    Print_X_last:
-9D0000BC  21080001   ADDI T0, T0, 1               67:         addi t0, 1
-9D0000C0  214AFFFF   ADDI T2, T2, -1              68:         addi t2, -1
-9D0000C4  A10B0000   SB T3, 0(T0)                 69:         sb t3, 0x0(t0)
-9D0000C8  140AFFFC   BNE ZERO, T2, 0x9D0000BC     70:         bne zero, t2, Print_X_last
-9D0000CC  00000000   NOP                          71:         nop
-                                                  72:    
+9D000480  24090045   ADDIU T1, ZERO, 69           36:    li t1, 0x45
+9D000484  A1090000   SB T1, 0(T0)                 37:    sb t1, 0(t0)
+9D000488  21080001   ADDI T0, T0, 1               38:    addi t0, 1
+                                                  39:    
+9D00048C  2409003A   ADDIU T1, ZERO, 58           40:    li t1, 0x3A
+9D000490  A1090000   SB T1, 0(T0)                 41:    sb t1, 0(t0)
+9D000494  21080001   ADDI T0, T0, 1               42:    addi t0, 1
+                                                  43:    
+9D000498  24090020   ADDIU T1, ZERO, 32           44:    li t1, 0x20
+9D00049C  A1090000   SB T1, 0(T0)                 45:    sb t1, 0(t0)
+9D0004A0  21080001   ADDI T0, T0, 1               46:    addi t0, 1
+                                                  47:    
+9D0004A4  81490000   LB T1, 0(T2)                 48:    lb t1, 0(t2)
+9D0004A8  A1090000   SB T1, 0(T0)                 49:    sb t1, 0(t0)
+9D0004AC  21080001   ADDI T0, T0, 1               50:    addi t0, 1
+                                                  51:    
+9D0004B0  81490001   LB T1, 1(T2)                 52:    lb t1, 1(t2)
+9D0004B4  A1090000   SB T1, 0(T0)                 53:    sb t1, 0(t0)
+9D0004B8  21080001   ADDI T0, T0, 1               54:    addi t0, 1
+                                                  55:    
+9D0004BC  2409003A   ADDIU T1, ZERO, 58           56:    li t1, 0x3A
+9D0004C0  A1090000   SB T1, 0(T0)                 57:    sb t1, 0(t0)
+9D0004C4  21080001   ADDI T0, T0, 1               58:    addi t0, 1
+                                                  59:    
+9D0004C8  81490002   LB T1, 2(T2)                 60:    lb t1, 2(t2)
+9D0004CC  A1090000   SB T1, 0(T0)                 61:    sb t1, 0(t0)
+9D0004D0  21080001   ADDI T0, T0, 1               62:    addi t0, 1
+                                                  63:    
+9D0004D4  81490003   LB T1, 3(T2)                 64:    lb t1, 3(t2)
+9D0004D8  A1090000   SB T1, 0(T0)                 65:    sb t1, 0(t0)
+9D0004DC  21080001   ADDI T0, T0, 1               66:    addi t0, 1
+                                                  67:    
+9D0004E0  24090020   ADDIU T1, ZERO, 32           68:    li t1, 0x20
+9D0004E4  A1090000   SB T1, 0(T0)                 69:    sb t1, 0(t0)
+9D0004E8  21080001   ADDI T0, T0, 1               70:    addi t0, 1
+                                                  71:    
+9D0004EC  3C0BA000   LUI T3, -24576               72:    la t3, 0xA0000348
                                                   73:    
-9D0000D0  21080001   ADDI T0, T0, 1               74:         addi t0, 1
-9D0000D4  24090000   ADDIU T1, ZERO, 0            75:         li t1, 0x00
-9D0000D8  A1090000   SB T1, 0(T0)                 76:         sb t1, 0x0(t0)
-9D0000DC  3C08A000   LUI T0, -24576               77:         la t0, 0xA0000330
-                                                  78:    load_Print_Board:
-                                                  79:        #Send each char from the address pointed by t0
-9D0000E4  810A0000   LB T2, 0(T0)                 80:        lb t2, 0x0(t0)                  # load char into t2
-9D0000E8  1140000F   BEQ T2, ZERO, 0x9D000128     81:        beq t2, zero, Done_Print_Board   # t2 == 0 (NULL), done sending chars
-9D0000EC  00000000   NOP                          82:        nop                             # otherwise continue (more chars to send)
-9D0000F0  04110004   BGEZAL ZERO, 0x9D000104      83:        bal Print_Print_Board            # start subroutine ‰??printChar‰??
-9D0000F4  00000000   NOP                          84:        nop
-                                                  85:        #return from Print_Print_Board here
-9D0000F8  21080001   ADDI T0, T0, 1               86:        addi t0, t0, 1              # increment t0 pointer
-9D0000FC  1000FFF9   BEQ ZERO, ZERO, 0x9D0000E4   87:        b load_Print_Board           # load next char
-9D000100  00000000   NOP                          88:        nop
-                                                  89:    Print_Print_Board:
-9D000104  3C09BF80   LUI T1, -16512               90:        lw t1,U1STA                 # (status) U2STA (6210) -> t1
-9D00010C  31290200   ANDI T1, T1, 512             91:        andi t1,t1,0x200            # check transmit status
-9D000110  1520FFFC   BNE T1, ZERO, 0x9D000104     92:        bne t1,zero,Print_Print_Board # cannot transmit now, try again
-9D000114  00000000   NOP                          93:        nop                         # otherwise continue
-9D000118  3C01BF80   LUI AT, -16512               94:        sb t2,U1TXREG               # char (t2) -> U2TXREG (6220)
-9D000120  03E00008   JR RA                        95:        jr ra                       # return to ‰??return from printChar here‰??
-9D000124  00000000   NOP                          96:        nop
-                                                  97:    
-                                                  98:    Done_Print_Board:
-9D000128  00000000   NOP                          99:       nop
-9D00012C  02000008   JR S0                        100:      jr s0
-9D000130  00000000   NOP                          101:      nop
+                                                  74:    #Filler_Print_Time:
+                                                  75:    #li t1, 0x2D
+                                                  76:    #sb t1, 0(t0)
+                                                  77:    #addi t0, 1
+                                                  78:    
+                                                  79:    #bne t0, t3, Filler_Print_Time
+                                                  80:    #nop
+                                                  81:    
+9D0004F4  3C0AA000   LUI T2, -24576               82:    la t2, ELAPSEDTIME
+9D0004FC  24090020   ADDIU T1, ZERO, 32           83:    li t1, 0x20
+9D000500  A1090000   SB T1, 0(T0)                 84:    sb t1, 0(t0)
+9D000504  21080001   ADDI T0, T0, 1               85:    addi t0, 1
+                                                  86:    
+9D000508  81490000   LB T1, 0(T2)                 87:    lb t1, 0(t2)
+9D00050C  A1090000   SB T1, 0(T0)                 88:    sb t1, 0(t0)
+9D000510  21080001   ADDI T0, T0, 1               89:    addi t0, 1
+                                                  90:    
+9D000514  81490001   LB T1, 1(T2)                 91:    lb t1, 1(t2)
+9D000518  A1090000   SB T1, 0(T0)                 92:    sb t1, 0(t0)
+9D00051C  21080001   ADDI T0, T0, 1               93:    addi t0, 1
+                                                  94:    
+9D000520  81490002   LB T1, 2(T2)                 95:    lb t1, 2(t2)
+9D000524  A1090000   SB T1, 0(T0)                 96:    sb t1, 0(t0)
+9D000528  21080001   ADDI T0, T0, 1               97:    addi t0, 1
+                                                  98:    
+9D00052C  81490003   LB T1, 3(T2)                 99:    lb t1, 3(t2)
+9D000530  A1090000   SB T1, 0(T0)                 100:   sb t1, 0(t0)
+9D000534  21080001   ADDI T0, T0, 1               101:   addi t0, 1
                                                   102:   
-                                                  103:   .end Print_Board
----  /Users/Jacob/Documents/School/Spring_2015/ECE_344/Snake/Snake.X/PRINT_CHAR_X_Y.S  ------------------
+9D000538  24090020   ADDIU T1, ZERO, 32           103:   li t1, 0x20
+9D00053C  A1090000   SB T1, 0(T0)                 104:   sb t1, 0(t0)
+9D000540  21080001   ADDI T0, T0, 1               105:   addi t0, 1
+                                                  106:   
+9D000544  24090020   ADDIU T1, ZERO, 32           107:   li t1, 0x20
+9D000548  A1090000   SB T1, 0(T0)                 108:   sb t1, 0(t0)
+9D00054C  21080001   ADDI T0, T0, 1               109:   addi t0, 1
+                                                  110:   
+9D000550  24090000   ADDIU T1, ZERO, 0            111:   li t1, 0
+9D000554  A1090000   SB T1, 0(T0)                 112:   sb t1, 0(t0)
+9D000558  21080001   ADDI T0, T0, 1               113:   addi t0, 1
+                                                  114:   
+9D00055C  3C15A000   LUI S5, -24576               115:   la s5, STRING
+                                                  116:   load_Print_Time:
+                                                  117:   #Send each char from the address pointed by t0
+9D000564  82B20000   LB S2, 0(S5)                 118:   lb s2, 0(s5)                    # load char into s2
+9D000568  1240000F   BEQ S2, ZERO, 0x9D0005A8     119:   beq s2, zero, Done_Print_Time   # s2 == 0 (NULL), done sending chars
+9D00056C  00000000   NOP                          120:   nop
+9D000570  04110004   BGEZAL ZERO, 0x9D000584      121:   bal Print_Print_Time            # print time
+9D000574  00000000   NOP                          122:   nop
+9D000578  22B50001   ADDI S5, S5, 1               123:   addi s5, 1                      # increment t0 pointer
+9D00057C  1000FFF9   BEQ ZERO, ZERO, 0x9D000564   124:   b load_Print_Time               # load next char
+9D000580  00000000   NOP                          125:   nop
+                                                  126:   
+                                                  127:   Print_Print_Time:
+9D000584  3C09BF80   LUI T1, -16512               128:   lw t1, U1STA                    # (status) U1STA -> t1
+9D00058C  31290200   ANDI T1, T1, 512             129:   andi t1, t1, 0x200              # check transmit status
+9D000590  1520FFFC   BNE T1, ZERO, 0x9D000584     130:   bne t1, zero, Print_Print_Time  # cannot transmit now, try again
+9D000594  00000000   NOP                          131:   nop                             # otherwise continue
+9D000598  3C01BF80   LUI AT, -16512               132:   sb s2, U1TXREG                  # char (s2) -> U1TXREG
+                                                  133:   
+9D0005A0  03E00008   JR RA                        134:   jr ra                           # return
+9D0005A4  00000000   NOP                          135:   nop
+                                                  136:   
+                                                  137:   Done_Print_Time:
+9D0005A8  02000008   JR S0                        138:   jr s0
+9D0005AC  00000000   NOP                          139:   nop
+                                                  140:   .end Print_Time
+---  /Users/mgreci/SNAKE/Print_Snake.S  -----------------------------------------------------------------
+                                                  1:     #include <p32xxxx.h>
+                                                  2:     .global Print_Snake
+                                                  3:     .text
+                                                  4:     .set noreorder
+                                                  5:     .ent Print_Snake
+                                                  6:     
+                                                  7:     .set TO_PRINT, 0xA0000400
+                                                  8:     .set WORM, 0xA0000500
+                                                  9:     .set WORM_LENGTH, 0xA00004FC
+                                                  10:    
+                                                  11:    # j = 6A Down
+                                                  12:    # k = 6B Up
+                                                  13:    # l = 6C right
+                                                  14:    # h = 68 left
+                                                  15:    # # = 23
+                                                  16:    # ^ = 5E
+                                                  17:    Print_Snake:
+9D000CD0  24100000   ADDIU S0, ZERO, 0            18:    li s0, 0
+9D000CD4  021F8025   OR S0, S0, RA                19:    or s0, s0, ra
+                                                  20:    
+9D000CD8  3C16A000   LUI S6, -24576               21:    la s6, WORM
+9D000CE0  3C15A000   LUI S5, -24576               22:    la s5, WORM_LENGTH
+9D000CE8  86B40000   LH S4, 0(S5)                 23:    lh s4, 0x0(s5)
+                                                  24:    
+                                                  25:    Print_Head_Snake:
+                                                  26:    ##PRINT HEAD##
+9D000CEC  86D20000   LH S2, 0(S6)                 27:    lh s2, 0(s6)
+9D000CF0  3C090023   LUI T1, 35                   28:    li t1, 0x230000
+9D000CF4  02499025   OR S2, S2, T1                29:    or s2, s2, t1
+9D000CF8  3C01A000   LUI AT, -24576               30:    sw s2, TO_PRINT
+9D000D00  0411FFC1   BGEZAL ZERO, 0x9D000C08      31:    bal Print_Char_X_Y
+9D000D04  00000000   NOP                          32:    nop
+                                                  33:    
+                                                  34:    Print_Body_Snake:
+9D000D08  22D60002   ADDI S6, S6, 2               35:    addi s6, 2
+9D000D0C  86D20000   LH S2, 0(S6)                 36:    lh s2, 0(s6)
+9D000D10  3C09005E   LUI T1, 94                   37:    li t1, 0x5E0000
+9D000D14  02499025   OR S2, S2, T1                38:    or s2, s2, t1
+9D000D18  3C01A000   LUI AT, -24576               39:    sw zero, TO_PRINT
+9D000D20  3C01A000   LUI AT, -24576               40:    sw s2, TO_PRINT
+9D000D28  0411FFB7   BGEZAL ZERO, 0x9D000C08      41:    bal Print_Char_X_Y
+9D000D2C  00000000   NOP                          42:    nop
+9D000D30  2294FFFF   ADDI S4, S4, -1              43:    addi s4, -1
+9D000D34  0681FFF4   BGEZ S4, 0x9D000D08          44:    bgez s4, Print_Body_Snake
+9D000D38  00000000   NOP                          45:    nop
+                                                  46:    
+9D000D3C  82AA0003   LB T2, 3(S5)                 47:    lb t2, 3(s5)
+9D000D40  1D40000C   BGTZ T2, 0x9D000D74          48:    bgtz t2, Submitted_Print_Snake 
+9D000D44  00000000   NOP                          49:    nop
+9D000D48  86D20000   LH S2, 0(S6)                 50:    lh s2, 0(s6)
+9D000D4C  3C090020   LUI T1, 32                   51:    li t1, 0x200000
+9D000D50  02499025   OR S2, S2, T1                52:    or s2, s2, t1
+9D000D54  3C01A000   LUI AT, -24576               53:    sw zero, TO_PRINT
+9D000D5C  3C01A000   LUI AT, -24576               54:    sw s2, TO_PRINT
+9D000D64  0411FFA8   BGEZAL ZERO, 0x9D000C08      55:    bal Print_Char_X_Y
+9D000D68  00000000   NOP                          56:    nop
+9D000D6C  02000008   JR S0                        57:    jr s0
+9D000D70  00000000   NOP                          58:    nop
+                                                  59:    
+                                                  60:    Submitted_Print_Snake:
+9D000D74  82A90000   LB T1, 0(S5)                 61:    lb t1, 0(s5)
+9D000D78  21290001   ADDI T1, T1, 1               62:    addi t1, 1
+9D000D7C  A2A90000   SB T1, 0(S5)                 63:    sb t1, 0(s5)
+9D000D80  214AFFFF   ADDI T2, T2, -1              64:    addi t2, -1
+9D000D84  A2AA0003   SB T2, 3(S5)                 65:    sb t2, 3(s5)
+9D000D88  02000008   JR S0                        66:    jr s0
+9D000D8C  00000000   NOP                          67:    nop
+                                                  68:    
+                                                  69:    .end Print_Snake
+---  /Users/mgreci/SNAKE/Print_Char_X_Y.S  --------------------------------------------------------------
                                                   1:     #include <p32xxxx.h>
                                                   2:     .global Print_Char_X_Y
                                                   3:     .data
                                                   4:     .text
                                                   5:     .set noreorder
-                                                  6:     .ent Print_Char_X_Y
-                                                  7:     .set TO_PRINT, 0xA0000400
+                                                  6:     .set TO_PRINT, 0xA0000400
+                                                  7:     .ent Print_Char_X_Y
                                                   8:     
                                                   9:     #0x1B = ESC
                                                   10:    #0x5B = '['
@@ -293,237 +529,1026 @@ Apr 16, 2015 12:55:45 PM
                                                   12:    #0x66 = 'f'
                                                   13:    
                                                   14:    Print_Char_X_Y:
-9D000210  24110000   ADDIU S1, ZERO, 0            15:    	li s1, 0
-9D000214  023F8825   OR S1, S1, RA                16:    	or s1, s1, ra
+9D000C08  24130000   ADDIU S3, ZERO, 0            15:    li s3, 0
+9D000C0C  027F9825   OR S3, S3, RA                16:    or s3, s3, ra
                                                   17:    
-9D000218  3C08A000   LUI T0, -24576               18:    	la t0, TO_PRINT
+9D000C10  3C08A000   LUI T0, -24576               18:    la t0, TO_PRINT
                                                   19:    
-                                                  20:        #Send escape sequence via TXREG
-9D000220  2409001B   ADDIU T1, ZERO, 27           21:        li t1, 0x1B          # ESC
-9D000224  04110023   BGEZAL ZERO, 0x9D0002B4      22:    	bal Transmit_Print_Char_X_Y
-9D000228  00000000   NOP                          23:    	nop
-                                                  24:    	
-                                                  25:    	#Send escape sequence via TXREG
-9D00022C  2409005B   ADDIU T1, ZERO, 91           26:        li t1, 0x5B          # [
-9D000230  04110020   BGEZAL ZERO, 0x9D0002B4      27:    	bal Transmit_Print_Char_X_Y
-9D000234  00000000   NOP                          28:    	nop
+                                                  20:    #Send escape sequence via TXREG
+9D000C18  2417001B   ADDIU S7, ZERO, 27           21:    li s7, 0x1B          # ESC
+9D000C1C  04110023   BGEZAL ZERO, 0x9D000CAC      22:    bal Transmit_Print_Char_X_Y
+9D000C20  00000000   NOP                          23:    nop
+                                                  24:    
+                                                  25:    #Send escape sequence via TXREG
+9D000C24  2417005B   ADDIU S7, ZERO, 91           26:    li s7, 0x5B          # [
+9D000C28  04110020   BGEZAL ZERO, 0x9D000CAC      27:    bal Transmit_Print_Char_X_Y
+9D000C2C  00000000   NOP                          28:    nop
                                                   29:    
-9D000238  81090001   LB T1, 1(T0)                 30:    	lb t1, 1(t0)
-9D00023C  00094902   SRL T1, T1, 4                31:    	srl t1, t1, 4
-9D000240  21290030   ADDI T1, T1, 48              32:    	addi t1, t1, 0x30
-9D000244  0411001B   BGEZAL ZERO, 0x9D0002B4      33:    	bal Transmit_Print_Char_X_Y
-9D000248  00000000   NOP                          34:    	nop
+9D000C30  81170001   LB S7, 1(T0)                 30:    lb s7, 1(t0)
+9D000C34  0017B902   SRL S7, S7, 4                31:    srl s7, s7, 4
+9D000C38  22F70030   ADDI S7, S7, 48              32:    addi s7, s7, 0x30
+9D000C3C  0411001B   BGEZAL ZERO, 0x9D000CAC      33:    bal Transmit_Print_Char_X_Y
+9D000C40  00000000   NOP                          34:    nop
                                                   35:    
-9D00024C  81090001   LB T1, 1(T0)                 36:    	lb t1, 1(t0)
-9D000250  3129000F   ANDI T1, T1, 15              37:    	andi t1, t1, 0x0F
-9D000254  21290030   ADDI T1, T1, 48              38:    	addi t1, t1, 0x30
-9D000258  04110016   BGEZAL ZERO, 0x9D0002B4      39:    	bal Transmit_Print_Char_X_Y
-9D00025C  00000000   NOP                          40:    	nop
-                                                  41:     	
-                                                  42:    	#Send escape sequence via TXREG
-9D000260  2409003B   ADDIU T1, ZERO, 59           43:        li t1,0x3B          # ;
-9D000264  04110013   BGEZAL ZERO, 0x9D0002B4      44:    	bal Transmit_Print_Char_X_Y
-9D000268  00000000   NOP                          45:    	nop
+9D000C44  81170001   LB S7, 1(T0)                 36:    lb s7, 1(t0)
+9D000C48  32F7000F   ANDI S7, S7, 15              37:    andi s7, s7, 0x0F
+9D000C4C  22F70030   ADDI S7, S7, 48              38:    addi s7, s7, 0x30
+9D000C50  04110016   BGEZAL ZERO, 0x9D000CAC      39:    bal Transmit_Print_Char_X_Y
+9D000C54  00000000   NOP                          40:    nop
+                                                  41:    
+                                                  42:    #Send escape sequence via TXREG
+9D000C58  2417003B   ADDIU S7, ZERO, 59           43:    li s7,0x3B          # ;
+9D000C5C  04110013   BGEZAL ZERO, 0x9D000CAC      44:    bal Transmit_Print_Char_X_Y
+9D000C60  00000000   NOP                          45:    nop
                                                   46:    
-9D00026C  81090000   LB T1, 0(T0)                 47:    	lb t1, 0(t0)
-9D000270  00094902   SRL T1, T1, 4                48:    	srl t1, t1, 4
-9D000274  21290030   ADDI T1, T1, 48              49:    	addi t1, t1, 0x30
-9D000278  0411000E   BGEZAL ZERO, 0x9D0002B4      50:    	bal Transmit_Print_Char_X_Y
-9D00027C  00000000   NOP                          51:    	nop
+9D000C64  81170000   LB S7, 0(T0)                 47:    lb s7, 0(t0)
+9D000C68  0017B902   SRL S7, S7, 4                48:    srl s7, s7, 4
+9D000C6C  22F70030   ADDI S7, S7, 48              49:    addi s7, s7, 0x30
+9D000C70  0411000E   BGEZAL ZERO, 0x9D000CAC      50:    bal Transmit_Print_Char_X_Y
+9D000C74  00000000   NOP                          51:    nop
                                                   52:    
-9D000280  81090000   LB T1, 0(T0)                 53:    	lb t1, 0(t0)
-9D000284  3129000F   ANDI T1, T1, 15              54:    	andi t1, t1, 0x0F
-9D000288  21290030   ADDI T1, T1, 48              55:    	addi t1, t1, 0x30
-9D00028C  04110009   BGEZAL ZERO, 0x9D0002B4      56:    	bal Transmit_Print_Char_X_Y
-9D000290  00000000   NOP                          57:    	nop
+9D000C78  81170000   LB S7, 0(T0)                 53:    lb s7, 0(t0)
+9D000C7C  32F7000F   ANDI S7, S7, 15              54:    andi s7, s7, 0x0F
+9D000C80  22F70030   ADDI S7, S7, 48              55:    addi s7, s7, 0x30
+9D000C84  04110009   BGEZAL ZERO, 0x9D000CAC      56:    bal Transmit_Print_Char_X_Y
+9D000C88  00000000   NOP                          57:    nop
                                                   58:    
-                                                  59:    	#Send escape sequence via TXREG
-9D000294  24090066   ADDIU T1, ZERO, 102          60:        li t1,0x66          # f
-9D000298  04110006   BGEZAL ZERO, 0x9D0002B4      61:    	bal Transmit_Print_Char_X_Y
-9D00029C  00000000   NOP                          62:    	nop
+                                                  59:    #Send escape sequence via TXREG
+9D000C8C  24170066   ADDIU S7, ZERO, 102          60:    li s7,0x66          # f
+9D000C90  04110006   BGEZAL ZERO, 0x9D000CAC      61:    bal Transmit_Print_Char_X_Y
+9D000C94  00000000   NOP                          62:    nop
                                                   63:    
-                                                  64:    	#Send char
-9D0002A0  81090002   LB T1, 2(T0)                 65:    	lb t1, 0x2(t0)
-9D0002A4  04110003   BGEZAL ZERO, 0x9D0002B4      66:    	bal Transmit_Print_Char_X_Y
-9D0002A8  00000000   NOP                          67:    	nop
-                                                  68:    
-9D0002AC  02200008   JR S1                        69:    	jr s1
-9D0002B0  00000000   NOP                          70:    	nop
-                                                  71:    Transmit_Print_Char_X_Y:
-9D0002B4  24120000   ADDIU S2, ZERO, 0            72:    	li s2, 0
-9D0002B8  025F9025   OR S2, S2, RA                73:    	or s2, s2, ra
-9D0002BC  3C08BF80   LUI T0, -16512               74:    	lw t0, U1STA		     # U1STA (status)
-9D0002C4  31080200   ANDI T0, T0, 512             75:        andi t0,t0,0x200     # check if able to Transmit_Print_Char_X_Y
-9D0002C8  1500FFFA   BNE T0, ZERO, 0x9D0002B4     76:        bne t0,zero,Transmit_Print_Char_X_Y #Cannot Transmit_Print_Char_X_Y now, try again
-9D0002CC  00000000   NOP                          77:        nop                  # otherwise continue
-9D0002D0  3C01BF80   LUI AT, -16512               78:        sw t1,U1TXREG	     # char -> U1TXREG
-9D0002D8  02400008   JR S2                        79:    	jr s2                # return
-9D0002DC  00000000   NOP                          80:    	nop
-                                                  81:    
-                                                  82:    .end Print_Char_X_Y
----  /Users/Jacob/Documents/School/Spring_2015/ECE_344/Snake/Snake.X/Main.S  ----------------------------
+                                                  64:    #Send char
+9D000C98  81170002   LB S7, 2(T0)                 65:    lb s7, 2(t0)
+9D000C9C  04110003   BGEZAL ZERO, 0x9D000CAC      66:    bal Transmit_Print_Char_X_Y
+9D000CA0  00000000   NOP                          67:    nop
+9D000CA4  02600008   JR S3                        68:    jr s3
+9D000CA8  00000000   NOP                          69:    nop
+                                                  70:    Transmit_Print_Char_X_Y:
+9D000CAC  3C0ABF80   LUI T2, -16512               71:    lw t2, U1STA		   # U1STA (status)
+9D000CB4  314A0200   ANDI T2, T2, 512             72:    andi t2, t2, 0x200     # check if able to Transmit_Print_Char_X_Y
+9D000CB8  1540FFFC   BNE T2, ZERO, 0x9D000CAC     73:    bne t2, zero, Transmit_Print_Char_X_Y   #cannot transmit right now
+9D000CBC  00000000   NOP                          74:    nop                    # otherwise continue
+9D000CC0  3C01BF80   LUI AT, -16512               75:    sw s7, U1TXREG	       # char -> U1TXREG
+9D000CC8  03E00008   JR RA                        76:    jr ra                  # return
+9D000CCC  00000000   NOP                          77:    nop
+                                                  78:    
+                                                  79:    .end Print_Char_X_Y
+---  /Users/mgreci/SNAKE/Print_Board.S  -----------------------------------------------------------------
+                                                  1:     #include <p32xxxx.h>
+                                                  2:     .global Print_Board
+                                                  3:     .text
+                                                  4:     .set noreorder
+                                                  5:     .ent Print_Board
+                                                  6:     
+                                                  7:     Print_Board:
+9D0006F0  24100000   ADDIU S0, ZERO, 0            8:     li s0, 0
+9D0006F4  021F8025   OR S0, S0, RA                9:     or s0, s0, ra
+                                                  10:    
+9D0006F8  3C08A000   LUI T0, -24576               11:    la t0, 0xA0000330
+                                                  12:    Move_Cursor_Print_Board:
+9D000700  2409001B   ADDIU T1, ZERO, 27           13:    li t1, 0x1B
+9D000704  A1090000   SB T1, 0(T0)                 14:    sb t1, 0(t0)
+9D000708  21080001   ADDI T0, T0, 1               15:    addi t0, 1
+9D00070C  2409005B   ADDIU T1, ZERO, 91           16:    li t1, 0x5B
+9D000710  A1090000   SB T1, 0(T0)                 17:    sb t1, 0(t0)
+9D000714  21080001   ADDI T0, T0, 1               18:    addi t0, 1
+9D000718  24090031   ADDIU T1, ZERO, 49           19:    li t1, 0x31
+9D00071C  A1090000   SB T1, 0(T0)                 20:    sb t1, 0(t0)
+9D000720  21080001   ADDI T0, T0, 1               21:    addi t0, 1
+9D000724  2409003B   ADDIU T1, ZERO, 59           22:    li t1, 0x3b
+9D000728  A1090000   SB T1, 0(T0)                 23:    sb t1, 0(t0)
+9D00072C  21080001   ADDI T0, T0, 1               24:    addi t0, 1
+9D000730  24090031   ADDIU T1, ZERO, 49           25:    li t1, 0x31
+9D000734  A1090000   SB T1, 0(T0)                 26:    sb t1, 0(t0)
+9D000738  21080001   ADDI T0, T0, 1               27:    addi t0, 1
+9D00073C  24090066   ADDIU T1, ZERO, 102          28:    li t1, 0x66
+9D000740  A1090000   SB T1, 0(T0)                 29:    sb t1, 0(t0)
+9D000744  240A009E   ADDIU T2, ZERO, 158          30:    li t2, 158
+9D000748  240B0058   ADDIU T3, ZERO, 88           31:    li t3, 0x58
+                                                  32:    #print out 74 x
+                                                  33:    
+                                                  34:    Print_X:
+9D00074C  21080001   ADDI T0, T0, 1               35:    addi t0, 1
+9D000750  214AFFFF   ADDI T2, T2, -1              36:    addi t2, -1
+9D000754  A10B0000   SB T3, 0(T0)                 37:    sb t3, 0(t0)
+9D000758  140AFFFC   BNE ZERO, T2, 0x9D00074C     38:    bne zero, t2, Print_X
+9D00075C  00000000   NOP                          39:    nop
+9D000760  240C0014   ADDIU T4, ZERO, 20           40:    li t4, 20
+                                                  41:    Print_Other:
+9D000764  240D0004   ADDIU T5, ZERO, 4            42:    li t5, 4
+                                                  43:    Print_4_X:
+9D000768  21080001   ADDI T0, T0, 1               44:    addi t0, 1
+9D00076C  21ADFFFF   ADDI T5, T5, -1              45:    addi t5, -1
+9D000770  A10B0000   SB T3, 0(T0)                 46:    sb t3, 0(t0)
+9D000774  140DFFFC   BNE ZERO, T5, 0x9D000768     47:    bne zero, t5, Print_4_X
+9D000778  00000000   NOP                          48:    nop
+9D00077C  240E004C   ADDIU T6, ZERO, 76           49:    li t6, 76
+                                                  50:    Print_Space:
+9D000780  21CEFFFF   ADDI T6, T6, -1              51:    addi t6, -1
+9D000784  21080001   ADDI T0, T0, 1               52:    addi t0, 1
+9D000788  24090020   ADDIU T1, ZERO, 32           53:    li t1, 0x20
+9D00078C  A1090000   SB T1, 0(T0)                 54:    sb t1, 0(t0)
+9D000790  140EFFFB   BNE ZERO, T6, 0x9D000780     55:    bne zero, t6, Print_Space
+9D000794  00000000   NOP                          56:    nop
+9D000798  218CFFFF   ADDI T4, T4, -1              57:    addi t4, -1
+9D00079C  1580FFF1   BNE T4, ZERO, 0x9D000764     58:    bne  t4, zero, Print_Other
+9D0007A0  00000000   NOP                          59:    nop
+9D0007A4  240A00A2   ADDIU T2, ZERO, 162          60:    li t2, 162
+9D0007A8  240B0058   ADDIU T3, ZERO, 88           61:    li t3, 0x58
+                                                  62:    #print out 74 x
+                                                  63:    
+                                                  64:    Print_X_last:
+9D0007AC  21080001   ADDI T0, T0, 1               65:    addi t0, 1
+9D0007B0  214AFFFF   ADDI T2, T2, -1              66:    addi t2, -1
+9D0007B4  A10B0000   SB T3, 0(T0)                 67:    sb t3, 0(t0)
+9D0007B8  140AFFFC   BNE ZERO, T2, 0x9D0007AC     68:    bne zero, t2, Print_X_last
+9D0007BC  00000000   NOP                          69:    nop
+9D0007C0  21080001   ADDI T0, T0, 1               70:    addi t0, 1
+9D0007C4  24090000   ADDIU T1, ZERO, 0            71:    li t1, 0
+9D0007C8  A1090000   SB T1, 0(T0)                 72:    sb t1, 0(t0)
+9D0007CC  3C08A000   LUI T0, -24576               73:    la t0, 0xA0000330
+                                                  74:    load_Print_Board:
+9D0007D4  810A0000   LB T2, 0(T0)                 75:    lb t2, 0(t0)                    # load char into t2
+9D0007D8  1140000F   BEQ T2, ZERO, 0x9D000818     76:    beq t2, zero, Done_Print_Board  # t2 == 0 (NULL), done sending chars
+9D0007DC  00000000   NOP                          77:    nop                             # otherwise more chars to send
+9D0007E0  04110004   BGEZAL ZERO, 0x9D0007F4      78:    bal Print_Print_Board           # start Print_Print_board?
+9D0007E4  00000000   NOP                          79:    nop
+9D0007E8  21080001   ADDI T0, T0, 1               80:    addi t0, t0, 1                  # increment t0 pointer
+9D0007EC  1000FFF9   BEQ ZERO, ZERO, 0x9D0007D4   81:    b load_Print_Board              # load next char
+9D0007F0  00000000   NOP                          82:    nop
+                                                  83:    Print_Print_Board:
+9D0007F4  3C09BF80   LUI T1, -16512               84:    lw t1, U1STA                    # (status) U1STA -> t1
+9D0007FC  31290200   ANDI T1, T1, 512             85:    andi t1, t1, 0x200              # check transmit status
+9D000800  1520FFFC   BNE T1, ZERO, 0x9D0007F4     86:    bne t1, zero, Print_Print_Board # cannot transmit now, try again
+9D000804  00000000   NOP                          87:    nop                             # otherwise continue
+9D000808  3C01BF80   LUI AT, -16512               88:    sb t2, U1TXREG                  # char (t2) -> U1TXREG
+9D000810  03E00008   JR RA                        89:    jr ra                           # return?
+9D000814  00000000   NOP                          90:    nop
+                                                  91:    
+                                                  92:    Done_Print_Board:
+9D000818  02000008   JR S0                        93:    jr s0
+9D00081C  00000000   NOP                          94:    nop
+                                                  95:    
+                                                  96:    .end Print_Board
+---  /Users/mgreci/SNAKE/Print_Ask_User.S  --------------------------------------------------------------
+                                                  1:     #include <p32xxxx.h>.global Print_Ask_User.data.text.set noreorder.set User_Input, 0xA0000200.ent Print_Ask_UserPrint_Ask_User:li s0, 0or s0, s0, rala t0, User_Input                 # address of string -> t0Load_Char_Print_Ask_User:lb t2, 0(t0)                      # load char into t2beq t2, zero, Done_Print_Ask_User # t2 == 0 (NULL), done sending charsnop                               # otherwise more chars to sendbal Print_Print_Ask_User          # start print char?nopaddi t0, t0, 1                    # increment t0 pointerb Load_Char_Print_Ask_User        # load next charnopPrint_Print_Ask_User:lw t1, U1STA                      # (status) U1STA -> t1andi t1, t1, 0x200                # check transmit statusbne t1, zero, Print_Print_Ask_User # cannot transmit now, try againnop                               # otherwise continuesb t2, U1TXREG                    # char (t2) -> U1TXREGjr ra                             # return??nopDone_Print_Ask_User:jr s0nop.end Print_Ask_User
+---  /Users/mgreci/SNAKE/PORTE_Setup.S  -----------------------------------------------------------------
+                                                  1:     #include <p32xxxx.h>
+                                                  2:     .global PORTE_Setup
+                                                  3:     .text
+                                                  4:     .set noreorder
+                                                  5:     .ent PORTE_Setup
+                                                  6:     
+                                                  7:     PORTE_Setup:
+9D001374  24100000   ADDIU S0, ZERO, 0            8:     li s0, 0
+9D001378  021F8025   OR S0, S0, RA                9:     or s0, s0, ra
+                                                  10:    
+9D00137C  3C01BF88   LUI AT, -16504               11:    sw zero, TRISE #clear TRISE
+9D001384  3C01BF88   LUI AT, -16504               12:    sw zero, ODCE  #clear OCDE
+9D00138C  3C01BF88   LUI AT, -16504               13:    sw zero, PORTE #clear PORTE
+                                                  14:    
+9D001394  02000008   JR S0                        15:    jr s0
+9D001398  00000000   NOP                          16:    nop
+                                                  17:    .end PORTE_Setup
+---  /Users/mgreci/SNAKE/Move_Snake.S  ------------------------------------------------------------------
+                                                  1:     #include <p32xxxx.h>
+                                                  2:     						
+                                                  3:     .global Move_Snake
+                                                  4:     .text
+                                                  5:     .set noreorder
+                                                  6:     .set TO_PRINT,    0xA0000400
+                                                  7:     .SET MAILBOX,     0xA0000440
+                                                  8:     .set PAUSED,      0xA00004D0
+                                                  9:     .set WORM_LENGTH, 0xA00004FC
+                                                  10:    .set WORM,        0xA0000500
+                                                  11:    .set Food_Location, 0xA00004F8
+                                                  12:    
+                                                  13:    .ent Move_Snake
+                                                  14:    
+                                                  15:    #0x63 - 'c' start/stop
+                                                  16:    #0x68 - 'h' left
+                                                  17:    #0x6A - 'j' down
+                                                  18:    #0x6B - 'k' up
+                                                  19:    #0x6C - 'l' right
+                                                  20:    
+                                                  21:    ## probably should be done here.
+                                                  22:    #check if head meets food,
+                                                  23:    #updates Score
+                                                  24:    #then Creates new food that isnt in-line with head... I dont think it
+                                                  25:    #is a problem if it is under the snake aslongas we print food before snake
+                                                  26:    # and make that a part of this 
+                                                  27:    
+                                                  28:    Move_Snake:
+9D000000  24100000   ADDIU S0, ZERO, 0            29:    li s0, 0
+9D000004  021F8025   OR S0, S0, RA                30:    or s0, s0, ra
+                                                  31:    
+9D000008  3C08A000   LUI T0, -24576               32:        la t0, WORM
+9D000010  3C09A000   LUI T1, -24576               33:        lh t1, WORM_LENGTH  #load worm length value
+                                                  34:        #save current head location
+9D000018  85190000   LH T9, 0(T0)                 35:        lh t9, 0(t0)  #old location
+9D00001C  85180000   LH T8, 0(T0)                 36:        lh t8, 0(t0)  #new location
+                                                  37:        #generate new location
+9D000020  10000021   BEQ ZERO, ZERO, 0x9D0000A8   38:        b New_Location_Move_Snake
+9D000024  00000000   NOP                          39:        nop
+                                                  40:    Return_Move_Snake:
+                                                  41:        #t8 has new location
+9D000028  3C09A000   LUI T1, -24576               42:        lw t1, WORM_LENGTH  #load worm length value
+                                                  43:        #addi t1, 1          #
+                                                  44:    Cont_Move_Snake:
+9D000030  85190000   LH T9, 0(T0)                 45:        lh t9, 0(t0)  #t9 = current value
+9D000034  A5180000   SH T8, 0(T0)                 46:        sh t8, 0(t0)  #replace current body with new value
+9D000038  85180002   LH T8, 2(T0)                 47:        lh t8, 2(t0)  #save next body value
+9D00003C  A5190002   SH T9, 2(T0)                 48:        sh t9, 2(t0)  #replace next body with current body value
+9D000040  21080004   ADDI T0, T0, 4               49:        addi t0, 4    #incr worm pointer
+9D000044  2129FFFF   ADDI T1, T1, -1              50:        addi t1, -1   #decr loop counter
+9D000048  1D20FFF9   BGTZ T1, 0x9D000030          51:        bgtz t1, Cont_Move_Snake  #continue looping worm
+9D00004C  00000000   NOP                          52:        nop
+                                                  53:    Done_Move_Snake:
+                                                  54:    
+                                                  55:        #t8 has new location
+9D000050  3C09A000   LUI T1, -24576               56:        lh t1, Food_Location
+9D000058  15380011   BNE T1, T8, 0x9D0000A0       57:        bne t1, t8, No_Food_Move_Snake
+9D00005C  00000000   NOP                          58:        nop
+                                                  59:        #b No_Food_Move_Snake
+9D000060  3C09A000   LUI T1, -24576               60:        la t1, Food_Location
+9D000068  812A0002   LB T2, 2(T1)                 61:        lb t2, 2(t1)        #char of food
+9D00006C  3C01A000   LUI AT, -24576               62:        sw zero, Food_Location
+9D000074  214AFFD0   ADDI T2, T2, -48             63:        addi t2, -0x30      #now (2-9)
+9D000078  3C0BA000   LUI T3, -24576               64:        lw t3, WORM_LENGTH  #load worm length
+9D000080  014B5020   ADD T2, T2, T3               65:        add t2, t2, t3      #add food to length
+9D000084  3C01A000   LUI AT, -24576               66:        sw t2, WORM_LENGTH  #store it back
+9D00008C  041102AA   BGEZAL ZERO, 0x9D000B38      67:        bal Update_Score
+9D000090  00000000   NOP                          68:        nop
+9D000094  04110146   BGEZAL ZERO, 0x9D0005B0      69:        bal Create_Food     #make another food
+9D000098  00000000   NOP                          70:        nop
+9D00009C  00000000   NOP                          71:        nop
+                                                  72:    No_Food_Move_Snake:
+                                                  73:    
+9D0000A0  02000008   JR S0                        74:        jr s0         #otherwise done
+9D0000A4  00000000   NOP                          75:        nop
+                                                  76:    
+                                                  77:    New_Location_Move_Snake:
+9D0000A8  3C0AA000   LUI T2, -24576               78:        lw t2, MAILBOX     #value of MAILBOX
+9D0000B0  24010068   ADDIU AT, ZERO, 104          79:        beq t2, 0x68, Left_Move_Snake
+9D0000B8  00000000   NOP                          80:        nop
+9D0000BC  2401006A   ADDIU AT, ZERO, 106          81:        beq t2, 0x6A, Down_Move_Snake
+9D0000C4  00000000   NOP                          82:        nop
+9D0000C8  2401006B   ADDIU AT, ZERO, 107          83:        beq t2, 0x6B, Up_Move_Snake
+9D0000D0  00000000   NOP                          84:        nop
+9D0000D4  2401006C   ADDIU AT, ZERO, 108          85:        beq t2, 0x6C, Right_Move_Snake
+9D0000DC  00000000   NOP                          86:        nop
+9D0000E0  1000FFDB   BEQ ZERO, ZERO, 0x9D000050   87:        b Done_Move_Snake
+9D0000E4  00000000   NOP                          88:        nop
+                                                  89:        
+                                                  90:    Left_Move_Snake:
+                                                  91:        # y (column) decr
+9D0000E8  2318FFFF   ADDI T8, T8, -1              92:        addi t8, -1
+9D0000EC  1000000A   BEQ ZERO, ZERO, 0x9D000118   93:        b Error_Move_Snake
+9D0000F0  00000000   NOP                          94:        nop
+                                                  95:    
+                                                  96:    Right_Move_Snake:
+                                                  97:        # y (column) incr
+9D0000F4  23180001   ADDI T8, T8, 1               98:        addi t8, 1
+9D0000F8  10000007   BEQ ZERO, ZERO, 0x9D000118   99:        b Error_Move_Snake
+9D0000FC  00000000   NOP                          100:       nop
+                                                  101:   
+                                                  102:   Down_Move_Snake:
+                                                  103:       # x (row) incr
+9D000100  23180100   ADDI T8, T8, 256             104:       addi t8, 0x0100
+9D000104  10000004   BEQ ZERO, ZERO, 0x9D000118   105:       b Error_Move_Snake
+9D000108  00000000   NOP                          106:       nop
+                                                  107:   
+                                                  108:   Up_Move_Snake:
+                                                  109:       # y (column) decr
+9D00010C  2318FF00   ADDI T8, T8, -256            110:       addi t8, -0x0100
+9D000110  10000001   BEQ ZERO, ZERO, 0x9D000118   111:       b Error_Move_Snake
+9D000114  00000000   NOP                          112:       nop
+                                                  113:   
+                                                  114:   Error_Move_Snake:
+9D000118  3C0AA000   LUI T2, -24576               115:       la t2, 0xA00004E0
+9D000120  3C0BA000   LUI T3, -24576               116:       la t3, 0xA00004E2
+9D000128  AD580000   SW T8, 0(T2)                 117:       sw t8, 0(t2)      #copy t8 to t2 (address)
+                                                  118:   Loop_Move_Snake:
+9D00012C  116A0018   BEQ T3, T2, 0x9D000190       119:       beq t3, t2, Border_Check_Move_Snake
+9D000130  00000000   NOP                          120:       nop
+9D000134  814C0000   LB T4, 0(T2)                 121:       lb t4, 0(t2)
+9D000138  318C000F   ANDI T4, T4, 15              122:       andi t4, t4, 0xF
+9D00013C  2401000F   ADDIU AT, ZERO, 15           123:       beq t4, 0xF, Is_F_Move_Snake
+9D000144  00000000   NOP                          124:       nop
+9D000148  2401000A   ADDIU AT, ZERO, 10           125:       beq t4, 0xA, Is_A_Move_Snake
+9D000150  00000000   NOP                          126:       nop
+9D000154  214A0001   ADDI T2, T2, 1               127:       addi t2, 1
+9D000158  1000FFF4   BEQ ZERO, ZERO, 0x9D00012C   128:       b Loop_Move_Snake
+9D00015C  00000000   NOP                          129:       nop
+                                                  130:   
+                                                  131:   Is_F_Move_Snake:
+9D000160  814C0000   LB T4, 0(T2)                 132:       lb t4, 0(t2)
+9D000164  218CFFFA   ADDI T4, T4, -6              133:       addi t4, t4, -6
+9D000168  A14C0000   SB T4, 0(T2)                 134:       sb t4, 0(t2)
+9D00016C  214A0001   ADDI T2, T2, 1               135:       addi t2, 1
+9D000170  1000FFEE   BEQ ZERO, ZERO, 0x9D00012C   136:       b Loop_Move_Snake
+9D000174  00000000   NOP                          137:       nop
+                                                  138:   
+                                                  139:   Is_A_Move_Snake:
+9D000178  814C0000   LB T4, 0(T2)                 140:       lb t4, 0(t2)
+9D00017C  218C0006   ADDI T4, T4, 6               141:       addi t4, t4, 6
+9D000180  A14C0000   SB T4, 0(T2)                 142:       sb t4, 0(t2)
+9D000184  214A0001   ADDI T2, T2, 1               143:       addi t2, 1
+9D000188  1000FFE8   BEQ ZERO, ZERO, 0x9D00012C   144:       b Loop_Move_Snake
+9D00018C  00000000   NOP                          145:       nop
+                                                  146:   
+                                                  147:   Border_Check_Move_Snake:
+9D000190  3C0AA000   LUI T2, -24576               148:       la t2, 0xA00004E0     # point t2 to new head location
+9D000198  8D580000   LW T8, 0(T2)                 149:       lw t8, 0(t2)          # copy corrected value from *t2 to t8
+                                                  150:       #col<=3
+9D00019C  330C00FF   ANDI T4, T8, 255             151:       andi t4, t8, 0x00FF
+9D0001A0  218CFFFD   ADDI T4, T4, -3              152:       addi t4, t4, -0x0003
+9D0001A4  05800019   BLTZ T4, 0x9D00020C          153:       bltz t4, Stop_Game
+9D0001A8  00000000   NOP                          154:       nop
+                                                  155:       #col>=79
+9D0001AC  330C00FF   ANDI T4, T8, 255             156:       andi t4, t8, 0x00FF
+9D0001B0  218CFF88   ADDI T4, T4, -120            157:       addi t4, t4, -0x0078
+9D0001B4  1D800015   BGTZ T4, 0x9D00020C          158:       bgtz t4, Stop_Game
+9D0001B8  00000000   NOP                          159:       nop
+                                                  160:       #row<=3
+9D0001BC  330CFF00   ANDI T4, T8, -256            161:       andi t4, t8, 0xFF00
+9D0001C0  218CFD00   ADDI T4, T4, -768            162:       addi t4, t4, -0x0300
+9D0001C4  05800011   BLTZ T4, 0x9D00020C          163:       bltz t4, Stop_Game
+9D0001C8  00000000   NOP                          164:       nop
+                                                  165:       #row>=23
+9D0001CC  330CFF00   ANDI T4, T8, -256            166:       andi t4, t8, 0xFF00
+9D0001D0  218CDE00   ADDI T4, T4, -8704           167:       addi t4, t4, -0x2200
+9D0001D4  1D80000D   BGTZ T4, 0x9D00020C          168:       bgtz t4, Stop_Game
+9D0001D8  00000000   NOP                          169:       nop
+                                                  170:   
+                                                  171:   Body_Check_Move_Snake:
+                                                  172:       # t8 is HEAD new position
+                                                  173:       # t1 is WORM_LENGTH
+9D0001DC  3C0AA000   LUI T2, -24576               174:       la t2, WORM
+9D0001E4  214A0002   ADDI T2, T2, 2               175:       addi t2, t2, 2
+                                                  176:   Check_Loop_Move_Snake:
+9D0001E8  854C0000   LH T4, 0(T2)                 177:       lh t4, 0(t2)
+9D0001EC  130C0007   BEQ T8, T4, 0x9D00020C       178:       beq t8, t4, Stop_Game
+9D0001F0  00000000   NOP                          179:       nop
+9D0001F4  214A0002   ADDI T2, T2, 2               180:       addi t2, t2, 2
+9D0001F8  2129FFFF   ADDI T1, T1, -1              181:       addi t1, t1, -1
+9D0001FC  1520FFFA   BNE T1, ZERO, 0x9D0001E8     182:       bne t1, zero, Check_Loop_Move_Snake
+9D000200  00000000   NOP                          183:       nop
+                                                  184:   
+9D000204  1000FF88   BEQ ZERO, ZERO, 0x9D000028   185:       b Return_Move_Snake
+9D000208  00000000   NOP                          186:       nop
+                                                  187:   
+                                                  188:   Stop_Game:
+                                                  189:       #sample code to prove Stop_Game is accessible
+9D00020C  240A0001   ADDIU T2, ZERO, 1            190:       li t2, 1
+9D000210  3C01A000   LUI AT, -24576               191:       sw t2, PAUSED
+                                                  192:       #prints '%' at 12, 40 (center)
+9D000218  3C0A0025   LUI T2, 37                   193:       li t2, 0x251240
+9D000220  3C01A000   LUI AT, -24576               194:       sw t2, TO_PRINT
+9D000228  04110277   BGEZAL ZERO, 0x9D000C08      195:       bal Print_Char_X_Y
+9D00022C  00000000   NOP                          196:       nop
+9D000230  1000FF7D   BEQ ZERO, ZERO, 0x9D000028   197:       b Return_Move_Snake
+9D000234  00000000   NOP                          198:       nop
+                                                  199:   
+                                                  200:   .end Move_Snake
+---  /Users/mgreci/SNAKE/Move_Cursor_To_Beginning.S  ----------------------------------------------------
+                                                  1:     #include <p32xxxx.h>
+                                                  2:     .global Move_Cursor_To_Beginning
+                                                  3:     .data
+                                                  4:     .text
+                                                  5:     .set noreorder
+                                                  6:     .ent Move_Cursor_To_Beginning
+                                                  7:     .set TO_PRINT, 0xA0000400
+                                                  8:     
+                                                  9:     #0x1B = ESC
+                                                  10:    #0x5B = '['
+                                                  11:    #0x3B = ';'
+                                                  12:    #0x66 = 'f'
+                                                  13:    
+                                                  14:    Move_Cursor_To_Beginning:
+9D000EFC  24110000   ADDIU S1, ZERO, 0            15:    li s1, 0
+9D000F00  023F8825   OR S1, S1, RA                16:    or s1, s1, ra
+                                                  17:    
+9D000F04  3C08A000   LUI T0, -24576               18:    la t0, TO_PRINT
+                                                  19:    
+                                                  20:    #Send escape sequence via TXREG
+9D000F0C  2417001B   ADDIU S7, ZERO, 27           21:    li s7, 0x1B          # ESC
+9D000F10  04110013   BGEZAL ZERO, 0x9D000F60      22:    bal Transmit_Move_Cursor_To_Beginning
+9D000F14  00000000   NOP                          23:    nop
+                                                  24:    
+                                                  25:    #Send escape sequence via TXREG
+9D000F18  2417005B   ADDIU S7, ZERO, 91           26:    li s7, 0x5B          # [
+9D000F1C  04110010   BGEZAL ZERO, 0x9D000F60      27:    bal Transmit_Move_Cursor_To_Beginning
+9D000F20  00000000   NOP                          28:    nop
+                                                  29:    
+9D000F24  24170031   ADDIU S7, ZERO, 49           30:    li s7, 0x31
+9D000F28  0411000D   BGEZAL ZERO, 0x9D000F60      31:    bal Transmit_Move_Cursor_To_Beginning
+9D000F2C  00000000   NOP                          32:    nop
+                                                  33:    
+                                                  34:    #Send escape sequence via TXREG
+9D000F30  2417003B   ADDIU S7, ZERO, 59           35:    li s7,0x3B          # ;
+9D000F34  0411000A   BGEZAL ZERO, 0x9D000F60      36:    bal Transmit_Move_Cursor_To_Beginning
+9D000F38  00000000   NOP                          37:    nop
+                                                  38:    
+9D000F3C  24170031   ADDIU S7, ZERO, 49           39:    li s7, 0x31
+9D000F40  04110007   BGEZAL ZERO, 0x9D000F60      40:    bal Transmit_Move_Cursor_To_Beginning
+9D000F44  00000000   NOP                          41:    nop
+                                                  42:    
+                                                  43:    #Send escape sequence via TXREG
+9D000F48  24170066   ADDIU S7, ZERO, 102          44:    li s7,0x66          # f
+9D000F4C  04110004   BGEZAL ZERO, 0x9D000F60      45:    bal Transmit_Move_Cursor_To_Beginning
+9D000F50  00000000   NOP                          46:    nop
+9D000F54  00000000   NOP                          47:    nop
+9D000F58  02200008   JR S1                        48:    jr s1
+9D000F5C  00000000   NOP                          49:    nop
+                                                  50:    
+                                                  51:    Transmit_Move_Cursor_To_Beginning:
+9D000F60  24120000   ADDIU S2, ZERO, 0            52:    li s2, 0
+9D000F64  025F9025   OR S2, S2, RA                53:    or s2, s2, ra
+9D000F68  3C0ABF80   LUI T2, -16512               54:    lw t2, U1STA		   # U1STA (status)
+9D000F70  314A0200   ANDI T2, T2, 512             55:    andi t2, t2, 0x200     # check if able to Transmit_Move_Cursor_To_Beginning
+9D000F74  1540FFFA   BNE T2, ZERO, 0x9D000F60     56:    bne t2, zero, Transmit_Move_Cursor_To_Beginning   #cannot transmit right now
+9D000F78  00000000   NOP                          57:    nop                    # otherwise continue
+9D000F7C  3C01BF80   LUI AT, -16512               58:    sw s7, U1TXREG	       # char -> U1TXREG
+9D000F84  02400008   JR S2                        59:    jr s2                  # return
+9D000F88  00000000   NOP                          60:    nop
+                                                  61:    
+                                                  62:    .end Move_Cursor_To_Beginning
+---  /Users/mgreci/SNAKE/Main.S  ------------------------------------------------------------------------
                                                   1:     #include <p32xxxx.h>
                                                   2:     .global main
                                                   3:     .data
-                                                  4:     
-                                                  5:     .text
-                                                  6:     .set noreorder
-                                                  7:     .ent main
-                                                  8:     
-                                                  9:     
-                                                  10:    What_Time_is_it:
-                                                  11:        .ASCIZ "Please Enter a Time(HH:MM):"
-                                                  12:    
-                                                  13:    
-                                                  14:    
-                                                  15:    main:
-                                                  16:        .set WHATTIMEISIT, 0xA0000200
-9D00047C  3C089D00   LUI T0, -25344               17:        la t0, What_Time_is_it
-9D000484  3C0BA000   LUI T3, -24576               18:        la t3, WHATTIMEISIT
-                                                  19:    Load_Char_Store_Time_String:
-                                                  20:                             #Send each char from the address pointed by t0
-9D00048C  810A0000   LB T2, 0(T0)                 21:        lb t2, 0x0(t0)                                   # load char into t2
-9D000490  11400006   BEQ T2, ZERO, 0x9D0004AC     22:        beq t2, zero, Done_Store_Time_String  
-9D000494  00000000   NOP                          23:        nop                                              # otherwise continue
-9D000498  A16A0000   SB T2, 0(T3)                 24:        sb t2, 0x0(t3)                                   #placing in mem
-9D00049C  21080001   ADDI T0, T0, 1               25:        addi t0, t0, 1                                   #increment t0 pointer
-9D0004A0  216B0001   ADDI T3, T3, 1               26:        addi t3, t3, 1
-9D0004A4  1000FFF9   BEQ ZERO, ZERO, 0x9D00048C   27:        b Load_Char_Store_Time_String                    # load next char
-9D0004A8  00000000   NOP                          28:        nop
-                                                  29:    Done_Store_Time_String:
-9D0004AC  00000000   NOP                          30:       nop
-                                                  31:    
+                                                  4:     .text
+                                                  5:     .set noreorder
+                                                  6:     
+                                                  7:     .set User_Input,     0xA0000200
+                                                  8:     .set ELAPSEDTIME,    0xA0000210
+                                                  9:     .set ELAPSEDTIMERAW, 0xA0000218
+                                                  10:    .set MAILBOX,        0xA0000440
+                                                  11:    .set PAUSED,         0xA00004D0
+                                                  12:    .set RESTART,        0xA00004D4
+                                                  13:    .set SPEED,          0xA00004D8
+                                                  14:    .set GAME_STARTED,   0xA0000B00
+                                                  15:    
+                                                  16:    Ask_User:
+                                                  17:    .ASCIZ "Please Enter a Time(HH:MM):"
+                                                  18:    
+                                                  19:    .ent main
+                                                  20:    
+                                                  21:    main:
+9D000254  3C01A000   LUI AT, -24576               22:    sw zero, GAME_STARTED
+9D00025C  3C089D00   LUI T0, -25344               23:    la t0, Ask_User
+9D000264  3C09A000   LUI T1, -24576               24:    la t1, User_Input
+                                                  25:    Load_Ask_User_String:
+9D00026C  810A0000   LB T2, 0(T0)                 26:    lb t2, 0(t0)                       # load char into t2
+9D000270  11400006   BEQ T2, ZERO, 0x9D00028C     27:    beq t2, zero, Done_Loading_String  # done with loading string
+9D000274  00000000   NOP                          28:    nop                                
+9D000278  A12A0000   SB T2, 0(T1)                 29:    sb t2, 0(t1)                       # copy to memory
+9D00027C  21080001   ADDI T0, T0, 1               30:    addi t0, t0, 1                     # increment t0 pointer
+9D000280  21290001   ADDI T1, T1, 1               31:    addi t1, t1, 1                     # increment t1 pointer
+9D000284  1000FFF9   BEQ ZERO, ZERO, 0x9D00026C   32:    b Load_Ask_User_String             # more to copy
+9D000288  00000000   NOP                          33:    nop
+                                                  34:    Done_Loading_String:
+9D00028C  0411041B   BGEZAL ZERO, 0x9D0012FC      35:    bal UART_Setup
+9D000290  00000000   NOP                          36:    nop
+9D000294  04110437   BGEZAL ZERO, 0x9D001374      37:    bal PORTE_Setup
+9D000298  00000000   NOP                          38:    nop
+9D00029C  041102EA   BGEZAL ZERO, 0x9D000E48      39:    bal Clear_Screen
+9D0002A0  00000000   NOP                          40:    nop
+9D0002A4  041103A4   BGEZAL ZERO, 0x9D001138      41:    bal Print_Ask_User
+9D0002A8  00000000   NOP                          42:    nop
+9D0002AC  0411038B   BGEZAL ZERO, 0x9D0010DC      43:    bal Read_Time
+9D0002B0  00000000   NOP                          44:    nop
+9D0002B4  041102B6   BGEZAL ZERO, 0x9D000D90      45:    bal Verify_Read
+9D0002B8  00000000   NOP                          46:    nop
+                                                  47:    Restart_Main:
+9D0002BC  41606000   DI ZERO                      48:    di
+9D0002C0  041102E1   BGEZAL ZERO, 0x9D000E48      49:    bal Clear_Screen
+9D0002C4  00000000   NOP                          50:    nop
+                                                  51:    #bal Move_Cursor_To_Beginning
+                                                  52:    #nop
+9D0002C8  04110109   BGEZAL ZERO, 0x9D0006F0      53:    bal Print_Board
+9D0002CC  00000000   NOP                          54:    nop
+9D0002D0  3C083030   LUI T0, 12336                55:    li t0, 0x30303030
+9D0002D8  3C01A000   LUI AT, -24576               56:    sw t0, ELAPSEDTIME
+9D0002E0  24080000   ADDIU T0, ZERO, 0            57:    li t0, 0
+9D0002E4  3C01A000   LUI AT, -24576               58:    sw t0, ELAPSEDTIMERAW
+9D0002EC  0411004F   BGEZAL ZERO, 0x9D00042C      59:    bal Print_Time
+9D0002F0  00000000   NOP                          60:    nop
+9D0002F4  04110347   BGEZAL ZERO, 0x9D001014      61:    bal Create_Worm
+9D0002F8  00000000   NOP                          62:    nop
+9D0002FC  041100AC   BGEZAL ZERO, 0x9D0005B0      63:    bal Create_Food
+9D000300  00000000   NOP                          64:    nop
+9D000304  04110272   BGEZAL ZERO, 0x9D000CD0      65:    bal Print_Snake
+9D000308  00000000   NOP                          66:    nop
+                                                  67:    
+                                                  68:    #clear game flags
+9D00030C  3C01A000   LUI AT, -24576               69:    sw zero, RESTART
+9D000314  3C01A000   LUI AT, -24576               70:    sw zero, PAUSED
+9D00031C  3C01A000   LUI AT, -24576               71:    sw zero, SPEED
+                                                  72:    
+                                                  73:    #Determine if timer(s) and interrupts should be started
+9D000324  3C08A000   LUI T0, -24576               74:    lw t0, GAME_STARTED
+9D00032C  1500000A   BNE T0, ZERO, 0x9D000358     75:    bne t0, zero, Start_Timer1
+9D000330  00000000   NOP                          76:    nop
+9D000334  24080001   ADDIU T0, ZERO, 1            77:    li t0, 1
+9D000338  3C01A000   LUI AT, -24576               78:    sw t0, GAME_STARTED
+9D000340  0411034E   BGEZAL ZERO, 0x9D00107C      79:    bal Timer_Setup
+9D000344  00000000   NOP                          80:    nop
+9D000348  04110310   BGEZAL ZERO, 0x9D000F8C      81:    bal Interrupts_Setup
+9D00034C  00000000   NOP                          82:    nop
+9D000350  10000008   BEQ ZERO, ZERO, 0x9D000374   83:    b Loop_Main
+9D000354  00000000   NOP                          84:    nop
+                                                  85:    
+                                                  86:    Start_Timer1:
+9D000358  34099000   ORI T1, ZERO, -28672         87:    li t1, 0x9000
+9D00035C  3C01BF80   LUI AT, -16512               88:    sw t1, PR1				#Store Period
+9D000364  34098070   ORI T1, ZERO, -32656         89:    li t1, 0x8070
+9D000368  3C01BF80   LUI AT, -16512               90:    sw t1, T1CON			#Enable Timer1
+9D000370  41606020   EI ZERO                      91:    ei
+                                                  92:    
+                                                  93:    Loop_Main:
+                                                  94:    #main loop will continually check flags
+9D000374  24040000   ADDIU A0, ZERO, 0            95:    li a0, 0
+9D000378  24050000   ADDIU A1, ZERO, 0            96:    li a1, 0
+                                                  97:    
+                                                  98:    #Check if game paused
+9D00037C  3C04A000   LUI A0, -24576               99:    lw a0, PAUSED
+9D000384  1C800007   BGTZ A0, 0x9D0003A4          100:   bgtz a0, Check_Restart
+9D000388  00000000   NOP                          101:   nop
+                                                  102:   
+                                                  103:   #Speed (number 0-9)
+9D00038C  3C05A000   LUI A1, -24576               104:   lw a1, SPEED
+9D000394  14A0000F   BNE A1, ZERO, 0x9D0003D4     105:   bne a1, zero, Change_Speed_Main
+9D000398  00000000   NOP                          106:   nop
+                                                  107:   
+                                                  108:   #Otherwise continue
+9D00039C  1000FFF5   BEQ ZERO, ZERO, 0x9D000374   109:   b Loop_Main
+9D0003A0  00000000   NOP                          110:   nop
+                                                  111:   
+                                                  112:   Check_Restart:
+9D0003A4  3C01BF80   LUI AT, -16512               113:   sw zero, T1CON          #Stop Timer1
+9D0003AC  3C083030   LUI T0, 12336                114:   li t0, 0x30303030
+9D0003B4  3C01A000   LUI AT, -24576               115:   sw t0, ELAPSEDTIME
+9D0003BC  3C07A000   LUI A3, -24576               116:   lw a3, RESTART
+9D0003C4  1CE0FFBD   BGTZ A3, 0x9D0002BC          117:   bgtz a3, Restart_Main
+9D0003C8  00000000   NOP                          118:   nop
+9D0003CC  1000FFE9   BEQ ZERO, ZERO, 0x9D000374   119:   b Loop_Main
+9D0003D0  00000000   NOP                          120:   nop
+                                                  121:   
+                                                  122:   Change_Speed_Main:
+9D0003D4  3C01A000   LUI AT, -24576               123:   sw zero, SPEED
+                                                  124:   #a1 has char value from SPEED
+9D0003DC  30A5000F   ANDI A1, A1, 15              125:   andi a1, a1, 0xF
+                                                  126:   #a1 has decimal value (0-9)
+                                                  127:   
+9D0003E0  3C01BF80   LUI AT, -16512               128:   sw zero, T1CON          #Disable/Stop Timer1
+9D0003E8  3C01BF80   LUI AT, -16512               129:   sw zero, TMR1			#Clear Timer1
+                                                  130:   
+9D0003F0  34069000   ORI A2, ZERO, -28672         131:   li a2, 0x9000
+9D0003F4  10A00006   BEQ A1, ZERO, 0x9D000410     132:   beq a1, zero, Store_Period_Main
+9D0003F8  00000000   NOP                          133:   nop
+                                                  134:   
+9D0003FC  70C53002   MUL A2, A2, A1               135:   mul a2, a2, a1
+9D000400  2401000A   ADDIU AT, ZERO, 10           136:   div a2, 10
+9D00040C  00003012   MFLO A2, 0                   137:   mflo a2
+                                                  138:   
+                                                  139:   Store_Period_Main:
+9D000410  3C01BF80   LUI AT, -16512               140:   sw a2, PR1				#Store Period
+9D000418  34068070   ORI A2, ZERO, -32656         141:   li a2, 0x8070
+9D00041C  3C01BF80   LUI AT, -16512               142:   sw a2, T1CON			#Enable Timer1
+                                                  143:   
+9D000424  1000FFD3   BEQ ZERO, ZERO, 0x9D000374   144:   b Loop_Main
+9D000428  00000000   NOP                          145:   nop
+                                                  146:   
+                                                  147:   .end main
+---  /Users/mgreci/SNAKE/Interrupts_Setup.S  ------------------------------------------------------------
+                                                  1:     #include <p32xxxx.h>
+                                                  2:     .global Interrupts_Setup
+                                                  3:     .data
+                                                  4:     .text
+                                                  5:     .set noreorder
+                                                  6:     .ent Interrupts_Setup
+                                                  7:     
+                                                  8:     Interrupts_Setup:
+9D000F8C  24100000   ADDIU S0, ZERO, 0            9:         li s0, 0
+9D000F90  021F8025   OR S0, S0, RA                10:        or s0, s0, ra
+                                                  11:    
+                                                  12:    	#Initialize Interupts
+9D000F94  3C099FC0   LUI T1, -24640               13:    	li t1, 0x9FC01000		#Setup ebase address = 9FC01000
+9D000F9C  40897801   MTC0 T1, EBase               14:    	MTC0 t1, $15, 1			#Store ebase address to co-prossesor
+9D000FA0  24090020   ADDIU T1, ZERO, 32           15:    	li t1, 0x20 			#Set vector spacing
+9D000FA4  40896001   MTC0 T1, IntCtl              16:    	MTC0 t1, $12, 1			#Configure vector spacing
+9D000FA8  3C01BF88   LUI AT, -16504               17:    	sw zero, IFS0			#Clear IFS0
+9D000FB0  3C01BF88   LUI AT, -16504               18:    	sw zero, IFS1			#Clear IFS1
+9D000FB8  3C01BF88   LUI AT, -16504               19:    	sw zero, IEC0			#Clear IEC0
+9D000FC0  3C01BF88   LUI AT, -16504               20:    	sw zero, IEC1			#Clear IEC1
+9D000FC8  24090019   ADDIU T1, ZERO, 25           21:    	li t1, 0x19
+9D000FCC  3C01BF88   LUI AT, -16504               22:    	sw t1, IPC6				#Set UART1 priority
+9D000FD4  2409001A   ADDIU T1, ZERO, 26           23:    	li t1, 0x1A
+9D000FD8  3C01BF88   LUI AT, -16504               24:    	sw t1, IPC1         	#Set Timer1 priority
+9D000FE0  2409001B   ADDIU T1, ZERO, 27           25:    	li t1, 0x1B
+9D000FE4  3C01BF88   LUI AT, -16504               26:    	sw t1, IPC2         	#Set Timer2 priority
+9D000FEC  24091000   ADDIU T1, ZERO, 4096         27:    	li t1, 0x1000			#Bit pattern for multivector
+9D000FF0  3C01BF88   LUI AT, -16504               28:    	sw t1, INTCON			#Enable multivector
+9D000FF8  3C090800   LUI T1, 2048                 29:    	li t1, 0x08000110
+9D001000  3C01BF88   LUI AT, -16504               30:    	sw t1, IEC0      		#Enable U1RX, Timer1, Timer2 interrupts
+9D001008  41606020   EI ZERO                      31:    	ei 						#Enable Interrupts
                                                   32:    
-9D0004B0  041100C7   BGEZAL ZERO, 0x9D0007D0      33:    bal UART_SETUP
-9D0004B4  00000000   NOP                          34:    nop
-9D0004B8  0411FFBB   BGEZAL ZERO, 0x9D0003A8      35:    bal Clear_Screen
-9D0004BC  00000000   NOP                          36:    nop
-9D0004C0  04110051   BGEZAL ZERO, 0x9D000608      37:    bal Print_Time_String
-9D0004C4  00000000   NOP                          38:    nop
-9D0004C8  04110034   BGEZAL ZERO, 0x9D00059C      39:    bal Read_Time
-9D0004CC  00000000   NOP                          40:    nop
-9D0004D0  0411009D   BGEZAL ZERO, 0x9D000748      41:    bal Verify_Read
-9D0004D4  00000000   NOP                          42:    nop
-9D0004D8  0411FFB3   BGEZAL ZERO, 0x9D0003A8      43:    bal Clear_Screen
-9D0004DC  00000000   NOP                          44:    nop
-9D0004E0  0411FEC7   BGEZAL ZERO, 0x9D000000      45:    bal Print_Board
-9D0004E4  00000000   NOP                          46:    nop
-9D0004E8  0411FF7D   BGEZAL ZERO, 0x9D0002E0      47:    bal Print_Time
-9D0004EC  00000000   NOP                          48:    nop
-9D0004F0  04110004   BGEZAL ZERO, 0x9D000504      49:    bal Create_Worm
-9D0004F4  00000000   NOP                          50:    nop
-                                                  51:    
-                                                  52:    
-9D0004F8  00000000   NOP                          53:    nop
-9D0004FC  00000000   NOP                          54:    nop
-9D000500  00000000   NOP                          55:    nop
-                                                  56:    
-                                                  57:    .end main
----  /Users/Jacob/Documents/School/Spring_2015/ECE_344/Snake/Snake.X/Create_Worm.S  ---------------------
+9D00100C  02000008   JR S0                        33:        jr s0
+9D001010  00000000   NOP                          34:        nop
+                                                  35:    
+                                                  36:    .end Interrupts_Setup
+---  /Users/mgreci/SNAKE/Increment_Elapsed_Time.S  ------------------------------------------------------
+                                                  1:     #include <p32xxxx.h>
+                                                  2:     .global Increment_Elapsed_Time
+                                                  3:     .text
+                                                  4:     .set noreorder
+                                                  5:     .set ELAPSEDTIME, 0xA0000218
+                                                  6:     .ent Increment_Elapsed_Time
+                                                  7:     
+                                                  8:     Increment_Elapsed_Time:
+9D0013E4  24100000   ADDIU S0, ZERO, 0            9:     li s0, 0
+9D0013E8  021F8025   OR S0, S0, RA                10:    or s0, s0, ra
+                                                  11:    
+9D0013EC  3C09A000   LUI T1, -24576               12:    lw t1, ELAPSEDTIME
+9D0013F4  21290001   ADDI T1, T1, 1               13:    addi t1, t1, 1
+9D0013F8  3C01A000   LUI AT, -24576               14:    sw t1, ELAPSEDTIME
+                                                  15:    
+9D001400  02000008   JR S0                        16:    jr s0
+9D001404  00000000   NOP                          17:    nop
+                                                  18:    
+                                                  19:    .end Increment_Elapsed_Time
+---  /Users/mgreci/SNAKE/Increment_Clock_Time.S  --------------------------------------------------------
+                                                  1:     #include <p32xxxx.h>
+                                                  2:     .global Increment_Clock_Time
+                                                  3:     .text
+                                                  4:     .set noreorder
+                                                  5:     .set CLKTIME, 0xA0000208
+                                                  6:     .ent Increment_Clock_Time
+                                                  7:     
+                                                  8:     Increment_Clock_Time:
+9D0013C0  24100000   ADDIU S0, ZERO, 0            9:     li s0, 0
+9D0013C4  021F8025   OR S0, S0, RA                10:    or s0, s0, ra
+                                                  11:    
+9D0013C8  3C09A000   LUI T1, -24576               12:    lw t1, CLKTIME
+9D0013D0  21290001   ADDI T1, T1, 1               13:    addi t1, t1, 1
+9D0013D4  3C01A000   LUI AT, -24576               14:    sw t1, CLKTIME
+                                                  15:    
+9D0013DC  02000008   JR S0                        16:    jr s0
+9D0013E0  00000000   NOP                          17:    nop
+                                                  18:    
+                                                  19:    .end Increment_Clock_Time
+---  /Users/mgreci/SNAKE/ISR_UART.S  --------------------------------------------------------------------
+                                                  1:     #include <p32xxxx.h>				
+                                                  2:     .global ISR_UART
+                                                  3:     .data
+                                                  4:     .text
+                                                  5:     .set noreorder
+                                                  6:     .set MAILBOX, 0xA0000440
+                                                  7:     .set PAUSED,  0xA00004D0
+                                                  8:     .set RESTART, 0xA00004D4
+                                                  9:     .set SPEED,   0xA00004D8
+                                                  10:    
+                                                  11:    .ent ISR_UART
+                                                  12:    
+                                                  13:    #0x63 - 'c' start/stop
+                                                  14:    #0x68 - 'h' left
+                                                  15:    #0x6A - 'j' down
+                                                  16:    #0x6B - 'k' up
+                                                  17:    #0x6C - 'l' right
+                                                  18:    
+                                                  19:    ISR_UART:
+9D000820  3C01BF88   LUI AT, -16504               20:        sw zero, IFS0         #clear interrupt flag
+9D000828  3C09BF80   LUI T1, -16512               21:        lw t1, U1RXREG
+                                                  22:    
+9D000830  240A0030   ADDIU T2, ZERO, 48           23:        li t2, 0x30
+9D000834  112A003B   BEQ T1, T2, 0x9D000924       24:        beq t1,t2, UART_SPEED
+9D000838  00000000   NOP                          25:        nop
+9D00083C  240A0031   ADDIU T2, ZERO, 49           26:        li t2, 0x31
+9D000840  112A0038   BEQ T1, T2, 0x9D000924       27:        beq t1,t2, UART_SPEED
+9D000844  00000000   NOP                          28:        nop
+9D000848  240A0032   ADDIU T2, ZERO, 50           29:        li t2, 0x32
+9D00084C  112A0035   BEQ T1, T2, 0x9D000924       30:        beq t1,t2, UART_SPEED
+9D000850  00000000   NOP                          31:        nop
+9D000854  240A0033   ADDIU T2, ZERO, 51           32:        li t2, 0x33
+9D000858  112A0032   BEQ T1, T2, 0x9D000924       33:        beq t1,t2, UART_SPEED
+9D00085C  00000000   NOP                          34:        nop
+9D000860  240A0034   ADDIU T2, ZERO, 52           35:        li t2, 0x34
+9D000864  112A002F   BEQ T1, T2, 0x9D000924       36:        beq t1,t2, UART_SPEED
+9D000868  00000000   NOP                          37:        nop
+9D00086C  240A0035   ADDIU T2, ZERO, 53           38:        li t2, 0x35
+9D000870  112A002C   BEQ T1, T2, 0x9D000924       39:        beq t1,t2, UART_SPEED
+9D000874  00000000   NOP                          40:        nop
+9D000878  240A0036   ADDIU T2, ZERO, 54           41:        li t2, 0x36
+9D00087C  112A0029   BEQ T1, T2, 0x9D000924       42:        beq t1,t2, UART_SPEED
+9D000880  00000000   NOP                          43:        nop
+9D000884  240A0037   ADDIU T2, ZERO, 55           44:        li t2, 0x37
+9D000888  112A0026   BEQ T1, T2, 0x9D000924       45:        beq t1,t2, UART_SPEED
+9D00088C  00000000   NOP                          46:        nop
+9D000890  240A0038   ADDIU T2, ZERO, 56           47:        li t2, 0x38
+9D000894  112A0023   BEQ T1, T2, 0x9D000924       48:        beq t1,t2, UART_SPEED
+9D000898  00000000   NOP                          49:        nop
+9D00089C  240A0039   ADDIU T2, ZERO, 57           50:        li t2, 0x39
+9D0008A0  112A0020   BEQ T1, T2, 0x9D000924       51:        beq t1,t2, UART_SPEED
+9D0008A4  00000000   NOP                          52:        nop
+9D0008A8  240A0063   ADDIU T2, ZERO, 99           53:        li t2, 0x63
+9D0008AC  112A000F   BEQ T1, T2, 0x9D0008EC       54:        beq t1,t2, Char_C
+9D0008B0  00000000   NOP                          55:        nop
+9D0008B4  240A0068   ADDIU T2, ZERO, 104          56:        li t2, 0x68
+9D0008B8  112A001E   BEQ T1, T2, 0x9D000934       57:        beq t1,t2, UART_MAILBOX
+9D0008BC  00000000   NOP                          58:        nop
+9D0008C0  240A006A   ADDIU T2, ZERO, 106          59:        li t2, 0x6A
+9D0008C4  112A001B   BEQ T1, T2, 0x9D000934       60:        beq t1,t2, UART_MAILBOX
+9D0008C8  00000000   NOP                          61:        nop
+9D0008CC  240A006B   ADDIU T2, ZERO, 107          62:        li t2, 0x6B
+9D0008D0  112A0018   BEQ T1, T2, 0x9D000934       63:        beq t1,t2, UART_MAILBOX
+9D0008D4  00000000   NOP                          64:        nop
+9D0008D8  240A006C   ADDIU T2, ZERO, 108          65:        li t2, 0x6C
+9D0008DC  112A0015   BEQ T1, T2, 0x9D000934       66:        beq t1,t2, UART_MAILBOX
+9D0008E0  00000000   NOP                          67:        nop
+9D0008E4  10000017   BEQ ZERO, ZERO, 0x9D000944   68:        b UART_RETURN
+9D0008E8  00000000   NOP                          69:        nop
+                                                  70:    
+                                                  71:    Char_C:
+9D0008EC  3C09A000   LUI T1, -24576               72:        lb t1, PAUSED
+9D0008F4  1D200006   BGTZ T1, 0x9D000910          73:        bgtz t1, Restart_Game
+9D0008F8  00000000   NOP                          74:        nop
+9D0008FC  24090001   ADDIU T1, ZERO, 1            75:        li t1, 1
+9D000900  3C01A000   LUI AT, -24576               76:        sb t1, PAUSED        #flag PAUSED
+9D000908  1000000E   BEQ ZERO, ZERO, 0x9D000944   77:        b UART_RETURN
+9D00090C  00000000   NOP                          78:        nop
+                                                  79:    
+                                                  80:        Restart_Game:
+9D000910  24090001   ADDIU T1, ZERO, 1            81:        li t1, 1
+9D000914  3C01A000   LUI AT, -24576               82:        sb t1, RESTART
+9D00091C  10000009   BEQ ZERO, ZERO, 0x9D000944   83:        b UART_RETURN
+9D000920  00000000   NOP                          84:        nop
+                                                  85:    
+                                                  86:    UART_SPEED:
+9D000924  3C01A000   LUI AT, -24576               87:        sb t1, SPEED
+9D00092C  10000005   BEQ ZERO, ZERO, 0x9D000944   88:        b UART_RETURN
+9D000930  00000000   NOP                          89:        nop
+                                                  90:    
+                                                  91:    UART_MAILBOX:
+9D000934  3C01A000   LUI AT, -24576               92:    	sb t1, MAILBOX  	#store char in mailbox
+9D00093C  10000001   BEQ ZERO, ZERO, 0x9D000944   93:        b UART_RETURN
+9D000940  00000000   NOP                          94:        nop
+                                                  95:    
+                                                  96:    UART_RETURN:
+9D000944  42000018   ERET                         97:        eret                #return to main
+9D000948  00000000   NOP                          98:    	nop	
+                                                  99:    
+                                                  100:   .end ISR_UART
+---  /Users/mgreci/SNAKE/ISR_Timer2.S  ------------------------------------------------------------------
+                                                  1:     #include <p32xxxx.h>				
+                                                  2:     .global ISR_Timer2
+                                                  3:     .text
+                                                  4:     .set noreorder
+                                                  5:     .set PAUSED, 0xA00004D0
+                                                  6:     .ent ISR_Timer2
+                                                  7:     
+                                                  8:     ISR_Timer2:
+9D0011E0  3C01BF88   LUI AT, -16504               9:         sw zero, IFS0       #clear flag
+                                                  10:    
+9D0011E8  04110075   BGEZAL ZERO, 0x9D0013C0      11:        bal Increment_Clock_Time
+9D0011EC  00000000   NOP                          12:        nop
+9D0011F0  0411FE51   BGEZAL ZERO, 0x9D000B38      13:        bal Update_Score
+9D0011F4  00000000   NOP                          14:        nop
+                                                  15:    
+9D0011F8  3C08A000   LUI T0, -24576               16:        lw t0, PAUSED
+                                                  17:        # check PAUSED != 0, do not increment elapsed
+9D001200  15000003   BNE T0, ZERO, 0x9D001210     18:        bne t0, zero, Skip
+9D001204  00000000   NOP                          19:        nop
+                                                  20:        # otherwise increment elapsed
+9D001208  04110076   BGEZAL ZERO, 0x9D0013E4      21:        bal Increment_Elapsed_Time
+9D00120C  00000000   NOP                          22:        nop
+                                                  23:    
+                                                  24:    Skip:
+                                                  25:        # update and print normally afterwords
+9D001210  0411FDCE   BGEZAL ZERO, 0x9D00094C      26:        bal Update_Time
+9D001214  00000000   NOP                          27:        nop
+9D001218  0411FC84   BGEZAL ZERO, 0x9D00042C      28:        bal Print_Time
+9D00121C  00000000   NOP                          29:        nop
+9D001220  42000018   ERET                         30:    	eret                #return to main
+9D001224  00000000   NOP                          31:    	nop
+                                                  32:    
+                                                  33:    .end ISR_Timer2
+---  /Users/mgreci/SNAKE/ISR_Timer1.S  ------------------------------------------------------------------
+                                                  1:     #include <p32xxxx.h>				
+                                                  2:     .global ISR_Timer1
+                                                  3:     .text
+                                                  4:     .set noreorder
+                                                  5:     .ent ISR_Timer1
+                                                  6:     
+                                                  7:     ISR_Timer1:
+9D001408  3C01BF88   LUI AT, -16504               8:         sw zero, IFS0       #clear flag
+9D001410  0411FAFB   BGEZAL ZERO, 0x9D000000      9:         bal Move_Snake
+9D001414  00000000   NOP                          10:        nop
+9D001418  0411FE2D   BGEZAL ZERO, 0x9D000CD0      11:        bal Print_Snake
+9D00141C  00000000   NOP                          12:        nop
+9D001420  42000018   ERET                         13:    	eret                #return to main
+9D001424  00000000   NOP                          14:    	nop
+                                                  15:    .end ISR_Timer1
+---  /Users/mgreci/SNAKE/Create_Worm.S  -----------------------------------------------------------------
                                                   1:     #include <p32xxxx.h>
                                                   2:     .global Create_Worm
                                                   3:     .data
                                                   4:     .text
                                                   5:     .set noreorder
-                                                  6:     .ent Create_Worm
-                                                  7:     .set WORM, 0xA0000500
-                                                  8:     .set PRINTER, 0xA0000400
-                                                  9:     
-                                                  10:    #DATA STUCT FORMAT
-                                                  11:    #XXYYPTRN
-                                                  12:    Create_Worm:
-9D000504  3C0AA000   LUI T2, -24576               13:        la t2, PRINTER
-9D00050C  24100000   ADDIU S0, ZERO, 0            14:    	li s0, 0
-9D000510  021F8025   OR S0, S0, RA                15:    	or s0, s0, ra
-9D000514  3C09A000   LUI T1, -24576               16:        la t1, WORM
-9D00051C  3C080066   LUI T0, 102                  17:        li t0, 0x661240
-9D000524  A5280000   SH T0, 0(T1)                 18:        sh t0, 0x0(t1)
-9D000528  AD480000   SW T0, 0(T2)                 19:        sw t0, 0x0(t2)
-9D00052C  0411FF38   BGEZAL ZERO, 0x9D000210      20:        bal Print_Char_X_Y
-9D000530  00000000   NOP                          21:        nop
-9D000534  21290002   ADDI T1, T1, 2               22:        addi t1, 2
-9D000538  3C080023   LUI T0, 35                   23:        li t0, 0x231241
-9D000540  A5280000   SH T0, 0(T1)                 24:        sh t0, 0x0(t1)
-9D000544  AD480000   SW T0, 0(T2)                 25:        sw t0, 0x0(t2)
-9D000548  0411FF31   BGEZAL ZERO, 0x9D000210      26:        bal Print_Char_X_Y
-9D00054C  00000000   NOP                          27:        nop
-9D000550  21290002   ADDI T1, T1, 2               28:      addi t1, 2
-9D000554  3C080023   LUI T0, 35                   29:        li t0, 0x231242
-9D00055C  A5280000   SH T0, 0(T1)                 30:        sh t0, 0x0(t1)
-9D000560  AD480000   SW T0, 0(T2)                 31:        sw t0, 0x0(t2)
-9D000564  0411FF2A   BGEZAL ZERO, 0x9D000210      32:        bal Print_Char_X_Y
-9D000568  00000000   NOP                          33:        nop
-9D00056C  21290002   ADDI T1, T1, 2               34:      addi t1, 2
-9D000570  3C080023   LUI T0, 35                   35:        li t0, 0x231243
-9D000578  A5280000   SH T0, 0(T1)                 36:        sh t0, 0x0(t1)
-9D00057C  AD480000   SW T0, 0(T2)                 37:        sw t0, 0x0(t2)
-9D000580  0411FF23   BGEZAL ZERO, 0x9D000210      38:        bal Print_Char_X_Y
-9D000584  00000000   NOP                          39:        nop
-9D000588  21290002   ADDI T1, T1, 2               40:      addi t1, 2
-9D00058C  24080000   ADDIU T0, ZERO, 0            41:        li t0, 0x000000
-9D000590  A5280000   SH T0, 0(T1)                 42:        sh t0, 0x0(t1)
-9D000594  21290002   ADDI T1, T1, 2               43:      addi t1, 2
-9D000598  02000008   JR S0                        44:    jr s0
-                                                  45:    
-                                                  46:    
-                                                  47:    .end Create_Worm
----  /Users/Jacob/Documents/School/Spring_2015/ECE_344/Snake/Snake.X/Clear_Screen.S  --------------------
+                                                  6:     .set TO_PRINT,    0xA0000400
+                                                  7:     .set MAILBOX,     0xA0000440
+                                                  8:     .set WORM_LENGTH, 0xA00004FC
+                                                  9:     .set WORM,        0xA0000500
+                                                  10:    
+                                                  11:    .ent Create_Worm
+                                                  12:    
+                                                  13:    Create_Worm:
+9D001014  24100000   ADDIU S0, ZERO, 0            14:    	li s0, 0
+9D001018  021F8025   OR S0, S0, RA                15:    	or s0, s0, ra
+                                                  16:    
+9D00101C  3C08A000   LUI T0, -24576               17:        la t0, WORM
+9D001024  24091240   ADDIU T1, ZERO, 4672         18:        li t1, 0x1240
+9D001028  A5090000   SH T1, 0(T0)                 19:        sh t1, 0x0(t0)
+                                                  20:    
+9D00102C  24091241   ADDIU T1, ZERO, 4673         21:        li t1, 0x1241
+9D001030  A5090002   SH T1, 2(T0)                 22:        sh t1, 0x2(t0)
+                                                  23:    
+9D001034  24091242   ADDIU T1, ZERO, 4674         24:        li t1, 0x1242
+9D001038  A5090004   SH T1, 4(T0)                 25:        sh t1, 0x4(t0)
+                                                  26:    
+9D00103C  24091243   ADDIU T1, ZERO, 4675         27:        li t1, 0x1243
+9D001040  A5090006   SH T1, 6(T0)                 28:        sh t1, 0x6(t0)
+                                                  29:    
+9D001044  24091244   ADDIU T1, ZERO, 4676         30:        li t1, 0x1244
+9D001048  A5090008   SH T1, 8(T0)                 31:        sh t1, 0x8(t0)
+                                                  32:    
+9D00104C  24091245   ADDIU T1, ZERO, 4677         33:        li t1, 0x1245
+9D001050  A509000A   SH T1, 10(T0)                34:        sh t1, 0xA(t0)
+                                                  35:    
+9D001054  24091246   ADDIU T1, ZERO, 4678         36:        li t1, 0x1246
+9D001058  A509000C   SH T1, 12(T0)                37:        sh t1, 0xC(t0)
+                                                  38:    
+                                                  39:    
+                                                  40:        #set initial length to 6
+9D00105C  24090006   ADDIU T1, ZERO, 6            41:        li t1, 6
+9D001060  3C01A000   LUI AT, -24576               42:        sw t1, WORM_LENGTH
+                                                  43:    
+                                                  44:        #set initial direction to left
+9D001068  24090068   ADDIU T1, ZERO, 104          45:        li t1, 0x68
+9D00106C  3C01A000   LUI AT, -24576               46:        sw t1, MAILBOX
+                                                  47:    
+9D001074  02000008   JR S0                        48:        jr s0
+9D001078  00000000   NOP                          49:        nop
+                                                  50:    .end Create_Worm
+---  /Users/mgreci/SNAKE/Create_Food.S  -----------------------------------------------------------------
                                                   1:     #include <p32xxxx.h>
-                                                  2:     .global Clear_Screen
+                                                  2:     .global Create_Food
                                                   3:     .text
                                                   4:     .set noreorder
-                                                  5:     .ent Clear_Screen
-                                                  6:     
-                                                  7:     Clear_Screen:
-9D0003A8  02008024   AND S0, S0, ZERO             8:         and s0, s0, zero
-9D0003AC  021F8025   OR S0, S0, RA                9:         or s0, s0, ra
-                                                  10:    
-                                                  11:    Create_Clear_String:
-9D0003B0  3C08A000   LUI T0, -24576               12:         la t0, 0xA0000330
-9D0003B8  00000000   NOP                          13:         nop
-9D0003BC  2409001B   ADDIU T1, ZERO, 27           14:         li t1, 0x1B
-9D0003C0  A1090000   SB T1, 0(T0)                 15:         sb t1, 0x0(t0)
-9D0003C4  2409005B   ADDIU T1, ZERO, 91           16:         li t1, 0x5B
-9D0003C8  A1090001   SB T1, 1(T0)                 17:         sb t1, 0x1(t0)
-9D0003CC  24090032   ADDIU T1, ZERO, 50           18:         li t1, 0x32
-9D0003D0  A1090002   SB T1, 2(T0)                 19:         sb t1, 0x2(t0)
-9D0003D4  2409004A   ADDIU T1, ZERO, 74           20:         li t1, 0x4a
-9D0003D8  A1090003   SB T1, 3(T0)                 21:         sb t1, 0x3(t0)
-9D0003DC  2409001B   ADDIU T1, ZERO, 27           22:         li t1, 0x1B
-9D0003E0  A1090004   SB T1, 4(T0)                 23:         sb t1, 0x4(t0)
-9D0003E4  2409005B   ADDIU T1, ZERO, 91           24:         li t1, 0x5B
-9D0003E8  A1090005   SB T1, 5(T0)                 25:         sb t1, 0x5(t0)
-9D0003EC  24090030   ADDIU T1, ZERO, 48           26:         li t1, 0x30
-9D0003F0  A1090006   SB T1, 6(T0)                 27:         sb t1, 0x6(t0)
-9D0003F4  2409003B   ADDIU T1, ZERO, 59           28:         li t1, 0x3b
-9D0003F8  A1090007   SB T1, 7(T0)                 29:         sb t1, 0x7(t0)
-9D0003FC  24090030   ADDIU T1, ZERO, 48           30:         li t1, 0x30
-9D000400  A1090008   SB T1, 8(T0)                 31:         sb t1, 0x8(t0)
-9D000404  24090048   ADDIU T1, ZERO, 72           32:         li t1, 0x48
-9D000408  A1090009   SB T1, 9(T0)                 33:         sb t1, 0x9(t0)
-9D00040C  24090000   ADDIU T1, ZERO, 0            34:         li t1, 0x00
-9D000410  A109000A   SB T1, 10(T0)                35:         sb t1, 0xa(t0)
+                                                  5:     .ent Create_Food
+                                                  6:     .set Food_Location, 0xA00004F8
+                                                  7:     .set TO_PRINT, 0xA0000400
+                                                  8:     
+                                                  9:     Create_Food:
+9D0005B0  24110000   ADDIU S1, ZERO, 0            10:        li s1, 0
+9D0005B4  023F8825   OR S1, S1, RA                11:        or s1, s1, ra
+                                                  12:    
+9D0005B8  3C08BF80   LUI T0, -16512               13:        lw t0, TMR1
+9D0005C0  24090001   ADDIU T1, ZERO, 1            14:        li t1, 1
+9D0005C4  012001F4   TEQ T1, ZERO                 15:        div t0, t1
+9D0005E0  00004810   MFHI T1, 0                   16:        mfhi t1
+9D0005E4  21290030   ADDI T1, T1, 48              17:        addi t1, 0x30
+9D0005E8  3C08BF80   LUI T0, -16512               18:        lw t0, TMR1
+9D0005F0  240A0007   ADDIU T2, ZERO, 7            19:        li t2, 7
+9D0005F4  014001F4   TEQ T2, ZERO                 20:        div t0, t2
+9D000610  00005010   MFHI T2, 0                   21:        mfhi t2
+9D000614  3C08BF80   LUI T0, -16512               22:        lw t0, TMR1
+9D00061C  240B0002   ADDIU T3, ZERO, 2            23:        li t3, 2
+9D000620  016001F4   TEQ T3, ZERO                 24:        div t0, t3
+9D00063C  00005810   MFHI T3, 0                   25:        mfhi t3
+9D000640  000B5900   SLL T3, T3, 4                26:        sll t3, 4
+9D000644  014B5025   OR T2, T2, T3                27:        or t2, t2, t3
+                                                  28:    
+9D000648  3C08BF80   LUI T0, -16512               29:        lw t0, TMR1
+9D000650  240B0007   ADDIU T3, ZERO, 7            30:        li t3, 7
+9D000654  016001F4   TEQ T3, ZERO                 31:        div t0, t3
+9D000670  00005810   MFHI T3, 0                   32:        mfhi t3
+9D000674  3C08BF80   LUI T0, -16512               33:        lw t0, TMR1
+9D00067C  240C0006   ADDIU T4, ZERO, 6            34:        li t4, 6
+9D000680  018001F4   TEQ T4, ZERO                 35:        div t0, t4
+9D00069C  00006010   MFHI T4, 0                   36:        mfhi t4
+9D0006A0  000C6100   SLL T4, T4, 4                37:        sll t4, 4
+9D0006A4  016C5825   OR T3, T3, T4                38:        or t3, t3, t4
+                                                  39:    
+9D0006A8  3C08A000   LUI T0, -24576               40:        la t0, Food_Location
+9D0006B0  216B0004   ADDI T3, T3, 4               41:        addi t3, 4
+9D0006B4  214A0004   ADDI T2, T2, 4               42:        addi t2, 4
+9D0006B8  21290002   ADDI T1, T1, 2               43:        addi t1, 2
+9D0006BC  3C01A000   LUI AT, -24576               44:        sw zero, Food_Location
+                                                  45:    
+                                                  46:        #TEMP, only to test erase this
+                                                  47:        #li t3, 0x35
+                                                  48:        #li t2, 0x12
+                                                  49:        #li t1, 0x35
+                                                  50:    
+9D0006C4  A10B0000   SB T3, 0(T0)                 51:        sb t3, 0(t0)  #y
+9D0006C8  A10A0001   SB T2, 1(T0)                 52:        sb t2, 1(t0)  #x
+9D0006CC  A1090002   SB T1, 2(T0)                 53:        sb t1, 2(t0)  #char
+9D0006D0  8D090000   LW T1, 0(T0)                 54:        lw t1, 0(t0)
+9D0006D4  3C01A000   LUI AT, -24576               55:        sw t1, TO_PRINT
+9D0006DC  0411014A   BGEZAL ZERO, 0x9D000C08      56:        bal Print_Char_X_Y
+9D0006E0  00000000   NOP                          57:        nop
+9D0006E4  00000000   NOP                          58:        nop
+                                                  59:    
+9D0006E8  02200008   JR S1                        60:        jr s1
+9D0006EC  00000000   NOP                          61:        nop
+                                                  62:    
+                                                  63:    .end Create_Food
+---  /Users/mgreci/SNAKE/Clear_Screen.S  ----------------------------------------------------------------
+                                                  1:     #include <p32xxxx.h>
+                                                  2:     .global Clear_Screen
+                                                  3:     .data
+                                                  4:     .text
+                                                  5:     .set noreorder
+                                                  6:     .ent Clear_Screen
+                                                  7:     
+                                                  8:     Clear_Screen:
+9D000E48  24100000   ADDIU S0, ZERO, 0            9:     li s0, 0
+9D000E4C  021F8025   OR S0, S0, RA                10:    or s0, s0, ra
+                                                  11:    
+                                                  12:    #create clear screen sequence
+9D000E50  3C08A000   LUI T0, -24576               13:    la t0, 0xA0000330
+9D000E58  2409001B   ADDIU T1, ZERO, 27           14:    li t1, 0x1B
+9D000E5C  A1090000   SB T1, 0(T0)                 15:    sb t1, 0x0(t0)
+9D000E60  2409005B   ADDIU T1, ZERO, 91           16:    li t1, 0x5B
+9D000E64  A1090001   SB T1, 1(T0)                 17:    sb t1, 0x1(t0)
+9D000E68  24090032   ADDIU T1, ZERO, 50           18:    li t1, 0x32
+9D000E6C  A1090002   SB T1, 2(T0)                 19:    sb t1, 0x2(t0)
+9D000E70  2409004A   ADDIU T1, ZERO, 74           20:    li t1, 0x4a
+9D000E74  A1090003   SB T1, 3(T0)                 21:    sb t1, 0x3(t0)
+9D000E78  2409001B   ADDIU T1, ZERO, 27           22:    li t1, 0x1B
+9D000E7C  A1090004   SB T1, 4(T0)                 23:    sb t1, 0x4(t0)
+9D000E80  2409005B   ADDIU T1, ZERO, 91           24:    li t1, 0x5B
+9D000E84  A1090005   SB T1, 5(T0)                 25:    sb t1, 0x5(t0)
+9D000E88  24090030   ADDIU T1, ZERO, 48           26:    li t1, 0x30
+9D000E8C  A1090006   SB T1, 6(T0)                 27:    sb t1, 0x6(t0)
+9D000E90  2409003B   ADDIU T1, ZERO, 59           28:    li t1, 0x3b
+9D000E94  A1090007   SB T1, 7(T0)                 29:    sb t1, 0x7(t0)
+9D000E98  24090030   ADDIU T1, ZERO, 48           30:    li t1, 0x30
+9D000E9C  A1090008   SB T1, 8(T0)                 31:    sb t1, 0x8(t0)
+9D000EA0  24090048   ADDIU T1, ZERO, 72           32:    li t1, 0x48
+9D000EA4  A1090009   SB T1, 9(T0)                 33:    sb t1, 0x9(t0)
+9D000EA8  24090000   ADDIU T1, ZERO, 0            34:    li t1, 0
+9D000EAC  A109000A   SB T1, 10(T0)                35:    sb t1, 0xA(t0)
                                                   36:    
-                                                  37:    load_Screen_Clear:
-                                                  38:        #Send each char from the address pointed by t0
-9D000414  810A0000   LB T2, 0(T0)                 39:        lb t2, 0x0(t0)       # load char into t2
-9D000418  1140000F   BEQ T2, ZERO, 0x9D000458     40:        beq t2, zero, Screen_Cleared   # t2 == 0 (NULL), done sending chars
-9D00041C  00000000   NOP                          41:        nop                  # otherwise continue (more chars to send)
-9D000420  04110004   BGEZAL ZERO, 0x9D000434      42:        bal Print_Screen_Clear        # start subroutine ‰??printChar‰??
-9D000424  00000000   NOP                          43:        nop
-                                                  44:        #return from Print_Screen_Clear here
-9D000428  21080001   ADDI T0, T0, 1               45:        addi t0, t0, 1       # increment t0 pointer
-9D00042C  1000FFF9   BEQ ZERO, ZERO, 0x9D000414   46:        b load_Screen_Clear           # load next char
-9D000430  00000000   NOP                          47:        nop
-                                                  48:    Print_Screen_Clear:
-9D000434  3C09BF80   LUI T1, -16512               49:        lw t1,U1STA           # (status) U2STA (6210) -> t1
-9D00043C  31290200   ANDI T1, T1, 512             50:        andi t1,t1,0x200      # check transmit status
-9D000440  1520FFFC   BNE T1, ZERO, 0x9D000434     51:        bne t1,zero,Print_Screen_Clear # cannot transmit now, try again
-9D000444  00000000   NOP                          52:        nop                   # otherwise continue
-9D000448  3C01BF80   LUI AT, -16512               53:        sb t2,U1TXREG         # char (t2) -> U2TXREG (6220)
-9D000450  03E00008   JR RA                        54:        jr ra                 # return to ‰??return from printChar here‰??
-9D000454  00000000   NOP                          55:        nop
-                                                  56:    Screen_Cleared:
-9D000458  02000008   JR S0                        57:        jr s0
-9D00045C  00000000   NOP                          58:        nop
-                                                  59:    .end Clear_Screen
+                                                  37:    Load_Screen_Char:
+9D000EB0  810A0000   LB T2, 0(T0)                 38:    lb t2, 0(t0)                     # load char into t2
+9D000EB4  1140000F   BEQ T2, ZERO, 0x9D000EF4     39:    beq t2, zero, Screen_Cleared     # t2 == 0 (NULL), done sending chars
+9D000EB8  00000000   NOP                          40:    nop                              # otherwise continue (more chars to send)
+9D000EBC  04110004   BGEZAL ZERO, 0x9D000ED0      41:    bal Print_Screen_Char            # print clear char
+9D000EC0  00000000   NOP                          42:    nop
+9D000EC4  21080001   ADDI T0, T0, 1               43:    addi t0, t0, 1                   # increment t0 pointer
+9D000EC8  1000FFF9   BEQ ZERO, ZERO, 0x9D000EB0   44:    b Load_Screen_Char               # load next char
+9D000ECC  00000000   NOP                          45:    nop
+                                                  46:    Print_Screen_Char:
+9D000ED0  3C09BF80   LUI T1, -16512               47:    lw t1, U1STA                     # (status) U1STA -> t1
+9D000ED8  31290200   ANDI T1, T1, 512             48:    andi t1, t1, 0x200               # check transmit status
+9D000EDC  1520FFFC   BNE T1, ZERO, 0x9D000ED0     49:    bne t1, zero, Print_Screen_Char  # cannot transmit now, try again
+9D000EE0  00000000   NOP                          50:    nop                              # otherwise continue
+9D000EE4  3C01BF80   LUI AT, -16512               51:    sb t2, U1TXREG                   # char (t2) -> U1TXREG
+9D000EEC  03E00008   JR RA                        52:    jr ra                            # return?
+9D000EF0  00000000   NOP                          53:    nop
+                                                  54:    Screen_Cleared:
+9D000EF4  02000008   JR S0                        55:    jr s0
+9D000EF8  00000000   NOP                          56:    nop
+                                                  57:    
+                                                  58:    .end Clear_Screen
+---  /Users/mgreci/SNAKE/Check_Mailbox.S  ---------------------------------------------------------------
+                                                  1:     #include <p32xxxx.h>
+                                                  2:     .global Check_Mailbox
+                                                  3:     .text
+                                                  4:     .set noreorder
+                                                  5:     .ent Check_Mailbox
+                                                  6:     
+                                                  7:     .set MAILBOX, 0xA0000440
+                                                  8:     # j = 6a Down
+                                                  9:     # k = 6b Up
+                                                  10:    # l = 6c right
+                                                  11:    # h = 68 left
+                                                  12:    
+                                                  13:    Check_Mailbox:
+9D00139C  02008024   AND S0, S0, ZERO             14:       and s0, s0, zero
+9D0013A0  021F8025   OR S0, S0, RA                15:       or s0, s0, ra
+                                                  16:    
+9D0013A4  3C08A000   LUI T0, -24576               17:    lw t0, MAILBOX
+                                                  18:    
+9D0013AC  10000000   BEQ ZERO, ZERO, 0x9D0013B0   19:    b  Submitted_Check_Mailbox
+                                                  20:    
+                                                  21:    Submitted_Check_Mailbox:
+9D0013B0  3C01A000   LUI AT, -24576               22:      sw zero, MAILBOX
+9D0013B8  02000008   JR S0                        23:      jr s0
+9D0013BC  00000000   NOP                          24:      nop
+                                                  25:    
+                                                  26:    .end Check_Mailbox

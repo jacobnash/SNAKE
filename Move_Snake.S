@@ -39,23 +39,6 @@ or s0, s0, ra
     nop
 Return_Move_Snake:
     #t8 has new location
-    lh t1, Food_Location
-    bne t1, t8, No_Food_Move_Snake
-    nop
-    #b No_Food_Move_Snake
-    la t1, Food_Location
-    lb t2, 2(t1)        #char of food
-    addi t2, -0x30      #now (2-9)
-    lw t3, WORM_LENGTH  #load worm length
-    add t2, t2, t3      #add food to length
-    sw t2, WORM_LENGTH  #store it back
-    bal Update_Score
-    nop
-    bal Create_Food     #make another food
-    nop
-    nop
-No_Food_Move_Snake:
-    #t8 has new location
     lw t1, WORM_LENGTH  #load worm length value
     #addi t1, 1          #
 Cont_Move_Snake:
@@ -68,6 +51,25 @@ Cont_Move_Snake:
     bgtz t1, Cont_Move_Snake  #continue looping worm
     nop
 Done_Move_Snake:
+
+    #t8 has new location
+    lh t1, Food_Location
+    bne t1, t8, No_Food_Move_Snake
+    nop
+    la t1, Food_Location
+    lb t2, 2(t1)        #char of food
+    sw zero, Food_Location
+    addi t2, -0x30      #now (2-9)
+    lw t3, WORM_LENGTH  #load worm length
+    add t2, t2, t3      #add food to length
+    sw t2, WORM_LENGTH  #store it back
+    bal Update_Score
+    nop
+    bal Create_Food     #make another food
+    nop
+    nop
+No_Food_Move_Snake:
+
     jr s0         #otherwise done
     nop
 
