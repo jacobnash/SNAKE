@@ -1,16 +1,30 @@
-#include <p32xxxx.h>
-						
-.global Move_Snake
+# ************************************************************* #
+# ECE 344L - Microprocessors - Spring 2015
+#
+# Name: Matthew Greci and Mitchell Jackson
+#
+#     Laboratory Number: 6             Due Date: 7 May 2015
+#
+#
+# Lab Group: Matthew Greci and Mitchell Jackson
+#
+#
+# #*************************************************************** #
+# Moves worm. All error checking and obstruction checking is here.
+# #***************************************************************
+#include <p32xxxx.h>			
+.global move_worm
+.data
 .text
 .set noreorder
-.set TO_PRINT,    0xA0000400
-.SET MAILBOX,     0xA0000440
-.set PAUSED,      0xA00004D0
-.set WORM_LENGTH, 0xA00004FC
-.set WORM,        0xA0000500
-.set Food_Location, 0xA00004F8
+.set TO_PRINT,    0xA0000220
+.SET WORM_BOX,     0xA0000230
+.set PAUSED_BOX,      0xA0000240
+.set WORM_LENGTH, 0xA00002FC
+.set WORM,        0xA0000300
+.set Food_Location, 0xA00002F8
 
-.ent Move_Snake
+.ent move_worm
 
 #0x63 - 'c' start/stop
 #0x68 - 'h' left
@@ -18,14 +32,7 @@
 #0x6B - 'k' up
 #0x6C - 'l' right
 
-## probably should be done here.
-#check if head meets food,
-#updates Score
-#then Creates new food that isnt in-line with head... I dont think it
-#is a problem if it is under the snake aslongas we print food before snake
-# and make that a part of this 
-
-Move_Snake:
+move_worm:
 li s0, 0
 or s0, s0, ra
 
@@ -35,26 +42,26 @@ or s0, s0, ra
     lh t9, 0(t0)  #old location
     lh t8, 0(t0)  #new location
     #generate new location
-    b New_Location_Move_Snake
+    b next_location
     nop
-Return_Move_Snake:
+return_move_worm:
     #t8 has new location
     lw t1, WORM_LENGTH  #load worm length value
     #addi t1, 1          #
-Cont_Move_Snake:
+continue_move_worm:
     lh t9, 0(t0)  #t9 = current value
     sh t8, 0(t0)  #replace current body with new value
     lh t8, 2(t0)  #save next body value
     sh t9, 2(t0)  #replace next body with current body value
     addi t0, 4    #incr worm pointer
     addi t1, -1   #decr loop counter
-    bgtz t1, Cont_Move_Snake  #continue looping worm
+    bgtz t1, continue_move_worm  #continue looping worm
     nop
-Done_Move_Snake:
 
+done_move_worm:
     #t8 has new location
     lh t1, Food_Location
-    bne t1, t8, No_Food_Move_Snake
+    bne t1, t8, No_Food_move_worm
     nop
     la t1, Food_Location
     lb t2, 2(t1)        #char of food
@@ -63,137 +70,133 @@ Done_Move_Snake:
     lw t3, WORM_LENGTH  #load worm length
     add t2, t2, t3      #add food to length
     sw t2, WORM_LENGTH  #store it back
-    bal Update_Score
+    bal update_score
     nop
-    bal Create_Food     #make another food
+    bal create_food     #make another food
     nop
-    nop
-No_Food_Move_Snake:
-
+No_Food_move_worm:
     jr s0         #otherwise done
     nop
 
-New_Location_Move_Snake:
-    lw t2, MAILBOX     #value of MAILBOX
-    beq t2, 0x68, Left_Move_Snake
+next_location:
+    lw t2, WORM_BOX     #value of WORM_BOX
+    beq t2, 0x68, move_left
     nop
-    beq t2, 0x6A, Down_Move_Snake
+    beq t2, 0x6A, move_down
     nop
-    beq t2, 0x6B, Up_Move_Snake
+    beq t2, 0x6B, move_up
     nop
-    beq t2, 0x6C, Right_Move_Snake
+    beq t2, 0x6C, move_right
     nop
-    b Done_Move_Snake
+    b done_move_worm
     nop
     
-Left_Move_Snake:
+move_left:
     # y (column) decr
     addi t8, -1
-    b Error_Move_Snake
+    b check_error
     nop
 
-Right_Move_Snake:
+move_right:
     # y (column) incr
     addi t8, 1
-    b Error_Move_Snake
+    b check_error
     nop
 
-Down_Move_Snake:
+move_down:
     # x (row) incr
     addi t8, 0x0100
-    b Error_Move_Snake
+    b check_error
     nop
 
-Up_Move_Snake:
+move_up:
     # y (column) decr
     addi t8, -0x0100
-    b Error_Move_Snake
+    b check_error
     nop
 
-Error_Move_Snake:
+check_error:
     la t2, 0xA00004E0
     la t3, 0xA00004E2
     sw t8, 0(t2)      #copy t8 to t2 (address)
-Loop_Move_Snake:
-    beq t3, t2, Border_Check_Move_Snake
+Loop_move_worm:
+    beq t3, t2, check_border_move_worm
     nop
     lb t4, 0(t2)
     andi t4, t4, 0xF
-    beq t4, 0xF, Is_F_Move_Snake
+    beq t4, 0xF, is_F
     nop
-    beq t4, 0xA, Is_A_Move_Snake
+    beq t4, 0xA, is_A
     nop
     addi t2, 1
-    b Loop_Move_Snake
+    b Loop_move_worm
     nop
 
-Is_F_Move_Snake:
+is_F:
     lb t4, 0(t2)
     addi t4, t4, -6
     sb t4, 0(t2)
     addi t2, 1
-    b Loop_Move_Snake
+    b Loop_move_worm
     nop
 
-Is_A_Move_Snake:
+is_A:
     lb t4, 0(t2)
     addi t4, t4, 6
     sb t4, 0(t2)
     addi t2, 1
-    b Loop_Move_Snake
+    b Loop_move_worm
     nop
 
-Border_Check_Move_Snake:
+check_border_move_worm:
     la t2, 0xA00004E0     # point t2 to new head location
     lw t8, 0(t2)          # copy corrected value from *t2 to t8
     #col<=3
     andi t4, t8, 0x00FF
     addi t4, t4, -0x0003
-    bltz t4, Stop_Game
+    bltz t4, stop_game
     nop
     #col>=79
     andi t4, t8, 0x00FF
     addi t4, t4, -0x0078
-    bgtz t4, Stop_Game
+    bgtz t4, stop_game
     nop
     #row<=3
     andi t4, t8, 0xFF00
     addi t4, t4, -0x0300
-    bltz t4, Stop_Game
+    bltz t4, stop_game
     nop
     #row>=23
     andi t4, t8, 0xFF00
     addi t4, t4, -0x2200
-    bgtz t4, Stop_Game
+    bgtz t4, stop_game
     nop
 
-Body_Check_Move_Snake:
+check_body:
     # t8 is HEAD new position
     # t1 is WORM_LENGTH
     la t2, WORM
     addi t2, t2, 2
-Check_Loop_Move_Snake:
+check_body_loop:
     lh t4, 0(t2)
-    beq t8, t4, Stop_Game
+    beq t8, t4, stop_game
     nop
     addi t2, t2, 2
     addi t1, t1, -1
-    bne t1, zero, Check_Loop_Move_Snake
+    bne t1, zero, check_body_loop
+    nop
+    b return_move_worm
     nop
 
-    b Return_Move_Snake
-    nop
-
-Stop_Game:
-    #sample code to prove Stop_Game is accessible
-    li t2, 1
-    sw t2, PAUSED
-    #prints '%' at 12, 40 (center)
-    li t2, 0x251240
+stop_game:
+    #prints 'P' at center (12,40)
+    li t0, 1
+    sw t0, PAUSED_BOX
+    li t2, 0x501240
     sw t2, TO_PRINT
-    bal Print_Char_X_Y
+    bal print_Y_X_Char
     nop
-    b Return_Move_Snake
+    b return_move_worm
     nop
 
-.end Move_Snake
+.end move_worm

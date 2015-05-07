@@ -1,18 +1,33 @@
+# ************************************************************* #
+# ECE 344L - Microprocessors - Spring 2015
+#
+# Name: Matthew Greci and Mitchell Jackson
+#
+#     Laboratory Number: 6             Due Date: 7 May 2015
+#
+#
+# Lab Group: Matthew Greci and Mitchell Jackson
+#
+#
+# #*************************************************************** #
+# Verifies the input from the user.
+# #***************************************************************
 #include <p32xxxx.h>
-.global Verify_Read
+.global verify_read
 .data
 .text
 .set noreorder
-.ent Verify_Read
+.set USER_INPUT, 0xA0000200
+.set ELAP_TIME,0xA0000210
 
-Verify_Read:
+.ent verify_read
+
+verify_read:
 li s0, 0
 or s0, s0, ra
 
 li t2, 0
-la t0, 0xA0000200  # base address to store chars
-
-LOAD_TIME_VERIFY_READ:
+la t0, USER_INPUT  # base address to store chars
 
 lb t1, 0(t0)
 lb t2, 1(t0)
@@ -56,10 +71,9 @@ sub t1, t1, t2
 bgtz t1, main       # ask user again
 nop
 
-la t1, 0xA0000210
-sw zero, 8(t1)
+sw zero, 8(ELAP_TIME)
 
 jr s0               # return
 nop
 
-.end Verify_Read
+.end verify_read

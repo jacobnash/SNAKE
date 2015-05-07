@@ -13,32 +13,30 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>config.S</itemPath>
-      <itemPath>Main.S</itemPath>
-      <itemPath>Clear_Screen.S</itemPath>
-      <itemPath>Read_Time.S</itemPath>
-      <itemPath>Verify_Read.S</itemPath>
-      <itemPath>Print_Time.S</itemPath>
-      <itemPath>Print_Board.S</itemPath>
-      <itemPath>Print_Char_X_Y.S</itemPath>
-      <itemPath>Create_Worm.S</itemPath>
-      <itemPath>Check_Mailbox.S</itemPath>
-      <itemPath>Move_Snake.S</itemPath>
-      <itemPath>Print_Snake.S</itemPath>
-      <itemPath>Update_Time.S</itemPath>
-      <itemPath>Timer_Setup.S</itemPath>
-      <itemPath>Interrupts_Setup.S</itemPath>
-      <itemPath>Vector.S</itemPath>
       <itemPath>ISR_UART.S</itemPath>
-      <itemPath>ISR_Timer1.S</itemPath>
-      <itemPath>Print_Ask_User.S</itemPath>
-      <itemPath>UART_Setup.S</itemPath>
-      <itemPath>Create_Food.S</itemPath>
-      <itemPath>ISR_Timer2.S</itemPath>
-      <itemPath>Increment_Clock_Time.S</itemPath>
-      <itemPath>Increment_Elapsed_Time.S</itemPath>
-      <itemPath>Move_Cursor_To_Beginning.S</itemPath>
-      <itemPath>PORTE_Setup.S</itemPath>
-      <itemPath>Update_Score.S</itemPath>
+      <itemPath>screen_clear.S</itemPath>
+      <itemPath>create_food.S</itemPath>
+      <itemPath>create_worm.S</itemPath>
+      <itemPath>incr_clk.S</itemPath>
+      <itemPath>incr_elapsed.S</itemPath>
+      <itemPath>setup_interrupts.S</itemPath>
+      <itemPath>ISR_timer1.S</itemPath>
+      <itemPath>ISR_timer2.S</itemPath>
+      <itemPath>move_worm.S</itemPath>
+      <itemPath>setup_PORTE.S</itemPath>
+      <itemPath>print_ask.S</itemPath>
+      <itemPath>print_board.S</itemPath>
+      <itemPath>print_time.S</itemPath>
+      <itemPath>update_time.S</itemPath>
+      <itemPath>print_worm.S</itemPath>
+      <itemPath>print_Y_X_Char.S</itemPath>
+      <itemPath>verify_read.S</itemPath>
+      <itemPath>vector.S</itemPath>
+      <itemPath>read_time.S</itemPath>
+      <itemPath>setup_timer.S</itemPath>
+      <itemPath>setup_UART.S</itemPath>
+      <itemPath>update_score.S</itemPath>
+      <itemPath>main.S</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

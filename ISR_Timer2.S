@@ -1,33 +1,50 @@
+# ************************************************************* #
+# ECE 344L - Microprocessors - Spring 2015
+#
+# Name: Matthew Greci and Mitchell Jackson
+#
+#     Laboratory Number: 6             Due Date: 7 May 2015
+#
+#
+# Lab Group: Matthew Greci and Mitchell Jackson
+#
+#
+# #*************************************************************** #
+# Interrupt service routine for Timer 2 (control clocks).
+# #***************************************************************
 #include <p32xxxx.h>				
-.global ISR_Timer2
+.global ISR_timer2
+.data
 .text
 .set noreorder
-.set PAUSED, 0xA00004D0
-.ent ISR_Timer2
+.set PAUSED_BOX, 0xA0000240
+.ent ISR_timer2
 
-ISR_Timer2:
-    sw zero, IFS0       #clear flag
+ISR_timer2:
+    #clear interrupt flag
+    sw zero, IFS0
 
-    bal Increment_Clock_Time
+    #increment clock
+    bal incr_clk
     nop
-    bal Update_Score
-    nop
 
-    lw t0, PAUSED
-    # check PAUSED != 0, do not increment elapsed
-    bne t0, zero, Skip
+    # check PAUSED_BOX != 0, do not increment elapsed
+    lw t0, PAUSED_BOX
+    bne t0, zero, PAUSED_BOX
     nop
     # otherwise increment elapsed
-    bal Increment_Elapsed_Time
+    bal incr_elapsed
     nop
 
-Skip:
+PAUSED_BOX:
     # update and print normally afterwords
-    bal Update_Time
+    bal update_time
     nop
-    bal Print_Time
+    bal print_time
     nop
-	eret                #return to main
+
+    #return to main
+	eret
 	nop
 
-.end ISR_Timer2
+.end ISR_timer2

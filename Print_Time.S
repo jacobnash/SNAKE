@@ -1,22 +1,36 @@
+# ************************************************************* #
+# ECE 344L - Microprocessors - Spring 2015
+#
+# Name: Matthew Greci and Mitchell Jackson
+#
+#     Laboratory Number: 6             Due Date: 7 May 2015
+#
+#
+# Lab Group: Matthew Greci and Mitchell Jackson
+#
+#
+# #*************************************************************** #
+# Prints both the Clock and Elapsed time.
+# #***************************************************************
 #include <p32xxxx.h>
-.global Print_Time
+.global print_time
 .data
 .text
 .set noreorder
-.ent Print_Time
-.set TO_PRINT, 0xA0000400
-.set ELAPSEDTIME, 0xA0000210
+.ent print_time
+.set TO_PRINT, 0xA0000220
+.set ELAP_TIME, 0xA0000210
 .set CLKTIME, 0xA0000200
 .set STRING, 0xA0000300
 
-Print_Time:
+print_time:
 li s0, 0
 or s0, s0, ra
 
-Go_Home_Print_Time:
+Go_Home_print_time:
 li t0, 0x202401
 sw t0, TO_PRINT
-bal Print_Char_X_Y
+bal print_Y_X_Char
 nop
 la t2, CLKTIME
 la t0, STRING
@@ -71,15 +85,7 @@ addi t0, 1
 
 la t3, 0xA0000348
 
-#Filler_Print_Time:
-#li t1, 0x2D
-#sb t1, 0(t0)
-#addi t0, 1
-
-#bne t0, t3, Filler_Print_Time
-#nop
-
-la t2, ELAPSEDTIME
+la t2, ELAP_TIME
 li t1, 0x20
 sb t1, 0(t0)
 addi t0, 1
@@ -113,28 +119,28 @@ sb t1, 0(t0)
 addi t0, 1
 
 la s5, STRING
-load_Print_Time:
+load_print_time:
 #Send each char from the address pointed by t0
 lb s2, 0(s5)                    # load char into s2
-beq s2, zero, Done_Print_Time   # s2 == 0 (NULL), done sending chars
+beq s2, zero, Done_print_time   # s2 == 0 (NULL), done sending chars
 nop
-bal Print_Print_Time            # print time
+bal Print_print_time            # print time
 nop
 addi s5, 1                      # increment t0 pointer
-b load_Print_Time               # load next char
+b load_print_time               # load next char
 nop
 
-Print_Print_Time:
+Print_print_time:
 lw t1, U1STA                    # (status) U1STA -> t1
 andi t1, t1, 0x200              # check transmit status
-bne t1, zero, Print_Print_Time  # cannot transmit now, try again
+bne t1, zero, Print_print_time  # cannot transmit now, try again
 nop                             # otherwise continue
 sb s2, U1TXREG                  # char (s2) -> U1TXREG
 
 jr ra                           # return
 nop
 
-Done_Print_Time:
+Done_print_time:
 jr s0
 nop
-.end Print_Time
+.end print_time
